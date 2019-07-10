@@ -35,7 +35,6 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
-    "angular-highcharts": "^8.0.2",
     "chart.js": "^2.8.0",
     "chartjs-plugin-annotation": "^0.5.7",
     "chartjs-plugin-zoom": "^0.7.2",
