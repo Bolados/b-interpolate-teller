@@ -2,10 +2,7 @@
 import {TellerParam} from './teller.param.model';
 
 
-import {
-  create, all
-} from 'mathjs';
-const math = create(all, {});
+import * as math from 'mathjs';
 
 
 export class FuncParseEval {

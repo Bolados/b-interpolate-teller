@@ -9,12 +9,7 @@ import * as zoomPlugin from 'chartjs-plugin-zoom';
 import { TellerFunction, FuncParseEval, GTellerExpression, TellerExpression } from 'src/app/domains/models/math.help.model';
 import { StorageService } from '../storage';
 
-
-import {
-  create, all
-} from 'mathjs';
-
-const math = create(all, {});
+import * as math from 'mathjs';
 
 
 function buildPlugins(panedzoomedStateChange: EventEmitter<boolean> ): ChartPluginsOptions {
