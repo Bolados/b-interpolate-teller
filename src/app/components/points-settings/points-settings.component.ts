@@ -6,15 +6,6 @@ import { ChartService } from 'src/app/services/chart/chart.service';
 import { FunctionSettingsComponent } from '../function-settings/function-settings.component';
 
 
-import {
-  create, all
-} from 'mathjs';
-
-const mathConfig = {
-  angles: 'deg'
-};
-const math = create(all, mathConfig);
-
 @Component({
   selector: 'app-points-settings',
   templateUrl: './points-settings.component.html',

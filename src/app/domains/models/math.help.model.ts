@@ -1,16 +1,11 @@
 
 import {TellerParam} from './teller.param.model';
 
+
 import {
   create, all
 } from 'mathjs';
-import { MathjaxComponent } from 'src/app/components/mathjax';
-
-
-const mathConfig = {
-  angles: 'deg'
-};
-const math = create(all, mathConfig);
+const math = create(all, {});
 
 
 export class FuncParseEval {
@@ -40,7 +35,7 @@ export class FuncParseEval {
   }
 }
 
-export function evalFx( fx: string, x: number): number {
+export function evalFx( fx: string, x: number): number | any {
   if (fx) {
     try {
       return math.round(

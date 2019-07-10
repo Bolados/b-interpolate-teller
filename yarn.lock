@@ -4249,10 +4249,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mathjs@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/mathjs/-/mathjs-6.0.3.tgz#3d9e4a8ace012fa3c2078bb3ca1237374fa03136"
-  integrity sha512-BkXSjaWg0Dkwf6S3Cs7bLorei96ltYtCxNoTaLCZcH7OK+T+RgpobH86bTKD9oRI1hABXfuom/vf/RGI9CTfHA==
+mathjs@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/mathjs/-/mathjs-6.0.0.tgz#fd895bb445620ca474af2d082c3dc713b345c75e"
+  integrity sha512-/n9jiCKl700Abps3XbdtmNnvVvmaxUQq0ZA+VmiVpAIYeKix+GTlBmsMgeN3NnhzISHyC6MUgF0RnDoxQ4dYPw==
   dependencies:
     complex.js "2.0.11"
     decimal.js "10.2.0"

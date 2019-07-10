@@ -5,16 +5,16 @@ import { Label, Color, BaseChartDirective } from 'ng2-charts';
 import { FuncParam, TellerParam } from 'src/app/domains';
 import * as zoomPlugin from 'chartjs-plugin-zoom';
 
-import {
-  create, all
-} from 'mathjs';
+
 import { TellerFunction, FuncParseEval, GTellerExpression, TellerExpression } from 'src/app/domains/models/math.help.model';
 import { StorageService } from '../storage';
 
-const mathConfig = {
-  angles: 'deg'
-};
-const math = create(all, mathConfig);
+
+import {
+  create, all
+} from 'mathjs';
+
+const math = create(all, {});
 
 
 function buildPlugins(panedzoomedStateChange: EventEmitter<boolean> ): ChartPluginsOptions {
@@ -593,8 +593,8 @@ export interface IEvaluateData {
 }
 
 export interface IDataSet {
-  x: number ;
-  y: number ;
+  x: number | any ;
+  y: number | any;
 }
 
 export interface IChartData {

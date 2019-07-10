@@ -2,18 +2,9 @@ import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/co
 import { MatDialogRef, MAT_DIALOG_DATA, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { FuncParam, Point, TellerFormParam } from 'src/app/domains';
 import { ChartService, IDataSet } from 'src/app/services/chart/chart.service';
-
-
-import {
-  create, all
-} from 'mathjs';
-import { PointsSettingsComponent } from '../../points-settings/points-settings.component';
 import { StorageService } from 'src/app/services';
 
-const mathConfig = {
-  angles: 'deg'
-};
-const math = create(all, mathConfig);
+
 
 @Component({
   selector: 'app-function-table-data-points-dialog',
