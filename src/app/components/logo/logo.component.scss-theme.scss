@@ -1,0 +1,39 @@
+@import '~@angular/material/theming';
+@import '../../../themes/theme-variables';
+
+@mixin logo-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .mat-button-focus-overlay {
+    background-color: transparent;
+  }
+
+  .logo-container {
+
+    width: 100%;
+
+    .logo-btn {
+
+      padding-left: 10px;
+      padding-right: 5px;
+
+      .logo {
+
+      }
+
+      .name {
+        color: mat-color($accent, darker);
+      }
+
+      .sub-name {
+        color: white;
+      }
+
+    }
+
+
+  }
+
+}

@@ -1,0 +1,117 @@
+
+.dialog {
+
+  width: 100%;
+  border-radius: 10px;
+  background: whitesmoke;
+
+  .formule {
+    margin: unset;
+    padding: unset;
+  }
+
+  .content {
+
+    // height: 100px;
+
+  }
+
+}
+
+.tab-menu {
+  background-color: white;
+  padding: 4pt;
+  font-size: 10pt;
+  z-index: 1000;
+  box-shadow: 0 0 12pt grey;
+  border-radius: 4pt;
+  padding: 0.5em 0 0.5em 0;
+  animation: fadeIn 0.1s ease-out;
+  opacity:1.0;
+  display:block;
+}
+
+.tab-menu hr {
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.tab-menu div {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: grey;
+  padding: 0.5em 2em 0.5em 0.75em;
+  max-width: 18em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-menu div:hover {
+  background-color: grey;
+  color: white;
+}
+
+
+.tab-menu div::before {
+  content: '';
+  // float: left;
+  margin-right: 0.75em;
+  width: 0.5em;
+  height: 1em;
+  display: inline-block;
+}
+
+
+
+/* Animatinons */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1.0;
+  }
+  to {
+    opacity: 0.0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1.0;
+  }
+  to {
+    opacity: 0.0;
+  }
+}
+
+.is-fadingIn {
+  -webkit-animation: fadeIn 0.1s ease-out;
+  animation: fadeIn 0.1s ease-out;
+  opacity: 1.0;
+  display: block;
+}
+
+.is-fadingOut {
+  -webkit-animation: fadeOut 0.1s ease-out;
+  animation: fadeOut 0.1s ease-out;
+  opacity: 0.0;
+  display: block;
+}

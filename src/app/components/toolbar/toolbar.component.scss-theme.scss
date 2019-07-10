@@ -1,0 +1,50 @@
+@import '~@angular/material/theming';
+@import '../../../themes/theme-variables';
+
+@mixin common($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+
+  .app-toolbar-logo {
+    color: white;
+  }
+
+  .app-toolbar-menu {
+
+    color: white;
+
+  }
+}
+
+@mixin toolbar-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  $background: mat-color($primary);
+
+  .fixed {
+    position: fixed !important;
+  }
+
+
+  .app-toolbar-common {
+
+    background-color: $background;
+    z-index: 9000;
+    position: relative;
+    padding-right: 0px;
+    padding-left: 0px;
+
+    &.app-toolbar-default {
+      @include common($theme)
+    }
+
+
+  }
+
+
+}

@@ -1,0 +1,96 @@
+
+.iconbutton{
+  width: 30px;
+  height: 40px;
+}
+
+.filter-style{
+  width: 50%
+}
+
+.table-data-param{
+    float: right;
+    width: 150px;
+}
+
+.table-data-header {
+  padding: 5px 10px;
+}
+
+
+.table-data-points-container {
+  display: flex;
+  flex-direction: column;
+      margin-top: 10px;
+}
+
+.table-data-points-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: scroll;
+  width: 100%;
+  max-height: 500px;
+  table-layout: fixed;
+}
+
+// .mat-row, .mat-header-row {
+//   width: 150vw;
+// }
+
+.mat-header-row {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+  background-color: inherit;
+}
+
+// mat-header-cell, mat-cell {
+//   justify-content: center;
+// }
+
+
+
+
+.mycell  {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 75px !important;
+  width: 75px !important;
+  // overflow-wrap: break-word;
+  // word-wrap: break-word;
+  // word-break: break-word;
+  // -ms-hyphens: auto;
+  // -moz-hyphens: auto;
+  // -webkit-hyphens: auto;
+  // hyphens: auto;
+
+}
+
+.mycell.id {
+  flex: 0 0 50px !important;
+  width: 50px !important;
+}
+
+.mycell.actions {
+  flex: 0 0 50px !important;
+  width: 50px !important;
+}
+
+.mycell.draw {
+  flex: 0 0 120px !important;
+  width: 120px !important;
+}
+
+
+.column-field{
+  width: 70px !important;
+}

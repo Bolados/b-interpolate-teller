@@ -1,0 +1,19 @@
+@import '../../../node_modules/@angular/material/theming';
+
+// global variable for theme
+
+@mixin variables-blur-mint-theme($theme) {
+
+  --bgisToolbarHeight: 64px;
+  --bgisToolbarBackgroundColor: red;
+  --bgisToolbarComponentsColor: white;
+  --bgisToolbarLogoWidth: 170px;
+
+  --bgisSidebarBackground: red;
+  --bgisSidebarSideMenuItemColor: white;
+  --bgisSidebarMenuWidth: 180px;
+  --bgisSidebarMenuIconsWidth: 80px;
+  --bgisSidebarTop: 64px;
+
+
+}

@@ -1,0 +1,67 @@
+<div class= "g-teller-settings">
+
+    <mat-grid-list  cols="5" rowHeight="25px" >
+        <mat-grid-tile
+            [colspan]="3"
+            [rowspan]="2"
+        >
+          <mathjax [content]="formuleGTeller"></mathjax>
+        </mat-grid-tile>
+
+        <mat-grid-tile
+            [colspan]="2"
+            [rowspan]="2"
+        >
+          <div class = "form">
+            <button mat-icon-button
+              aria-label="Display Data of GTeller(x)"
+              color="accent"
+              class = "button see"
+              type=button
+              [disabled]="disable()"
+              (click)="seeGTellerExpression()"
+            >
+              <mat-icon fontSet="fa" fontIcon="fa-eye"></mat-icon>
+            </button>
+
+            <button mat-icon-button
+              color="accent" class="button function"
+              aria-label="Draw GTeller(x)"
+              [disabled]="disable() "
+              (click)="draw()"
+            >
+              <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
+                <!-- Draw -->
+            </button>
+            <button mat-icon-button
+              matTooltip="Click to draw Epsilon GT(x)" class="button epsilon"
+              color="warn"
+              [disabled]="disableClear()"
+              (click) = "drawEpsilon()"
+            >
+              <mat-icon fontSet="fa" fontIcon="fa-chart-area"></mat-icon>
+            </button>
+            <button mat-icon-button
+              color="warn" class="button clear" (click)="clear()"
+              [disabled]="disableClear()"
+              type=button
+            >
+              <mat-icon fontSet="fa" fontIcon="fa-eraser"> </mat-icon>
+              <!-- Reset  -->
+            </button>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile
+            [colspan]="5"
+            [rowspan]="2"
+        >
+          <mathjax [content]="formuleTeller"></mathjax>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+
+
+</div>

@@ -1,0 +1,22 @@
+$variables: (
+  --bgis:var(--bgis),
+  --bgisToolbar: var(--bgisToolbar),
+  --bgisToolbarHeight:var(--bgisToolbarHeight),
+  --bgisToolbarBackgroundColor: var(--bgisToolbarBackgroundColor),
+  --bgisToolbarComponentsColor: var(--bgisToolbarComponentsColor),
+  --bgisToolbarLogo:var(--bgisToolbarLogo),
+  --bgisToolbarLogoWidth:var(--bgisToolbarLogoWidth),
+  --bgisSidebar:var(--bgisSidebar),
+  --bgisSidebarMenuWidth:var(--bgisSidebarMenuWidth),
+  --bgisSidebarMenuIconsWidth:var(--bgisSidebarMenuIconsWidth),
+  --bgisSidebarBackground:var(--bgisSidebarBackground),
+  --bgisSidebarTop:var(--bgisSidebarTop),
+  --bgisSidebarSideMenuItemColor:var(--bgisSidebarSideMenuItemColor),
+);
+
+
+// grabs the native css variable from the global sass map
+@function var($variable) {
+  @return map-get($variables, $variable);
+}
+

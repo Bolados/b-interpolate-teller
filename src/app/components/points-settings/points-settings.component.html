@@ -1,0 +1,109 @@
+<div class= "points-settings ">
+
+    <form class = "form"
+    [formGroup]="tellerFormGroup"
+    #funcForm="ngForm"
+    novalidate
+  >
+
+    <mat-form-field class = "field">
+        <input matInput type='number' placeholder = "β-Max"
+          min = 0 step="1"
+          formControlName="maxBeta"
+          (keydown.enter)="onMaxBetaChange($event.target.value)"
+          (input)="onLiveMaxBetaChange($event.target.value)"
+          >
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="!tellerFormGroup.controls['maxBeta'].valid && tellerFormGroup.controls['maxBeta'].touched">
+          {{getError("maxBeta")}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class = "field">
+        <input matInput type='number' step="0.1" placeholder = "β-Initial"
+          formControlName="initBeta"
+          (keydown.enter)="onInitBetaChange($event.target.value)"
+          (input)="onInitBetaChange($event.target.value)"
+          >
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="!tellerFormGroup.controls['initBeta'].valid && tellerFormGroup.controls['initBeta'].touched">
+          {{getError("initBeta")}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class = "field">
+        <input matInput placeholder = "Δx"
+          formControlName="deltaX"
+          min = 0.5 step="0.5"
+          type='number'
+          (keydown.enter)="onDeltaXChange($event.target.value)"
+          (input)="onLiveDeltaXChange($event.target.value)"
+          >
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="!tellerFormGroup.controls['deltaX'].valid && tellerFormGroup.controls['deltaX'].touched">
+          {{getError("deltaX")}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class = "field">
+        <input matInput placeholder = "Step"
+          formControlName="step"
+          min = 0.1 step="0.1"
+          type='number'
+          (keydown.enter)="onStepChange($event.target.value)"
+          (input)="onLiveStepChange($event.target.value)"
+          >
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="!tellerFormGroup.controls['step'].valid && tellerFormGroup.controls['step'].touched">
+          {{getError("step")}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class = "field">
+        <input matInput type='number' placeholder = "α"
+          formControlName="alpha"
+           step="0.1"
+        >
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="!tellerFormGroup.controls['alpha'].valid && tellerFormGroup.controls['alpha'].touched">
+          {{getError("alpha")}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class = "field">
+        <input matInput type='number' placeholder = "x"
+          formControlName="x"
+          (input)="onXChange($event.target.value)"
+          (keydown.enter)="onXChange($event.target.value)"
+          >
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="!tellerFormGroup.controls['x'].valid && tellerFormGroup.controls['x'].touched">
+          {{getError("x")}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class = "field" >
+        <input matInput placeholder = "y"
+          formControlName="y"
+          type='number'
+          readonly
+          value="{{tellerFormParam.point.y}}"
+          >
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="!tellerFormGroup.controls['y'].valid && tellerFormGroup.controls['y'].touched">
+          {{getError("y")}}
+        </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="accent" class="form-function-button"
+      [disabled]="!tellerFormGroup.valid"
+      type="button"
+      (click)="onSubmit(tellerFormGroup.value)"
+    >
+      <mat-icon aria-label="Add">add</mat-icon>
+        Add
+    </button>
+
+</form>

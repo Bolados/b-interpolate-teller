@@ -1,0 +1,18 @@
+
+<div class="dialog"  (contextmenu)="open($event, currentTab); $event. preventDefault();">
+  <mat-tab-group (selectedTabChange)="selectionChange($event)" [selectedIndex]="currentTabIndex">
+    <mat-tab *ngFor="let tab of tabs;" label="{{tab.name}}" >
+      <mathjax #mathjaxs [content]="tab.mathjax"></mathjax>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+
+<ng-template #tabMenu let-tab>
+  <section class="tab-menu">
+    <div (click)="copy('expression')" *ngIf="tab.id !== 3">Copy as Text Expression</div>
+    <div (click)="copy('function')" *ngIf="tab.id !== 3">Copy as Text Function</div>
+    <div (click)="copy()" *ngIf="tab.id === 3">Copy as Text</div>
+    <div (click)="copy('mathjax')">Copy as Latex</div>
+  </section>
+</ng-template>

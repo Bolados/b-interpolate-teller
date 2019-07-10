@@ -1,0 +1,8 @@
+@import '~@angular/material/theming';
+@import './toolbar/toolbar.component.scss-theme';
+@import './logo/logo.component.scss-theme';
+
+@mixin components-theme($theme) {
+  @include toolbar-component-theme($theme);
+  @include logo-component-theme($theme);
+}

@@ -1,0 +1,73 @@
+<div class = "chart-settings">
+  <form class = "form"
+    [formGroup]="vFormGroup" (ngSubmit)="onSubmit(vFormGroup.value)"
+    #funcForm="ngForm"
+    novalidate
+  >
+      <mat-form-field class = "field-spec">
+          <input matInput placeholder = "V(x)"
+            formControlName="func"
+            onkeyup="this.value = this.value.toLowerCase();"
+            >
+          <mat-hint></mat-hint>
+          <mat-error *ngIf="!vFormGroup.controls['func'].valid && vFormGroup.controls['func'].touched">
+            {{getError("func")}}
+          </mat-error>
+      </mat-form-field>
+      <button mat-icon-button
+        aria-label="Display Data of F(x)"
+        color="accent"
+        class = "button see"
+        type=button
+        [disabled]="disable()"
+        (click)="openFunctionTableDataPointsDialog()"
+      >
+        <mat-icon fontSet="fa" fontIcon="fa-eye"></mat-icon>
+      </button>
+
+
+      <button mat-icon-button
+        color="accent" class="button draw"
+        aria-label="Draw F(x)"
+        type="submit"
+        [disabled]="disable() "
+      >
+        <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
+          <!-- Draw -->
+      </button>
+      <button mat-icon-button
+        color="warn" class="button clear" (click)="clear()"
+        [disabled]="disableClear()"
+        type=button
+      >
+      <mat-icon fontSet="fa" fontIcon="fa-eraser"> </mat-icon>
+        <!-- Reset  -->
+      </button>
+  </form>
+
+  <div class="checkboxes">
+    <mat-checkbox
+      class = "field"
+      [(ngModel)] = "displayDatastore"
+      (change)="onDisplayDatastoreChange($event)"
+      >
+      Table
+    </mat-checkbox>
+    <mat-checkbox
+        class = "field"
+        [(ngModel)] = "liveReload"
+        (change)="onLiveReloadChange($event)"
+        >
+        Live Reload
+    </mat-checkbox>
+    <mat-checkbox
+        class = "field"
+        [(ngModel)] = "displayPointRadius"
+        (change)="onDisplayPointChange($event)"
+        [disabled]="!activatedFx"
+        >
+        Points Func.
+    </mat-checkbox>
+  </div>
+</div>
+

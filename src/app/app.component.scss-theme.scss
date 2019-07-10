@@ -1,0 +1,6 @@
+@import '~@angular/material/theming';
+@import "./components/components-scss-theme";
+
+@mixin app-component-theme($theme) {
+  @include components-theme($theme)
+}

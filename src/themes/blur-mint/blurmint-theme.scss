@@ -1,0 +1,15 @@
+@import 'blurmint-theme-mtg';
+
+$theme: mat-light-theme(
+    $theme-primary,
+    $theme-accent,
+    $theme-warn
+);
+$altTheme: mat-dark-theme(
+    $theme-primary,
+    $theme-accent,
+    $theme-warn
+);
+
+$blur-mint-theme: $theme;
+$blur-mint-theme-dark: $altTheme;

@@ -1,0 +1,16 @@
+<div class="logo-container">
+  <button (click)="open()" [disableRipple]="true"
+          [ngStyle.xs]="{'min-width': '70px'}" [routerLink]="[link]"
+          class="logo-btn"
+          mat-button
+  >
+        <span class="name">{{name}}<span
+          [ngClass]="highlight?null:'sub-name'"
+          fxHide fxShow.gt-xs
+        >{{sub}}</span>
+        </span>
+
+  </button>
+
+</div>
+
