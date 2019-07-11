@@ -19,8 +19,5 @@
       "es2018",
       "dom"
     ]
-  },
-  "include": [
-    "electron-main.ts"
-  ]
+  }
 }
