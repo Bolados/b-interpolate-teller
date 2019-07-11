@@ -40,17 +40,16 @@
     >
       <mat-card class="mat-elevation-z2 card">
         <mat-card-subtitle class="title">
-          <button (click)="reloadChart()"
-            mat-icon-button mat-raise-button
+          <button (click)="reloadChart()" mat-icon-button mat-raise-button disableRipple
             matTooltip="Click to reload chart" class="iconbutton"
-            [disabled]="!liveReload"
+            [disabled]="liveReload"
+
           >
           Chart
-          <mat-icon aria-label="reload Chart">zoom_out</mat-icon>
+          <mat-icon aria-label="reload Chart">autorenew</mat-icon>
           </button>
 
-          <button (click)="resetPanZoom()"
-            mat-icon-button mat-raise-button
+          <button (click)="resetPanZoom()" mat-icon-button mat-raise-button disableRipple
             matTooltip="Click to Reset Zoom" class="panzoom iconbutton" color="primary"
             [disabled]="!pannedzoomed"
           >
@@ -105,7 +104,7 @@
         <mat-card-subtitle class="title">
           Table
           <button (click)="resetStore()"
-            mat-icon-button mat-raise-button
+            mat-icon-button mat-raise-button disableRipple
             matTooltip="Click to Reset Table" class="fill-spacer iconbutton" color="warn"
           >
             <mat-icon aria-label="Delete">delete</mat-icon>
