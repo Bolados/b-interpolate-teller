@@ -1,0 +1,42 @@
+{
+  "appId": "BInterpolateTeller",
+  "category": "tech.bscako.interpolate.teller",
+  "productName": "BInterpolateTeller",
+  "directories": {
+    "output": "release/b-interpolate-teller"
+  },
+  "files": [
+      "**/*",
+      "!**/*.ts",
+      "!*.code-workspace",
+      "!LICENSE.md",
+      "!package.json",
+      "!package-lock.json",
+      "!src/",
+      "!e2e/",
+      "!hooks/",
+      "!angular.json",
+      "!_config.yml",
+      "!karma.conf.js",
+      "!tsconfig.json",
+      "!tslint.json"
+  ],
+  "win": {
+    "icon": "dist/b-interpolate-teller",
+    "target": [
+      "portable"
+    ]
+  },
+  "mac": {
+    "icon": "dist/b-interpolate-teller",
+    "target": [
+      "dmg"
+    ]
+  },
+  "linux": {
+    "icon": "dist/b-interpolate-teller",
+    "target": [
+      "AppImage"
+    ]
+  }
+}

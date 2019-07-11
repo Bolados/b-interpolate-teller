@@ -18,57 +18,28 @@
   ],
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
+    "postinstall:web": "node postinstall-web",
+    "postinstall:electron": "node postinstall-electron",
     "ng": "ng",
     "start": "yarn run ng:serve",
     "build": "ng build",
-    "build:prod": "yarn run build -c production",
+    "build:prod": "yarn run build --prod",
+    "build:prod:electron": "yarn run build:electron:tsconfig && yarn run build:prod --base-href=./",
+    "build:electron:tsconfig": "tsc -p tsconfig-serve.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ng:serve": "ng serve",
-    "electron:serve-tsc": "tsc -p tsconfig-serve.json",
-    "electron:build": "build:prod && electron .",
-    "electron:serve": "concurrently \"yarn run ng:serve\" \"yarn run electron:serve-tsc && electron . --serve\" --kill-others",
-    "electron:local": "yarn run build:prod && electron ."
+    "electron:serve": "concurrently \"yarn run ng:serve\" \"yarn run build:electron:tsconfig && electron . --serve\" --kill-others",
+    "electron:local": "yarn run build:prod:electron && electron .",
+    "pack:electron:linux": "yarn run build:prod:electron && electron-builder build --linux",
+    "pack:electron:windows": "yarn run build:prod:electron && electron-builder build --windows",
+    "pack:electron:mac": "yarn run build:prod:electron && electron-builder build --mac"
   },
   "main": "electron-main.js",
-  "build": {
-    "appId": "BInterpolateTeller",
-    "category": "tech.bscako.interpolate.teller",
-    "dmg": {
-      "contents": [
-        {
-          "x": 110,
-          "y": 150
-        },
-        {
-          "x": 240,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "mac": {
-      "icon": "dist/b-interpolate-teller",
-      "target": [
-        "dmg"
-      ]
-    },
-    "linux": {
-      "icon": "dist/b-interpolate-teller",
-      "target": [
-        "AppImage",
-        "deb"
-      ]
-    },
-    "win": {
-      "target": "portable",
-      "icon": "dist/b-interpolate-teller"
-    }
-  },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.801.1",
     "@angular/animations": "~8.1.1",
     "@angular/cdk": "^8.0.2",
     "@angular/common": "~8.1.1",
@@ -104,7 +75,6 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.801.1",
     "@angular/cli": "~8.1.1",
     "@angular/compiler-cli": "~8.1.1",
     "@angular/language-service": "~8.1.1",

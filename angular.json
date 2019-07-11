@@ -23,16 +23,18 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              "src/favicon.png",
+              "src/favicon.icns"
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
             ],
             "es5BrowserSupport": true
           },
@@ -56,8 +58,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "15mb"
                 }
               ]
             }
@@ -90,10 +92,16 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/@fortawesome/fontawesome-free/js/all.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ],
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              "src/favicon.png",
+              "src/favicon.icns"
             ]
           }
         },
