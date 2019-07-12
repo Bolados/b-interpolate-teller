@@ -21,15 +21,15 @@ import { ChartService, IChart } from 'src/app/services/chart/chart.service';
 export class ChartComponent implements OnInit {
 
   @Input()
-  public liveReload: boolean;
-
-  @Input()
   fxParam: FuncParam;
 
   public chart: IChart;
 
   @ViewChild('baseChart', {static: true})
   public baseChartDirective: BaseChartDirective;
+
+  public pannedzoomed: boolean = false;
+  public liveReload: boolean = this.chartService.liveReload;
 
 
   // events
@@ -39,6 +39,15 @@ export class ChartComponent implements OnInit {
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
     // console.log(event, active);
+  }
+
+  public resetPanZoom() {
+    this.chartService.resetPanZoom();
+    this.pannedzoomed = false;
+  }
+
+  public reloadChart() {
+    this.chartService.reloadChart();
   }
 
   private onStorageChanged(state: boolean) {
@@ -59,6 +68,13 @@ export class ChartComponent implements OnInit {
     this.chartService.initService(this.baseChartDirective, this.fxParam);
     this.storageService.storageChanged.subscribe(state => {
         this.onStorageChanged(state);
+    });
+
+    this.chartService.panedzoomedStateChanged.subscribe( (state: boolean ) => {
+      this.pannedzoomed = true;
+    });
+    this.chartService.liveReloadChanged.subscribe( (state: boolean ) => {
+      this.liveReload = state;
     });
   }
 

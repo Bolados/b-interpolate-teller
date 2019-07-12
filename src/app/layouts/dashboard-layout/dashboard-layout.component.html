@@ -10,115 +10,54 @@
           [colspan]="2"
           [rowspan]="2"
       >
-        <mat-card class="mat-elevation-z2 card">
-          <mat-card-subtitle class="title">Graphics Settings</mat-card-subtitle>
-          <mat-card-content>
-            <app-chart-settings #appChartSettings
-              [functionSettingsComponent]="appFunctionSettings"
-              >
-            </app-chart-settings>
-          </mat-card-content>
-        </mat-card>
+        <app-chart-settings #appChartSettings
+          [functionSettingsComponent]="appFunctionSettings"
+          >
+        </app-chart-settings>
 
       </mat-grid-tile>
       <mat-grid-tile
           [colspan]="1"
           [rowspan]="4"
         >
-        <mat-card class="mat-elevation-z2 card">
-          <mat-card-subtitle class="title"> Function </mat-card-subtitle>
-          <mat-card-content>
-            <app-function-settings #appFunctionSettings
-            ></app-function-settings>
-          </mat-card-content>
-        </mat-card>
+          <app-function-settings #appFunctionSettings></app-function-settings>
       </mat-grid-tile>
 
-    <mat-grid-tile
-        [colspan]="2"
-        [rowspan]="10"
-    >
-      <mat-card class="mat-elevation-z2 card">
-        <mat-card-subtitle class="title">
-          <button (click)="reloadChart()" mat-icon-button mat-raise-button disableRipple
-            matTooltip="Click to reload chart" class="iconbutton"
-            [disabled]="liveReload"
-
+      <mat-grid-tile
+          [colspan]="2"
+          [rowspan]="10"
+      >
+        <app-chart #appChart
+          [fxParam]="appFunctionSettings.fxParam"
           >
-          Chart
-          <mat-icon aria-label="reload Chart">autorenew</mat-icon>
-          </button>
-
-          <button (click)="resetPanZoom()" mat-icon-button mat-raise-button disableRipple
-            matTooltip="Click to Reset Zoom" class="panzoom iconbutton" color="primary"
-            [disabled]="!pannedzoomed"
-          >
-          <mat-icon aria-label="reset Zoom">zoom_out</mat-icon>
-            Reset Zoom
-          </button>
-
-        </mat-card-subtitle>
-        <mat-card-content>
-          <app-chart #appChart
-            [fxParam]="appFunctionSettings.fxParam"
-            [liveReload]="appChartSettings.liveReload"
-            >
-          </app-chart>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
-    <mat-grid-tile
-          [colspan]="1"
-          [rowspan]="4"
-        >
-      <mat-card class="mat-elevation-z2 card">
-        <mat-card-subtitle class="title"> GTeller </mat-card-subtitle>
-        <mat-card-content>
-            <app-g-teller-settings
-              [functionSettingComponent]="appFunctionSettings"
-            ></app-g-teller-settings>
-          <!-- <app-function-settings #appFunctionSettings></app-function-settings> -->
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
-
-    <mat-grid-tile
-          [colspan]="1"
-          [rowspan]="4"
-        >
-        <mat-card class="mat-elevation-z2 card">
-          <mat-card-subtitle class="title"> Points </mat-card-subtitle>
-          <mat-card-content>
-              <app-points-settings #appPointsSettings [functionSettingComponent]="appFunctionSettings"></app-points-settings>
-          </mat-card-content>
-        </mat-card>
+        </app-chart>
       </mat-grid-tile>
 
-    <mat-grid-tile
+      <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="4"
+          >
+        <app-g-teller-settings
+          [functionSettingComponent]="appFunctionSettings"
+        ></app-g-teller-settings>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="4"
+          >
+          <app-points-settings #appPointsSettings [functionSettingComponent]="appFunctionSettings"></app-points-settings>
+      </mat-grid-tile>
+
+      <mat-grid-tile
         [colspan]="3"
         [rowspan]="6"
       >
-      <mat-card class="mat-elevation-z2 card">
-        <mat-card-subtitle class="title">
-          Table
-          <button (click)="resetStore()"
-            mat-icon-button mat-raise-button disableRipple
-            matTooltip="Click to Reset Table" class="fill-spacer iconbutton" color="warn"
-          >
-            <mat-icon aria-label="Delete">delete</mat-icon>
-            Reset
-          </button>
-
-        </mat-card-subtitle>
-        <mat-card-content>
-          <app-table-data-points [functionSettingComponent] = "appFunctionSettings">
+        <app-table-data-points [functionSettingComponent] = "appFunctionSettings">
             loading
-          </app-table-data-points>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
+        </app-table-data-points>
+      </mat-grid-tile>
     </mat-grid-list>
 
   </div>

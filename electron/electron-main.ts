@@ -17,10 +17,13 @@ function createWindow() {
     y: 0,
     width: size.width,
     height: size.height,
+    useContentSize: true,
+    frame: true,
     webPreferences: {
-      nodeIntegration: true,
       webSecurity: false,
+      nodeIntegration: true,
     },
+
   });
 
   if (serve) {
@@ -30,7 +33,7 @@ function createWindow() {
     win.loadURL('http://localhost:4200');
   } else {
     win.loadURL(url.format({
-      pathname: path.join(__dirname, 'dist/b-interpolate-teller/index.html'),
+      pathname: path.join(__dirname, '../../dist/b-interpolate-teller/index.html'),
       protocol: 'file:',
       slashes: true
     }));
@@ -51,6 +54,8 @@ function createWindow() {
 }
 
 try {
+
+  // app.commandLine.appendSwitch('disable-web-security');
 
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
@@ -77,4 +82,5 @@ try {
 } catch (e) {
   // Catch Error
   // throw e;
+  console.log(e);
 }

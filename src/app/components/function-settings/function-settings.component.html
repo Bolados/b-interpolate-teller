@@ -1,96 +1,102 @@
-<div class= "function-settings">
-  <form class = "form"
-      [formGroup]="funcFormGroup" (ngSubmit)="onSubmit(funcFormGroup.value)"
-      #funcForm="ngForm"
-      novalidate
-    >
+<mat-card class="mat-elevation-z2 card">
+  <mat-card-subtitle class="title"> Function </mat-card-subtitle>
+  <mat-card-content>
+    <div class= "function-settings">
+      <form class = "form"
+          [formGroup]="funcFormGroup" (ngSubmit)="onSubmit(funcFormGroup.value)"
+          #funcForm="ngForm"
+          novalidate
+        >
 
-      <mat-form-field class = "field">
-          <input matInput type='number' placeholder = "A"
-            formControlName="xMin"
-            max = "{{funcFormGroup.value.xMax}}"
+          <mat-form-field class = "field">
+              <input matInput type='number' placeholder = "A"
+                formControlName="xMin"
+                max = "{{funcFormGroup.value.xMax}}"
+              >
+              <mat-hint></mat-hint>
+              <mat-error *ngIf="!funcFormGroup.controls['xMin'].valid && funcFormGroup.controls['xMin'].touched">
+                {{getError("xMin")}}
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class = "field">
+              <input matInput type='number' placeholder = "B"
+                formControlName="xMax"
+                min = "{{funcFormGroup.value.xMin}}"
+                >
+              <mat-hint></mat-hint>
+              <mat-error *ngIf="!funcFormGroup.controls['xMax'].valid && funcFormGroup.controls['xMax'].touched">
+                {{getError("xMax")}}
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class = "field">
+              <input matInput placeholder = "Δx"
+                formControlName="deltaX"
+                type='number'
+                min = 0 step="0.5"
+                >
+              <mat-hint></mat-hint>
+              <mat-error *ngIf="!funcFormGroup.controls['deltaX'].valid && funcFormGroup.controls['deltaX'].touched">
+                {{getError("deltaX")}}
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class = "field">
+              <input matInput type='number' min = 0.1 step="0.1" placeholder = "Step"
+                formControlName="step"
+                max = "{{funcFormGroup.value.xMax}}"
+                >
+              <mat-hint></mat-hint>
+              <mat-error *ngIf="!funcFormGroup.controls['step'].valid && funcFormGroup.controls['step'].touched">
+                {{getError("step")}}
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class = "field-spec">
+              <input matInput placeholder = "F(x)"
+                formControlName="func"
+                onkeyup="this.value = this.value.toLowerCase();"
+                >
+              <mat-hint></mat-hint>
+              <mat-error *ngIf="!funcFormGroup.controls['func'].valid && funcFormGroup.controls['func'].touched">
+                {{getError("func")}}
+              </mat-error>
+          </mat-form-field>
+
+          <button mat-icon-button
+            aria-label="Display Data of F(x)"
+            color="accent"
+            class = "form-function-button-see"
+            type=button
+            [disabled]="disable()"
+            (click)="openFunctionTableDataPointsDialog()"
           >
-          <mat-hint></mat-hint>
-          <mat-error *ngIf="!funcFormGroup.controls['xMin'].valid && funcFormGroup.controls['xMin'].touched">
-            {{getError("xMin")}}
-          </mat-error>
-      </mat-form-field>
+            <mat-icon fontSet="fa" fontIcon="fa-eye"></mat-icon>
+          </button>
 
-      <mat-form-field class = "field">
-          <input matInput type='number' placeholder = "B"
-            formControlName="xMax"
-            min = "{{funcFormGroup.value.xMin}}"
-            >
-          <mat-hint></mat-hint>
-          <mat-error *ngIf="!funcFormGroup.controls['xMax'].valid && funcFormGroup.controls['xMax'].touched">
-            {{getError("xMax")}}
-          </mat-error>
-      </mat-form-field>
+          <button mat-icon-button
+            mat-raised-button
+            color="accent" class="form-function-button"
+            aria-label="Draw F(x)"
+            type="submit"
+            [disabled]="disable() "
+          >
+            <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
+              <!-- Draw -->
+          </button>
+          <button mat-icon-button
+            mat-raised-button
+            color="warn" class="form-function-button" (click)="clear()"
+            [disabled]="disableClear()"
+            type=button
+          >
+          <mat-icon fontSet="fa" fontIcon="fa-eraser"> </mat-icon>
+            <!-- Reset  -->
+          </button>
 
-      <mat-form-field class = "field">
-          <input matInput placeholder = "Δx"
-            formControlName="deltaX"
-            type='number'
-            min = 0 step="0.5"
-            >
-          <mat-hint></mat-hint>
-          <mat-error *ngIf="!funcFormGroup.controls['deltaX'].valid && funcFormGroup.controls['deltaX'].touched">
-            {{getError("deltaX")}}
-          </mat-error>
-      </mat-form-field>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>
 
-      <mat-form-field class = "field">
-          <input matInput type='number' min = 0.1 step="0.1" placeholder = "Step"
-            formControlName="step"
-            max = "{{funcFormGroup.value.xMax}}"
-            >
-          <mat-hint></mat-hint>
-          <mat-error *ngIf="!funcFormGroup.controls['step'].valid && funcFormGroup.controls['step'].touched">
-            {{getError("step")}}
-          </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class = "field-spec">
-          <input matInput placeholder = "F(x)"
-            formControlName="func"
-            onkeyup="this.value = this.value.toLowerCase();"
-            >
-          <mat-hint></mat-hint>
-          <mat-error *ngIf="!funcFormGroup.controls['func'].valid && funcFormGroup.controls['func'].touched">
-            {{getError("func")}}
-          </mat-error>
-      </mat-form-field>
-
-      <button mat-icon-button
-        aria-label="Display Data of F(x)"
-        color="accent"
-        class = "form-function-button-see"
-        type=button
-        [disabled]="disable()"
-        (click)="openFunctionTableDataPointsDialog()"
-      >
-        <mat-icon fontSet="fa" fontIcon="fa-eye"></mat-icon>
-      </button>
-
-      <button mat-icon-button
-        mat-raised-button
-        color="accent" class="form-function-button"
-        aria-label="Draw F(x)"
-        type="submit"
-        [disabled]="disable() "
-      >
-        <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
-          <!-- Draw -->
-      </button>
-      <button mat-icon-button
-        mat-raised-button
-        color="warn" class="form-function-button" (click)="clear()"
-        [disabled]="disableClear()"
-        type=button
-      >
-      <mat-icon fontSet="fa" fontIcon="fa-eraser"> </mat-icon>
-        <!-- Reset  -->
-      </button>
-
-  </form>
-</div>

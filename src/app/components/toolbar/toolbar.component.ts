@@ -1,4 +1,5 @@
-import {AfterViewChecked, ChangeDetectorRef, Component, ElementRef, OnInit} from '@angular/core';
+import {AfterViewChecked, Component, OnInit} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -9,25 +10,19 @@ import {AfterViewChecked, ChangeDetectorRef, Component, ElementRef, OnInit} from
 export class ToolbarComponent implements OnInit, AfterViewChecked {
 
 
-  private lastExcecution = new Date();
-  // @ViewChild(MatToolbar) private matToolbar: MatToolbar;
-  // @ViewChild(LogoComponent) private logoComponent?: LogoComponent;
+  constructor(public translate: TranslateService) {
+    const Languages = ['en', 'fr', 'ru'];
+    const LanguagesReg = /en|fr|ru/;
+    translate.addLangs(Languages);
+    translate.setDefaultLang(Languages[0]);
 
-  constructor(private el: ElementRef,
-              private changeDetectorRef: ChangeDetectorRef) {
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(LanguagesReg) ? browserLang : 'en');
   }
-
-
-  // getBoundary() {
-  //     return this.matToolbar._elementRef.nativeElement.getBoundingClientRect();
-  // }
-
   ngOnInit() {
   }
 
   ngAfterViewChecked(): void {
-    this.lastExcecution = new Date();
-    this.changeDetectorRef.detectChanges();
   }
 
 

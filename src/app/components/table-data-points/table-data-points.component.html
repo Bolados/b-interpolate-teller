@@ -1,110 +1,124 @@
+<mat-card class="mat-elevation-z2 card">
+    <mat-card-subtitle class="title">
+      Table
+      <button (click)="resetStore()"
+        mat-icon-button mat-raise-button disableRipple
+        matTooltip="Click to Reset Table" class="fill-spacer iconbutton" color="warn"
+      >
+        <mat-icon aria-label="Delete">delete</mat-icon>
+        Reset
+      </button>
+
+    </mat-card-subtitle>
+    <mat-card-content>
+        <div class="table-data-points-container">
+
+            <mat-table [dataSource]="dataSource" matSort>
+
+              <!-- id column -->
+              <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef  class = "mycell id">
+                    No
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let j=index;" class = "mycell id">
+                      {{j}}
+                  </mat-cell>
+                </ng-container>
 
 
-<div class="table-data-points-container">
+              <ng-container *ngFor="let column of getColumns()"
+                [cdkColumnDef]="column.columnDef"
+                [sticky]="isSticky(column.columnDef)"
+              >
 
-  <mat-table [dataSource]="dataSource" matSort>
+                <mat-header-cell *cdkHeaderCellDef mat-sort-header class = "mycell">
+                  <mathjax #mathjaxs [content]= "column.header"></mathjax>
+                </mat-header-cell>
+                <mat-cell *cdkCellDef="let row let element" class = "mycell">
+                  <div *ngIf="isParam(column.columnDef)">
+                    <mat-form-field class = "column-field">
+                      <input matInput type='number' step="0.1" placeholder = "" value = "{{column.cell(row)}}"
+                        (keydown.enter)="forceReloadOnChangeParamValue(element, column.columnDef, $event.target.value)"
+                        (input)="liveReloadOnChangeParamValue(element, column.columnDef, $event.target.value)"
+                      >
+                    </mat-form-field>
 
-    <!-- id column -->
-    <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef  class = "mycell id">
-          No
-        </mat-header-cell>
-        <mat-cell *matCellDef="let j=index;" class = "mycell id">
-            {{j}}
-        </mat-cell>
-      </ng-container>
+                  </div>
+                  <div *ngIf="!isParam(column.columnDef)">
+                    {{column.cell(row)}}
+                  </div>
 
+                </mat-cell>
 
-    <ng-container *ngFor="let column of getColumns()"
-      [cdkColumnDef]="column.columnDef"
-      [sticky]="isSticky(column.columnDef)"
-    >
+              </ng-container>
 
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header class = "mycell">
-        <mathjax #mathjaxs [content]= "column.header"></mathjax>
-      </mat-header-cell>
-      <mat-cell *cdkCellDef="let row let element" class = "mycell">
-        <div *ngIf="isParam(column.columnDef)">
-          <mat-form-field class = "column-field">
-            <input matInput type='number' step="0.1" placeholder = "" value = "{{column.cell(row)}}"
-              (keydown.enter)="forceReloadOnChangeParamValue(element, column.columnDef, $event.target.value)"
-              (input)="liveReloadOnChangeParamValue(element, column.columnDef, $event.target.value)"
-            >
-          </mat-form-field>
+              <!-- Draw Column -->
+              <ng-container matColumnDef="draw" [sticky]="true">
+                <mat-header-cell *matHeaderCellDef  class = "mycell draw">
+                  $$T_i(x)$$
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element; let j=index;" class = "mycell draw">
 
-        </div>
-        <div *ngIf="!isParam(column.columnDef)">
-          {{column.cell(row)}}
-        </div>
+                    <button mat-icon-button
+                        matTooltip="Click to see T(x{{j}})" class="iconbutton"
+                        color="accent"
+                        (click) = "seeTellerExpression(element)"
+                        [disabled]="disable()"
+                      >
+                        <mat-icon  fontSet="fa" fontIcon="fa-eye"></mat-icon>
+                      </button>
+                    <button mat-icon-button
+                      matTooltip="Click to draw T(x{{j}})" class="iconbutton"
+                      color="accent"
+                      [disabled]="disable()"
+                      (click) = "draw(element)"
+                    >
+                      <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
+                    </button>
+                    <button mat-icon-button
+                      matTooltip="Click to draw Epsilon T(x{{j}})" class="iconbutton"
+                      color="warn"
+                      [disabled]="disableClear()"
+                      (click) = "drawEpsilon(element)"
+                    >
+                      <mat-icon fontSet="fa" fontIcon="fa-chart-area"></mat-icon>
+                    </button>
+                    <button mat-icon-button
+                      matTooltip="Click to draw T(x{{j}})" class="iconbutton"
+                      color="accent"
+                      [disabled]="disableClear()"
+                      (click) = "clear(element)"
+                    >
+                      <mat-icon fontSet="fa" fontIcon="fa-eraser">
+                      </mat-icon>
+                    </button>
+                </mat-cell>
+              </ng-container>
 
-      </mat-cell>
+              <!-- datastore Action Column -->
+              <ng-container matColumnDef="actions" [sticky]="true">
+                <mat-header-cell *matHeaderCellDef  class = "mycell actions">
+                  <!-- Action -->
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element; let j=index;" class = "mycell actions">
 
-    </ng-container>
-
-    <!-- Draw Column -->
-    <ng-container matColumnDef="draw" [sticky]="true">
-      <mat-header-cell *matHeaderCellDef  class = "mycell draw">
-        $$T_i(x)$$
-      </mat-header-cell>
-      <mat-cell *matCellDef="let element; let j=index;" class = "mycell draw">
-
-          <button mat-icon-button
-              matTooltip="Click to see T(x{{j}})" class="iconbutton"
-              color="accent"
-              (click) = "seeTellerExpression(element)"
-              [disabled]="disable()"
-            >
-              <mat-icon  fontSet="fa" fontIcon="fa-eye"></mat-icon>
-            </button>
-          <button mat-icon-button
-            matTooltip="Click to draw T(x{{j}})" class="iconbutton"
-            color="accent"
-            [disabled]="disable()"
-            (click) = "draw(element)"
-          >
-            <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
-          </button>
-          <button mat-icon-button
-            matTooltip="Click to draw Epsilon T(x{{j}})" class="iconbutton"
-            color="warn"
-            [disabled]="disableClear()"
-            (click) = "drawEpsilon(element)"
-          >
-            <mat-icon fontSet="fa" fontIcon="fa-chart-area"></mat-icon>
-          </button>
-          <button mat-icon-button
-            matTooltip="Click to draw T(x{{j}})" class="iconbutton"
-            color="accent"
-            [disabled]="disableClear()"
-            (click) = "clear(element)"
-          >
-            <mat-icon fontSet="fa" fontIcon="fa-eraser">
-            </mat-icon>
-          </button>
-      </mat-cell>
-    </ng-container>
-
-    <!-- datastore Action Column -->
-    <ng-container matColumnDef="actions" [sticky]="true">
-      <mat-header-cell *matHeaderCellDef  class = "mycell actions">
-        <!-- Action -->
-      </mat-header-cell>
-      <mat-cell *matCellDef="let element; let j=index;" class = "mycell actions">
-
-          <button (click)="delete(element)"
-            mat-icon-button matTooltip="Click to Delete T(x{{j}}" class="iconbutton" color="warn"
-          >
-            <mat-icon aria-label="Delete">delete</mat-icon>
-          </button>
-      </mat-cell>
-    </ng-container>
+                    <button (click)="delete(element)"
+                      mat-icon-button matTooltip="Click to Delete T(x{{j}}" class="iconbutton" color="warn"
+                    >
+                      <mat-icon aria-label="Delete">delete</mat-icon>
+                    </button>
+                </mat-cell>
+              </ng-container>
 
 
 
-    <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: getDisplayedColumns();">
-    </mat-row>
-  </mat-table>
+              <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: getDisplayedColumns();">
+              </mat-row>
+            </mat-table>
 
-  <mat-paginator #paginator [pageSizeOptions]="[1, 5, 10,50,100]" showFirstLastButtons></mat-paginator>
-</div>
+            <mat-paginator #paginator [pageSizeOptions]="[1, 5, 10,50,100]" showFirstLastButtons></mat-paginator>
+          </div>
+    </mat-card-content>
+  </mat-card>
+

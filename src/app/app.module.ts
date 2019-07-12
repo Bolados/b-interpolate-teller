@@ -1,5 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateModule, TranslateLoader,
+  MissingTranslationHandler, MissingTranslationHandlerParams} from '@ngx-translate/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -15,9 +19,21 @@ import { GlobalSettingsComponent } from './components/global-settings/global-set
 import { ChartComponent } from './components/chart/chart.component';
 import { ChartSettingsComponent } from './components/chart-settings/chart-settings.component';
 import { GlobalService } from './services/global/global.service';
-import { MathjaxComponent } from './components/mathjax/mathjax.component';
-import { FunctionTableDataPointsDialogComponent, TellerFormuleDialogComponent, DialogsModule } from './components/dialogs';
+import { DialogsModule } from './components/dialogs';
 import { MathjaxModule } from './components/mathjax';
+
+
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
+
+export class MyMissingTranslationHandler implements MissingTranslationHandler {
+  handle(params: MissingTranslationHandlerParams) {
+      return 'lang!';
+  }
+}
 
 @NgModule({
   declarations: [
@@ -32,21 +48,22 @@ import { MathjaxModule } from './components/mathjax';
     GlobalSettingsComponent,
     ChartComponent,
     ChartSettingsComponent,
-    // MathjaxComponent,
-    // FunctionTableDataPointsDialogComponent,
-    // TellerFormuleDialogComponent,
   ],
-  // entryComponents: [
-  //   TellerFormuleDialogComponent,
-  //   FunctionTableDataPointsDialogComponent,
-  // ],
   imports: [
     BrowserModule,
     SharedModule,
     ChartsModule,
     DialogsModule,
     MathjaxModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler},
+    })
   ],
   providers: [GlobalService],
   bootstrap: [AppComponent]

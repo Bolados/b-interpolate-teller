@@ -1,12 +1,34 @@
-<div style="display: block;">
-  <canvas baseChart #baseChart="base-chart"
-    [datasets]="chart?.datasets"
-    [labels]="chart?.labels"
-    [options]="chart?.options"
-    [colors]="chart?.colors"
-    [chartType]="chart?.type"
-    (chartClick)="chartClicked($event)"
-    (chartHover)="chartHovered($event)"
+<mat-card class="mat-elevation-z2 card">
+  <mat-card-subtitle class="title">
+    <button (click)="reloadChart()" mat-icon-button mat-raise-button disableRipple
+      matTooltip="Click to reload chart" class="iconbutton"
+      [disabled]="liveReload"
     >
-  </canvas>
-</div>
+    Chart
+    <mat-icon aria-label="reload Chart">autorenew</mat-icon>
+    </button>
+
+    <button (click)="resetPanZoom()" mat-icon-button mat-raise-button disableRipple
+      matTooltip="Click to Reset Zoom" class="panzoom iconbutton" color="primary"
+      [disabled]="!pannedzoomed"
+    >
+    <mat-icon aria-label="reset Zoom">zoom_out</mat-icon>
+      Reset Zoom
+    </button>
+
+  </mat-card-subtitle>
+  <mat-card-content>
+    <div style="display: block;">
+        <canvas baseChart #baseChart="base-chart"
+          [datasets]="chart?.datasets"
+          [labels]="chart?.labels"
+          [options]="chart?.options"
+          [colors]="chart?.colors"
+          [chartType]="chart?.type"
+          (chartClick)="chartClicked($event)"
+          (chartHover)="chartHovered($event)"
+          >
+        </canvas>
+      </div>
+  </mat-card-content>
+</mat-card>

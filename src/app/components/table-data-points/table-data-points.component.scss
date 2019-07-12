@@ -1,3 +1,32 @@
+:host {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+
+mat-card {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+}
+
+.card {
+  padding: 5px !important;
+  width: 100%;
+  height: 100%;
+
+  .title{
+    margin: 0px;
+
+    .fill-spacer{
+      left: 90%;;
+    }
+
+    .panzoom {
+      left: 80%;
+    }
+  }
+}
+
 
 .iconbutton{
   width: 30px;

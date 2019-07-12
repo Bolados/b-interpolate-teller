@@ -4,14 +4,20 @@
 <mat-toolbar
   class="mat-elevation-z4 app-toolbar-common app-toolbar-default"
 >
+  <app-logo class="app-toolbar-logo"> </app-logo>
 
-  <app-logo
-    class="app-toolbar-logo"
-  >
-  </app-logo>
+  <span class="spacer"></span>
 
-  <span
-    class="spacer">
-    </span>
+  <mat-form-field class = "langue">
+      <mat-select #langSelect (change)="translate.use(langSelect.value)"
+        placeholder="{{ 'DASHBORD.SELECT' | translate }}"
+        [(value)]="translate.currentLang"
+        >
+        <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">
+          {{lang}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
 </mat-toolbar>
+

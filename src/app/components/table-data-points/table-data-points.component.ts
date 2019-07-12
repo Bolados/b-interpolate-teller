@@ -64,6 +64,12 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
     }
   }
 
+  public resetStore() {
+    this.chartService.forceReload = true;
+    this.storageService.reset();
+    this.chartService.forceReload = false;
+  }
+
   disable() {
     return !this.functionSettingComponent.funcFormGroup.valid;
   }

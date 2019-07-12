@@ -11,3 +11,33 @@
   width: 100%;
 }
 
+.langue {
+  width: 65px;
+  mat-select {
+    background-color: transparent;
+    color: white;
+    /*padding: 6px 0px 6px 0px;*/ /* NO Left and right padding*/
+    padding: 6px 10px 6px 10px;   /* 10px left and right padding*/
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  mat-select-value {
+    // font-family: Roboto-Regular;
+    font-size: 16px;
+    color: white;
+  }
+  mat-form-field-underline {
+    display: none;
+  }
+
+  mat-select-trigger div>i {
+    margin-right: 8px;
+  }
+
+
+}
+
+mat-option {
+  top: 25px;
+  background: beige;
+}

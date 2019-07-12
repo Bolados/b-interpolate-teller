@@ -12,25 +12,3 @@
 mat-grid-tile {
   background: blue;
 }
-
-mat-card {
-  width: calc(100% - 10px);
-  height: calc(100% - 10px);
-}
-
-.card {
-  padding: 5px !important;
-
-  .title{
-    margin: 0px;
-
-    .fill-spacer{
-      left: 90%;;
-    }
-
-    .panzoom {
-      left: 80%;
-    }
-  }
-}
-
