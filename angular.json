@@ -30,7 +30,12 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/mathjax/unpacked",
-                "output": "./assets/js/Mathjax"
+                "output": "./assets/js/Mathjax/core"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/mathjax/fonts",
+                "output": "./assets/js/Mathjax/fonts"
               }
             ],
             "styles": [
