@@ -25,7 +25,7 @@
     "build": "ng build",
     "build:prod": "yarn run build --prod",
     "build:prod:electron": "yarn run build:electron:tsconfig && yarn run build:prod --base-href=./",
-    "build:electron:tsconfig": "tsc -p tsconfig-serve.json",
+    "build:electron:tsconfig": "tsc --p electron",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
