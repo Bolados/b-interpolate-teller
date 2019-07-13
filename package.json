@@ -22,7 +22,7 @@
     "start": "yarn run ng:serve",
     "build": "ng build",
     "build:prod": "yarn run build --prod",
-    "build:prod:electron": "yarn run build:electron:tsconfig && yarn run build:prod --tsConfig=tsConfig-electron.json --base-href=./ --index=index-electron",
+    "build:prod:electron": "yarn run build:electron:tsconfig && yarn run build:prod --tsConfig=tsConfig-electron.json --base-href=./ --index=./electron/index.html",
     "build:electron:tsconfig": "tsc --p electron",
     "test": "ng test",
     "lint": "ng lint",
