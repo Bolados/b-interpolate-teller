@@ -1,6 +1,4 @@
 {
-  "appId": "BInterpolateTeller",
-  "category": "tech.bscako.interpolate.teller",
   "productName": "BInterpolateTeller",
   "directories": {
     "output": "release/b-interpolate-teller"

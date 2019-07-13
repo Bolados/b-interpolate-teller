@@ -30,9 +30,9 @@
     "ng:serve": "ng serve",
     "electron:serve": "concurrently \"yarn run ng:serve\" \"yarn run build:electron:tsconfig && electron . --serve\" --kill-others",
     "electron:local": "yarn run build:prod:electron && electron .",
-    "pack:electron:linux": "yarn run build:prod:electron && electron-builder build --linux",
-    "pack:electron:windows": "yarn run build:prod:electron && electron-builder build --windows",
-    "pack:electron:mac": "yarn run build:prod:electron && electron-builder build --mac"
+    "electron:pack:linux": "yarn run build:prod:electron && electron-builder build --linux",
+    "electron:pack:windows": "yarn run build:prod:electron && electron-builder build --windows",
+    "electron:pack:mac": "yarn run build:prod:electron && electron-builder build --mac"
   },
   "main": "./electron/dist/electron-main.js",
   "private": true,
