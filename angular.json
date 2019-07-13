@@ -26,7 +26,12 @@
               "src/assets",
               "src/favicon.ico",
               "src/favicon.png",
-              "src/favicon.icns"
+              "src/favicon.icns",
+              {
+                "glob": "**/*",
+                "input": "node_modules/mathjax/unpacked",
+                "output": "./assets/js/Mathjax"
+              }
             ],
             "styles": [
               "src/styles.scss"
