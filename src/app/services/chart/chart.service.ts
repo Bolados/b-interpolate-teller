@@ -484,10 +484,12 @@ export class ChartService {
             x: math.round(x, 4),
             y: math.round(y, 4),
           };
+          console.log(y);
           evalData.data.push(value);
         } catch (error) {
           occuredError = true;
           console.log('Error in process evaluation : ', x, param);
+          return {data: [], epsilon: []};
         }
       });
     }
