@@ -1,13 +1,10 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { FuncParam } from 'src/app/domains';
 import { FormGroup, FormControl, FormBuilder, AbstractControl, ValidatorFn, Validators } from '@angular/forms';
-import { BaseChartDirective } from 'ng2-charts';
-import { ChartComponent } from '../chart/chart.component';
 import { ChartService, INDEX_FX_DRAW } from 'src/app/services/chart/chart.service';
 import { MatDialog } from '@angular/material';
 import { FunctionTableDataPointsDialogComponent } from '../dialogs';
 import { Overlay } from '@angular/cdk/overlay';
-import { PointsSettingsComponent } from '../points-settings/points-settings.component';
 
 @Component({
   selector: 'app-function-settings',
@@ -16,10 +13,10 @@ import { PointsSettingsComponent } from '../points-settings/points-settings.comp
 })
 export class FunctionSettingsComponent implements OnInit {
 
-  private xAxisMin = -5;
-  private xAxisMax = 5;
+  private xAxisMin = -1;
+  private xAxisMax = 1;
 
-  public fxParam: FuncParam = new FuncParam('sin(x)', this.xAxisMin, this. xAxisMax);
+  public fxParam: FuncParam = new FuncParam('exp(x)', this.xAxisMin, this.xAxisMax, 0.1, 0);
 
   funcFormGroup: FormGroup = this.buildFuncForm(this.fxParam);
 
@@ -42,15 +39,30 @@ export class FunctionSettingsComponent implements OnInit {
     };
   }
 
+  validateFunction(control: AbstractControl): { [key: string]: boolean } | null {
+    const InvalidFunctions = ['arc', 'cot', 'ln', 'csc'];
+    if ( (control.value !== undefined) && !isNaN(control.value)) {
+      for (const fn of InvalidFunctions) {
+        if (control.value.toLowerCase().includes(fn)) {
+          return { pattern : true };
+        }
+      }
+    }
+    return null;
+  }
+
   buildFuncForm(fxParam: FuncParam = new FuncParam()): FormGroup {
-    const funcPattern = '(?:[0-9-+*/^()x]|abs|e\^x|ln|log|a?(?:sin|cos|tan)h?)+';
+    const funcPattern = '(?:[0-9-+*/^()x]|abs|e\^x|log|sec|sqrt|sign|exp|a?(?:sin|cos|tan)h?)+';
     const reg: RegExp = new RegExp(funcPattern);
     return this.formBuilder.group({
       xMin: new FormControl(fxParam.xMin, [Validators.required, this.validateRange('min', fxParam)]),
       xMax: new FormControl(fxParam.xMax, [Validators.required, this.validateRange('max', fxParam)]),
       step: new FormControl(fxParam.step, Validators.required),
       deltaX: new FormControl(fxParam.deltaX, [Validators.required]),
-      func: new FormControl(fxParam.func, [Validators.required, Validators.pattern(reg)]),
+      func: new FormControl(fxParam.func, {
+        validators: [Validators.required, Validators.pattern(reg), this.validateFunction],
+        updateOn: 'submit',
+      }),
     });
   }
 

@@ -22,7 +22,7 @@ function buildPlugins(panedzoomedStateChange: EventEmitter<boolean> ): ChartPlug
 
             // Panning directions. Remove the appropriate direction to disable
             // Eg. 'y' would only allow panning in the y direction
-            mode: 'x',
+            mode: 'xy',
 
             rangeMin: {
                 // Format of min pan range depends on scale type
@@ -460,10 +460,11 @@ export class ChartService {
 
   private builderX(min: number, max: number, step: number = 0.1, delta: number = 0): Array<number> {
     let xValues = [min - delta, min, max, max + delta];
-    let x = min - delta;
+    let x: number | any = min - delta;
     while (x < max + delta) {
-      x += step;
+      x = math.round(x, 4);
       xValues.push(x);
+      x += step;
     }
     xValues = xValues.filter((item, index) => xValues.indexOf(item) === index);
     return xValues.sort((a, b) => 0 - (a > b ? -1 : 1));
@@ -481,15 +482,13 @@ export class ChartService {
         try {
           const y = math.evaluate(param.func.toLowerCase(), {x});
           const value: IDataSet = {
-            x: math.round(x, 4),
-            y: math.round(y, 4),
-          };
-          console.log(y);
+              x,
+              y: ( y !== Infinity) ? math.round(y, 4) : null,
+            };
           evalData.data.push(value);
         } catch (error) {
           occuredError = true;
           console.log('Error in process evaluation : ', x, param);
-          return {data: [], epsilon: []};
         }
       });
     }
@@ -517,17 +516,16 @@ export class ChartService {
         try {
           const yTeller = teller.eval(x);
           const yFx = math.evaluate(param.func.toLowerCase(), {x});
-          const epsilon =  Math.abs(yTeller - yFx);
           evalData.data.push(
             {
-              x, // : math.round(x, 4),
-              y: yTeller, // math.round(yTeller, 4),
+              x,
+              y: (yTeller !== Infinity) ? yTeller : null,
             }
           );
           evalData.epsilon.push(
             {
-              x, // : math.round(x, 4),
-              y: epsilon, // math.round(epsilon, 4),
+              x,
+              y: ( (yTeller !== Infinity) && (yFx !== Infinity)) ? Math.abs(yTeller - yFx) : null,
             }
           );
         } catch (error) {
@@ -555,17 +553,16 @@ export class ChartService {
         try {
           const yTeller = gTeller.eval(x);
           const yFx = math.evaluate(param.func.toLowerCase(), {x});
-          const epsilon =  Math.abs(yTeller - yFx);
           evalData.data.push(
             {
-              x, // : math.round(x, 4),
-              y: yTeller, // math.round(yTeller, 4),
+              x,
+              y: (yTeller !== Infinity) ? yTeller : null,
             }
           );
           evalData.epsilon.push(
             {
-              x, // : math.round(x, 4),
-              y: epsilon, // math.round(epsilon, 4),
+              x,
+              y: ( (yTeller !== Infinity) && (yFx !== Infinity)) ? Math.abs(yTeller - yFx) : null,
             }
           );
         } catch (error) {

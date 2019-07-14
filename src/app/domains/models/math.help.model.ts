@@ -78,7 +78,7 @@ export function TellerExpression(index: number, xIndex: number, func: string, be
     const scopeMathjax = {};
     const elements = [];
     const elementsMathjax = [];
-    const funcReplace = func.replace(/x/g, 'x_' + index);
+    const funcReplace = func.replace(/exp/g, 'z').replace(/x/g, 'x_' + index).replace(/z/g, 'exp');
     elements.push(funcReplace);
     elementsMathjax.push(funcReplace);
     for ( let j = 0; j < beta.length; j++) {
