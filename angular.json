@@ -27,6 +27,8 @@
               "src/favicon.ico",
               "src/favicon.png",
               "src/favicon.icns",
+              "src/favicon.256x256.png",
+              "src/favicon.512x512.png",
               {
                 "glob": "**/*",
                 "input": "node_modules/mathjax/unpacked",
@@ -111,7 +113,19 @@
               "src/assets",
               "src/favicon.ico",
               "src/favicon.png",
-              "src/favicon.icns"
+              "src/favicon.icns",
+              "src/favicon.256x256.png",
+              "src/favicon.512x512.png",
+              {
+                "glob": "**/*",
+                "input": "node_modules/mathjax/unpacked",
+                "output": "./assets/js/Mathjax/core"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/mathjax/fonts",
+                "output": "./assets/js/Mathjax/fonts"
+              }
             ]
           }
         },

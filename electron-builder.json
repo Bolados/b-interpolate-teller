@@ -1,7 +1,7 @@
 {
   "productName": "BInterpolateTeller",
   "directories": {
-    "output": "release/b-interpolate-teller"
+    "output": "dist/release/b-interpolate-teller"
   },
   "files": [
       "**/*",
@@ -12,16 +12,12 @@
       "!src/",
       "!e2e/",
       "!.editorconfig",
-      "!..gitignore",
       "!angular.json",
       "!package.json",
       "!tsconfig.json",
-      "!tsconfig-electron.json",
       "!tslint.json",
       "!yarn.lock",
-      "!yarn-error.log",
-      "!electron/",
-      "!node_modules/"
+      "!yarn-error.log"
   ],
   "win": {
     "icon": "dist/b-interpolate-teller",
