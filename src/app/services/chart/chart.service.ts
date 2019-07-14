@@ -480,6 +480,7 @@ export class ChartService {
       const builderX = this.builderX(param.xMin, param.xMax, param.step, param.deltaX);
       builderX.forEach(x => {
         try {
+          console.log(math);
           const y = math.evaluate(param.func.toLowerCase(), {x});
           const value: IDataSet = {
               x,
