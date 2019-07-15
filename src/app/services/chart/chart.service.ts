@@ -6,10 +6,11 @@ import { FuncParam, TellerParam } from 'src/app/domains';
 import * as zoomPlugin from 'chartjs-plugin-zoom';
 
 
-import { TellerFunction, FuncParseEval, GTellerExpression, TellerExpression } from 'src/app/domains/models/math.help.model';
+import { TellerFunction, FuncParseEval} from 'src/app/domains/models/math.help.model';
 import { StorageService } from '../storage';
 
-import * as math from 'mathjs';
+import { GlobalService } from '../global/global.service';
+import { MathService } from '../math/math.service';
 
 
 function buildPlugins(panedzoomedStateChange: EventEmitter<boolean> ): ChartPluginsOptions {
@@ -462,7 +463,7 @@ export class ChartService {
     let xValues = [min - delta, min, max, max + delta];
     let x: number | any = min - delta;
     while (x < max + delta) {
-      x = math.round(x, 4);
+      x = this.mathService.math.round(x, 4);
       xValues.push(x);
       x += step;
     }
@@ -480,16 +481,16 @@ export class ChartService {
       const builderX = this.builderX(param.xMin, param.xMax, param.step, param.deltaX);
       builderX.forEach(x => {
         try {
-          console.log(math);
-          const y = math.evaluate(param.func.toLowerCase(), {x});
+          const y = this.mathService.math.evaluate(param.func.toString(), {x});
           const value: IDataSet = {
               x,
-              y: ( y !== Infinity) ? math.round(y, 4) : null,
+              y: ( y !== Infinity) ? this.mathService.math.round(y, 4) : null,
             };
           evalData.data.push(value);
         } catch (error) {
           occuredError = true;
           console.log('Error in process evaluation : ', x, param);
+          console.log('error : ', error);
         }
       });
     }
@@ -505,10 +506,10 @@ export class ChartService {
     };
     let occuredError = false;
     if (param && param.func && this.validate(index, 0, store.length - 1)) {
-      const tellerFunction: TellerFunction = TellerExpression(index, store[index].point.x,
+      const tellerFunction: TellerFunction = this.mathService.TellerExpression(index, store[index].point.x,
           param.func, store[index].beta);
       if (!tellerFunction) {return evalData; }
-      const teller: FuncParseEval = new FuncParseEval('t(x)', tellerFunction.expression, tellerFunction.scope);
+      const teller: FuncParseEval = new FuncParseEval('t(x)', tellerFunction.expression, tellerFunction.scope, this.mathService);
       const builderX = this.builderX(store[index].point.x,
         store[index].point.x, step, deltaX
       );
@@ -516,7 +517,7 @@ export class ChartService {
       builderX.forEach(x => {
         try {
           const yTeller = teller.eval(x);
-          const yFx = math.evaluate(param.func.toLowerCase(), {x});
+          const yFx = this.mathService.math.evaluate(param.func.toLowerCase(), {x});
           evalData.data.push(
             {
               x,
@@ -545,15 +546,15 @@ export class ChartService {
     };
     let occuredError = false;
     if (param && param.func && (store.length > 0)) {
-      const gTellerFunction: TellerFunction = GTellerExpression(store, param.func);
+      const gTellerFunction: TellerFunction = this.mathService.GTellerExpression(store, param.func);
       if (!gTellerFunction) {return evalData; }
-      const gTeller: FuncParseEval = new FuncParseEval('t(x)', gTellerFunction.expression, gTellerFunction.scope);
+      const gTeller: FuncParseEval = new FuncParseEval('t(x)', gTellerFunction.expression, gTellerFunction.scope, this.mathService);
 
       store.forEach(value => {
         const x = value.point.x;
         try {
           const yTeller = gTeller.eval(x);
-          const yFx = math.evaluate(param.func.toLowerCase(), {x});
+          const yFx = this.mathService.math.evaluate(param.func.toLowerCase(), {x});
           evalData.data.push(
             {
               x,
@@ -577,6 +578,7 @@ export class ChartService {
 
   constructor(
     private storageService: StorageService,
+    private mathService: MathService,
   ) { }
 }
 

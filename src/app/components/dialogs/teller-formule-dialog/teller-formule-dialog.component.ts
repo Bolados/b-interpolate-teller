@@ -7,6 +7,7 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { Subscription, fromEvent } from 'rxjs';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { take, filter } from 'rxjs/operators';
+import { MathService } from 'src/app/services/math/math.service';
 
 interface ITab {
   id: number;
@@ -78,7 +79,7 @@ export class TellerFormuleDialogComponent implements OnInit {
 
   public buildTeller() {
     const teller = new FuncParseEval(this.tellerFunction.format,
-      this.tellerFunction.expression, this.tellerFunction.scope);
+      this.tellerFunction.expression, this.tellerFunction.scope, this.mathService);
     const simplify =  this.displayFormat + '=' + teller.simplify;
     const expression = this.displayFormat + '=' + this.tellerFunction.expressionMathjax;
     const scopeAlpha = [];
@@ -243,6 +244,7 @@ export class TellerFormuleDialogComponent implements OnInit {
   constructor(
     public overlay: Overlay,
     public viewContainerRef: ViewContainerRef,
+    public mathService: MathService,
     @Inject(MAT_DIALOG_DATA) private data: any,
   ) {
     if ( data ) {

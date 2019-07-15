@@ -5,11 +5,12 @@ import { ChartService, INDEX_TX_DRAW, INDEX_EPSILON_TX_DRAW } from 'src/app/serv
 import {Point} from '../../domains/models/point.model';
 import {TellerParam} from '../../domains/models/teller.param.model';
 import {StorageService} from '../../services/storage/storage.service';
-import { TellerFunction, TellerExpression } from 'src/app/domains/models/math.help.model';
+import { TellerFunction } from 'src/app/domains/models/math.help.model';
 import { FunctionSettingsComponent } from '../function-settings/function-settings.component';
 import { Overlay } from '@angular/cdk/overlay';
 import { TellerFormuleDialogComponent } from '../dialogs';
 import { MathjaxComponent } from '../mathjax';
+import { MathService } from 'src/app/services/math/math.service';
 
 
 @Component({
@@ -44,7 +45,7 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
       element.beta.forEach(value => {
         beta.push(+value);
       });
-      const tellerFunction: TellerFunction = TellerExpression(index, xIndex, func, beta );
+      const tellerFunction: TellerFunction = this.mathService.TellerExpression(index, xIndex, func, beta );
       if (tellerFunction) {
         const format = 'T_{x_' + index + '}(x)';
         const bodyRect = document.body.getBoundingClientRect();
@@ -203,6 +204,7 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
   constructor(
     private storageService: StorageService,
     private chartService: ChartService,
+    private mathService: MathService,
     private elementRef: ElementRef,
     private overlay: Overlay,
     private dialog: MatDialog,

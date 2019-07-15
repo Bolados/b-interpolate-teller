@@ -1,14 +1,8 @@
 import { Component, OnInit, ViewChild, Input, ChangeDetectorRef } from '@angular/core';
 import { StorageService } from 'src/app/services';
-import { FormBuilder, FormGroup, ValidatorFn, AbstractControl, FormControl, Validators } from '@angular/forms';
-import { ChartOptions, ChartType, ChartDataSets, ChartLegendOptions, ChartScales } from 'chart.js';
-import { Label, Color, BaseChartDirective } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 
-import {
-  create, all
-} from 'mathjs';
-import { FuncParam, TellerParam } from 'src/app/domains';
-import { TellerFunction, TellerExpression, FuncParseEval, GTellerExpression } from 'src/app/domains/models/math.help.model';
+import { FuncParam } from 'src/app/domains';
 import { ChartService, IChart } from 'src/app/services/chart/chart.service';
 
 

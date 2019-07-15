@@ -1,7 +1,7 @@
 import {EventEmitter, Injectable, Output, OnInit} from '@angular/core';
 import {TellerParam, TellerFormParam} from '../../domains/models/teller.param.model';
 import {Point} from '../../domains/models/point.model';
-import { evalFx } from 'src/app/domains/models/math.help.model';
+import { MathService } from '../math/math.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class StorageService {
   public step = 0.1;
   public deltaX = 0.5;
 
-  constructor() {
+  constructor(private mathService: MathService) {
     this.initStore();
   }
 
@@ -68,7 +68,7 @@ export class StorageService {
     if (param.beta.length !== this.betaMax) {
       this.updatedBetaMax(param.beta.length);
     }
-    param.point.y = evalFx(fx, param.point.x);
+    param.point.y = this.mathService.evalFx(fx, param.point.x);
     if (param.point.y === undefined) {
       param.point.y = 0;
     }

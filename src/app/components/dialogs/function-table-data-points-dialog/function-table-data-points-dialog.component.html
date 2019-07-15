@@ -24,7 +24,12 @@
           {{ column.header }}
         </mat-header-cell>
         <mat-cell *cdkCellDef="let row let element" class = "mycell">
-          {{column.cell(row)}}
+          <div *ngIf="column.cell(row)!==null">
+            {{column.cell(row)}}
+          </div>
+          <div *ngIf="column.cell(row)===null">
+              NaN
+            </div>
         </mat-cell>
       </ng-container>
 
@@ -36,6 +41,7 @@
         <mat-cell *matCellDef="let element; let j=index;" class = "mycell">
             <button (click)="addPoint(element)"
               mat-icon-button matTooltip="Click to Add Point to table" class="iconbutton" color="warn"
+              [disable] = "column.cell(row) === null"
             >
               <mat-icon aria-label="Add">add</mat-icon>
             </button>
