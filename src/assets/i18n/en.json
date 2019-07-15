@@ -1,16 +1,181 @@
 {
   "PAGES": {
       "HOME": {
-          "TITLE": "b-interpolate-teller !"
+        "TITLE": "b-interpolate-teller !"
       }
   },
 
-  "LOGO": {
-    "TITLE": "B-INTERPOLATE-",
-    "SUB-TITLE": "TELLER"
+  "APP" : {
+    "LOGO": {
+      "TITLE": "B-INTERPOLATE-",
+      "SUB-TITLE": "TELLER"
+    }
   },
-
   "DASHBORD": {
     "SELECT": "Change language"
+  },
+
+  "CHART-SETTINGS" : {
+    "TITLE" : "Graphics Settings",
+    "VERIFICATION" : {
+      "PLACEHOLDER" : "V(x)",
+      "TOOLTIPS": {
+        "SEE" : "See V(x)",
+        "DRAW" : "Draw",
+        "CLEAR" : "Clear",
+        "FUNCTION" : "V(x)"
+      }
+    },
+    "CHECKBOXES" : {
+      "TABLE" : "Table",
+      "RELOAD" : "Live Reload",
+      "POINTS" : "Points Func."
+    }
+
+  },
+  "CHART" : {
+    "TITLE" : "Chart",
+    "BUTTONS" : {
+      "RELOAD" : {
+        "TOOLTIPS" : "Update chart",
+        "TEXT":"Update chart"
+      },
+      "ZOOM" : {
+        "TOOLTIPS" : "Reset Zoom",
+        "TEXT":"Reset Zoom"
+      }
+    }
+  },
+  "FUNCTION-SETTINGS" : {
+    "TITLE" : "Function",
+    "XMIN" : {
+      "TOOLTIPS" : "A",
+      "PLACEHOLDER" : "A"
+    },
+    "XMAX" : {
+      "TOOLTIPS" : "B",
+      "PLACEHOLDER" : "B"
+    },
+    "DELTAX" : {
+      "TOOLTIPS" : "Dx",
+      "PLACEHOLDER" : "Dx"
+    },
+    "STEP" : {
+      "TOOLTIPS" : "Step",
+      "PLACEHOLDER" : "Step"
+    },
+    "FUNCTION" : {
+      "TOOLTIPS" : "F(x)",
+      "PLACEHOLDER" : "F(x)"
+    },
+    "BUTTONS": {
+      "TOOLTIPS": {
+        "SEE" : "See Table F(x)",
+        "DRAW" : "Draw F(x)",
+        "CLEAR" : "Clear F(x)"
+      }
+    }
+  },
+  "GTELLER-SETTINGS" : {
+    "TITLE" : "GTeller",
+    "BUTTONS": {
+      "TOOLTIPS": {
+        "SEE" : "See Expression GT(x)",
+        "DRAW" : "Draw GT(x)",
+        "EPSILON" : "Draw Epision of GT(x)",
+        "CLEAR" : "Clear GT(x)"
+      }
+    }
+  },
+  "POINTS-SETTINGS" : {
+    "TITLE" : "Point",
+    "BETA-MAX" : {
+      "TOOLTIPS" : "B-Max",
+      "PLACEHOLDER" : "B-Max"
+    },
+    "BETA-INIT" : {
+      "TOOLTIPS" : "B-Init",
+      "PLACEHOLDER" : "B-Init"
+    },
+    "DELTAX" : {
+      "TOOLTIPS" : "Dx",
+      "PLACEHOLDER" : "Dx"
+    },
+    "STEP" : {
+      "TOOLTIPS" : "Step",
+      "PLACEHOLDER" : "Step"
+    },
+    "ALPHA" : {
+      "TOOLTIPS" : "A",
+      "PLACEHOLDER" : "A"
+    },
+    "X" : {
+      "TOOLTIPS" : "X",
+      "PLACEHOLDER" : "X"
+    },
+    "Y" : {
+      "TOOLTIPS" : "Y",
+      "PLACEHOLDER" : "Y"
+    },
+    "BUTTONS": {
+      "ADD": {
+        "TOOLTIPS" : "Add"
+      }
+    }
+  },
+  "TABLE-SETTINGS" : {
+    "TITLE" : "Table",
+    "HEADER" : {
+      "ID" : "No",
+      "X" : "X",
+      "Y" : "y",
+      "ALPHA" : "a",
+      "BETA" : "b",
+      "ACTIONS": {
+        "TABLE": "",
+        "TELLER": "Ti(x)"
+      }
+    },
+    "BUTTONS" : {
+      "RESET" : {
+        "TOOLTIPS" : "Reset",
+        "TEXT" : "Reset"
+      },
+      "TELLER" : {
+        "SEE" : "See Expression T(x)",
+        "DRAW" : "Draw T(x)",
+        "EPSILON" : "Draw Epision of T(x)",
+        "CLEAR" : "Clear T(x)"
+      }
+    },
+    "FOOTER" : {
+      "ITEM-PAGES" : "Items per Page"
+    }
+  },
+  "DIALOG-TABLE" : {
+    "TITLE" : "Table",
+    "HEADER" : {
+      "ID" : "No",
+      "X" : "X",
+      "Y" : "y",
+      "ACTION" : "Add"
+    },
+    "TOOLTIPS" : {
+      "ADD" : "Add point"
+    }
+  },
+  "DIALOG-FORMULE" : {
+    "TITLE" : "Formule",
+    "HEADER" : {
+      "SIMPLIFY" : "Simplify",
+      "EXPRESSION" : "Expression",
+      "SCOPE" : "Scope"
+    },
+    "CONTEXT" : {
+      "COPY" : "Copy",
+      "Expression" : "Expression",
+      "Latex" : "Latex",
+      "FUNCTION" : "Function"
+    }
   }
 }

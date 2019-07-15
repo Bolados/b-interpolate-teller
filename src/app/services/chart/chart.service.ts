@@ -509,7 +509,7 @@ export class ChartService {
       const tellerFunction: TellerFunction = this.mathService.TellerExpression(index, store[index].point.x,
           param.func, store[index].beta);
       if (!tellerFunction) {return evalData; }
-      const teller: FuncParseEval = new FuncParseEval('t(x)', tellerFunction.expression, tellerFunction.scope, this.mathService);
+      const teller: FuncParseEval = new FuncParseEval('t(x)', tellerFunction.expression, tellerFunction.scope, this.mathService.math);
       const builderX = this.builderX(store[index].point.x,
         store[index].point.x, step, deltaX
       );
@@ -548,7 +548,7 @@ export class ChartService {
     if (param && param.func && (store.length > 0)) {
       const gTellerFunction: TellerFunction = this.mathService.GTellerExpression(store, param.func);
       if (!gTellerFunction) {return evalData; }
-      const gTeller: FuncParseEval = new FuncParseEval('t(x)', gTellerFunction.expression, gTellerFunction.scope, this.mathService);
+      const gTeller: FuncParseEval = new FuncParseEval('t(x)', gTellerFunction.expression, gTellerFunction.scope, this.mathService.math);
 
       store.forEach(value => {
         const x = value.point.x;

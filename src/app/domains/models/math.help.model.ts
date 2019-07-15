@@ -1,7 +1,4 @@
 
-import { MathService } from 'src/app/services/math/math.service';
-
-
 export class FuncParseEval {
 
   public parse;
@@ -15,16 +12,16 @@ export class FuncParseEval {
       private id: string,
       private func: string,
       public scope,
-      private mathService: MathService,
+      private math,
 
   ) {
     if (id && func) {
       this.expressionFull = id + ' = ' + func;
-      this.parse = this.mathService.math.parse(func);
-      this.eval = this.mathService.math.evaluate(this.expressionFull, scope);
-      this.format = this.mathService.math.format(this.eval);
+      this.parse = this.math.parse(func);
+      this.eval = this.math.evaluate(this.expressionFull, scope);
+      this.format = this.math.format(this.eval);
       this.expression = this.parse.toString();
-      this.simplify = this.mathService.math.simplify(this.expression, scope, { exactFractions: false} )  ;
+      this.simplify = this.math.simplify(this.expression, scope, { exactFractions: false} )  ;
     }
 
   }

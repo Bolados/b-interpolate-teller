@@ -35,6 +35,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 library.add(
   faAsterisk,
@@ -85,6 +86,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    TranslateModule,
     // NgbModule,
 
   ],
@@ -98,9 +100,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BrowserAnimationsModule,
 
 
+
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    TranslateModule
     // NgbModule,
     // NgxMasonryModule,
 

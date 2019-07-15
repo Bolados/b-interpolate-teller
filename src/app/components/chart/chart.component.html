@@ -1,18 +1,20 @@
 <mat-card class="mat-elevation-z2 card">
   <mat-card-subtitle class="title">
     <button (click)="reloadChart()" mat-icon-button mat-raise-button disableRipple
-      matTooltip="Click to reload chart" class="iconbutton"
+      matTooltip="Click to {{ 'CHART.BUTTONS.RELOAD.TOOLTIPS' | translate }}"
+      class="iconbutton"
       [disabled]="liveReload"
     >
-    Chart
-    <mat-icon aria-label="reload Chart">autorenew</mat-icon>
+    {{ 'CHART.TITLE' | translate }}
+    <mat-icon aria-label="{{ 'CHART.BUTTONS.RELOAD.TEXT' | translate }}">autorenew</mat-icon>
     </button>
 
     <button (click)="resetPanZoom()" mat-icon-button mat-raise-button disableRipple
-      matTooltip="Click to Reset Zoom" class="panzoom iconbutton" color="primary"
+      matTooltip="Click to {{ 'CHART.BUTTONS.ZOOM.TOOLTIPS' | translate }}"
+      class="panzoom iconbutton" color="primary"
       [disabled]="!pannedzoomed"
     >
-    <mat-icon aria-label="reset Zoom">zoom_out</mat-icon>
+    <mat-icon aria-label="{{ 'CHART.BUTTONS.ZOOM.TEXT' | translate }}">zoom_out</mat-icon>
       Reset Zoom
     </button>
 

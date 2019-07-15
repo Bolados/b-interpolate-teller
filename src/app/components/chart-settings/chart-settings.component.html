@@ -1,5 +1,5 @@
 <mat-card class="mat-elevation-z2 card">
-  <mat-card-subtitle class="title">Graphics Settings</mat-card-subtitle>
+  <mat-card-subtitle class="title">{{ 'CHART-SETTINGS.TITLE' | translate }}</mat-card-subtitle>
   <mat-card-content>
       <div class = "chart-settings">
           <form class = "form"
@@ -8,9 +8,10 @@
             novalidate
           >
               <mat-form-field class = "field-spec">
-                  <input matInput placeholder = "V(x)"
+                  <input matInput placeholder = "{{ 'CHART-SETTINGS.VERIFICATION.PLACEHOLDER' | translate }}"
                     formControlName="func"
                     onkeyup="this.value = this.value.toLowerCase();"
+                    matTooltip="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.FUNCTION' | translate }}"
                     >
                   <mat-hint></mat-hint>
                   <mat-error *ngIf="!vFormGroup.controls['func'].valid && vFormGroup.controls['func'].touched">
@@ -18,7 +19,8 @@
                   </mat-error>
               </mat-form-field>
               <button mat-icon-button
-                aria-label="Display Data of F(x)"
+                aria-label="Display Data of {{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.SEE' | translate }}"
+                matTooltip="Display Data of {{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.SEE' | translate }}"
                 color="accent"
                 class = "button see"
                 type=button
@@ -31,14 +33,16 @@
 
               <button mat-icon-button
                 color="accent" class="button draw"
-                aria-label="Draw F(x)"
+                aria-label="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.DRAW' | translate }}"
+                matTooltip="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.DRAW' | translate }}"
                 type="submit"
                 [disabled]="disable() "
               >
                 <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
-                  <!-- Draw -->
               </button>
               <button mat-icon-button
+                aria-label="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.CLEAR' | translate }}"
+                matTooltip="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.CLEAR' | translate }}"
                 color="warn" class="button clear" (click)="clear()"
                 [disabled]="disableClear()"
                 type=button
@@ -53,23 +57,26 @@
               class = "field"
               [(ngModel)] = "displayDatastore"
               (change)="onDisplayDatastoreChange($event)"
+              matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.TABLE' | translate }}"
               >
-              Table
+              {{ 'CHART-SETTINGS.CHECKBOXES.TABLE' | translate }}
             </mat-checkbox>
             <mat-checkbox
                 class = "field"
                 [(ngModel)] = "liveReload"
                 (change)="onLiveReloadChange($event)"
+                matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.RELOAD' | translate }}"
                 >
-                Live Reload
+                {{ 'CHART-SETTINGS.CHECKBOXES.RELOAD' | translate }}
             </mat-checkbox>
             <mat-checkbox
                 class = "field"
                 [(ngModel)] = "displayPointRadius"
                 (change)="onDisplayPointChange($event)"
                 [disabled]="!activatedFx"
+                matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.POINTS' | translate }}"
                 >
-                Points Func.
+                {{ 'CHART-SETTINGS.CHECKBOXES.POINTS' | translate }}
             </mat-checkbox>
           </div>
         </div>

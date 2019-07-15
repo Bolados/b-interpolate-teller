@@ -3,13 +3,26 @@ import { GlobalService } from '../global/global.service';
 import { FuncParseEval, TellerFunction } from 'src/app/domains/models/math.help.model';
 import { TellerParam } from 'src/app/domains';
 
+import * as mathjs from 'mathjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MathService {
 
-  public math = this.gs.math;
+  public math = this.getMaths();
+
+  getMaths() {
+    if (this.gs.math !== undefined) {
+      return this.gs.math;
+    }
+    if (mathjs !== undefined) {
+      return mathjs;
+    }
+    return null;
+  }
+
 
   evalFx( fx: string, x: number): number | any {
     if (fx) {
@@ -28,7 +41,7 @@ export class MathService {
       const result: FuncParseEval[] = [];
       elements.forEach((value, index) => {
         const id = 'e_' + index + '(x)';
-        const b: FuncParseEval = new FuncParseEval( id, value, scope, this);
+        const b: FuncParseEval = new FuncParseEval( id, value, scope, this.gs.math);
         result.push(b);
       });
       return result;
