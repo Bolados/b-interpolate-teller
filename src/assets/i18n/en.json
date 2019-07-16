@@ -1,238 +1,238 @@
 {
-  "PAGES": {
-      "HOME": {
-        "TITLE": "b-interpolate-teller !"
-      }
-  },
-
-  "APP" : {
-    "LOGO": {
-      "TITLE": "B-INTERPOLATE-",
-      "SUB-TITLE": "TELLER"
-    }
-  },
-  "DASHBORD": {
-    "SELECT": "Change language"
-  },
-
-  "CHART-SETTINGS" : {
-    "TITLE" : "Graphics Settings",
-    "VERIFICATION" : {
-      "PLACEHOLDER" : "V(x)",
-      "TOOLTIPS": {
-        "SEE" : "See V(x)",
-        "DRAW" : "Draw",
-        "CLEAR" : "Clear",
-        "FUNCTION" : "V(x)"
-      }
-    },
-    "CHECKBOXES" : {
-      "TABLE" : "Table",
-      "RELOAD" : "Live Reload",
-      "POINTS" : "Points Func."
-    }
-
-  },
-  "CHART" : {
-    "TITLE" : "Chart",
-    "BUTTONS" : {
-      "RELOAD" : {
-        "TOOLTIPS" : "Update chart",
-        "TEXT":"Update chart"
-      },
-      "ZOOM" : {
-        "TOOLTIPS" : "Reset Zoom",
-        "TEXT":"Reset Zoom"
-      }
-    },
-    "LEGEND": {
-      "POINTS" : "Points",
-      "FX" : "F(x)",
-      "GTX" : "GT(X)",
-      "TX" : "Ti(x)",
-      "EPSILON-TX" : "Epsilon T(x)",
-      "EPSILON-GTX" : "Epsilon GT(x)",
-      "VX" : "V(x)"
-    }
-  },
-  "FUNCTION-SETTINGS" : {
-    "TITLE" : "Function",
-    "XMIN" : {
-      "TOOLTIPS" : "A",
-      "PLACEHOLDER" : "A",
-      "ERROR" : {
-        "RANGE" : "A greater B",
-        "REQUIRED" : "required"
-      }
-    },
-    "XMAX" : {
-      "TOOLTIPS" : "B",
-      "PLACEHOLDER" : "B",
-      "ERROR" : {
-        "RANGE" : "B least A",
-        "REQUIRED" : "required"
-      }
-    },
-    "DELTAX" : {
-      "TOOLTIPS" : "Δx",
-      "PLACEHOLDER" : "Δx",
-      "ERROR" : {
-        "REQUIRED" : "required"
-      }
-    },
-    "STEP" : {
-      "TOOLTIPS" : "Step",
-      "PLACEHOLDER" : "Step",
-      "ERROR" : {
-        "REQUIRED" : "required"
-      }
-    },
-    "FUNCTION" : {
-      "TOOLTIPS" : "F(x)",
-      "PLACEHOLDER" : "F(x)",
-      "ERROR" : {
-        "REQUIRED" : "required",
-        "PATTERN" : "Invalid maths function"
-      }
-    },
-    "BUTTONS": {
-      "TOOLTIPS": {
-        "SEE" : "See Table F(x)",
-        "DRAW" : "Draw F(x)",
-        "CLEAR" : "Clear F(x)"
-      }
-    }
-  },
-  "GTELLER-SETTINGS" : {
-    "TITLE" : "GTeller",
-    "BUTTONS": {
-      "TOOLTIPS": {
-        "SEE" : "See Expression GT(x)",
-        "DRAW" : "Draw GT(x)",
-        "EPSILON" : "Draw Epision of GT(x)",
-        "CLEAR" : "Clear GT(x)"
-      }
-    }
-  },
-  "POINTS-SETTINGS" : {
-    "TITLE" : "Point",
-    "BETA-MAX" : {
-      "TOOLTIPS" : "β-Max",
-      "PLACEHOLDER" : "β-Max",
-      "ERROR" : {
-        "REQUIRED" : "required"
-      }
-    },
-    "BETA-INIT" : {
-      "TOOLTIPS" : "β-Init",
-      "PLACEHOLDER" : "β-Init",
-      "ERROR" : {
-        "REQUIRED" : "required"
-      }
-    },
-    "DELTAX" : {
-      "TOOLTIPS" : "Δx",
-      "PLACEHOLDER" : "Δx",
-      "ERROR" : {
-        "REQUIRED" : "required"
-      }
-    },
-    "STEP" : {
-      "TOOLTIPS" : "Step",
-      "PLACEHOLDER" : "Step",
-      "ERROR" : {
-        "REQUIRED" : "required"
-      }
-    },
-    "ALPHA" : {
-      "TOOLTIPS" : "α",
-      "PLACEHOLDER" : "α",
-      "ERROR" : {
-        "REQUIRED" : "required"
-      }
-    },
-    "X" : {
-      "TOOLTIPS" : "X",
-      "PLACEHOLDER" : "X",
-      "ERROR" : {
-        "REQUIRED" : "required",
-        "POINT" : "point exists"
-      }
-    },
-    "Y" : {
-      "TOOLTIPS" : "Y",
-      "PLACEHOLDER" : "Y",
-      "ERROR" : {
-        "REQUIRED" : "required",
-        "POINT" : "point exists"
-      }
-    },
-    "BUTTONS": {
-      "ADD": {
-        "TOOLTIPS" : "Add",
-        "TEXT" : "Add"
-      }
-    }
-  },
-  "TABLE-SETTINGS" : {
-    "TITLE" : "Table",
-    "HEADER" : {
-      "ID" : "No",
-      "ACTIONS": {
-        "TABLE": ""
-      }
-    },
-    "INPUT" : {
-      "TOOLTIPS" : ""
-    },
-    "BUTTONS" : {
-      "RESET" : {
-        "TOOLTIPS" : "Reset",
-        "TEXT" : "Reset"
-      },
-      "TELLER" : {
-        "SEE" : "See Expression T{{j}}(x)",
-        "DRAW" : "Draw T{{j}}(x)",
-        "EPSILON" : "Draw Epision of T{{j}}(x)",
-        "CLEAR" : "Clear T{{j}}(x)"
-      }
-    }
-  },
-  "DIALOG-TABLE" : {
-    "TITLE" : "Table",
-    "HEADER" : {
-      "ID" : "No",
-      "ACTIONS" : "Add"
-    },
-    "BUTTONS" : {
-      "ADD" : {
-        "TOOLTIPS" : "Add point"
-      }
-    }
-  },
-  "DIALOG-FORMULE" : {
-    "TITLE" : "Formule",
-    "HEADER" : {
-      "SIMPLIFY" : "Simplify",
-      "EXPRESSION" : "Expression",
-      "SCOPE" : "Scope"
-    },
-    "CONTEXT" : {
-      "COPY" : "Copy",
-      "EXPRESSION" : "as Text Expression",
-      "LATEX" : "as LATEX",
-      "TEXT" : "as Text",
-      "FUNCTION" : "as Text Function"
-    }
-  },
-
-  "PAGINATION" :  {
-    "ITEMS_PER_PAGE_LABEL": "Item per page",
-    "NEXT_PAGE_LABEL": "Next page",
-    "PREVIOUS_PAGE_LABEL": "Previous page",
-    "FIRST_PAGE_LABEL": "First page",
-    "LAST_PAGE_LABEL": "Last page",
-    "RANGE_PAGE_LABEL_1": "0 to {{length}}",
-    "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} to {{length}}"
-  }
+	"APP": {
+		"LOGO": {
+			"SUB-TITLE": "TELLER",
+			"TITLE": "B-INTERPOLATE-"
+		}
+	},
+	"CHART": {
+		"BUTTONS": {
+			"RELOAD": {
+				"TEXT": "Update chart",
+				"TOOLTIPS": "Update chart"
+			},
+			"ZOOM": {
+				"TEXT": "Reset Zoom",
+				"TOOLTIPS": "Reset Zoom"
+			}
+		},
+		"LEGEND": {
+			"EPSILON-GTX": "Epsilon of GT(x)",
+			"EPSILON-TX": "Epsilon of T(x)",
+			"FX": "F(x)",
+			"GTX": "GT(X)",
+			"POINTS": "Points",
+			"TX": "T{{value}}(x)",
+			"VX": "V(x)"
+		},
+		"TITLE": "Chart"
+	},
+	"CHART-SETTINGS": {
+		"CHECKBOXES": {
+			"POINTS": "Display Points Func.",
+			"RELOAD": "Live Reload",
+			"TABLE": "Table"
+		},
+		"TITLE": "Graphics Settings",
+		"VERIFICATION": {
+			"PLACEHOLDER": "V(x)",
+			"TOOLTIPS": {
+				"CLEAR": "Clear",
+				"DRAW": "Click to Draw V(x)",
+				"FUNCTION": "V(x)",
+				"SEE": "Click to see table data of V(x)"
+			}
+		}
+	},
+	"DASHBORD": {
+		"SELECT": "Change language"
+	},
+	"DIALOG-FORMULE": {
+		"CONTEXT": {
+			"COPY": "Copy",
+			"EXPRESSION": "as Text Expression",
+			"FUNCTION": "as Text Function",
+			"LATEX": "as LATEX",
+			"TEXT": "as Text"
+		},
+		"HEADER": {
+			"EXPRESSION": "Expression",
+			"SCOPE": "Scope Expression",
+			"SIMPLIFY": "Simplify"
+		},
+		"TITLE": "Formula"
+	},
+	"DIALOG-TABLE": {
+		"BUTTONS": {
+			"ADD": {
+				"TOOLTIPS": "Add point"
+			}
+		},
+		"HEADER": {
+			"ACTIONS": "Add",
+			"ID": "No."
+		},
+		"TITLE": "Table"
+	},
+	"FUNCTION-SETTINGS": {
+		"BUTTONS": {
+			"TOOLTIPS": {
+				"CLEAR": "Clear F(x)",
+				"DRAW": "Draw F(x)",
+				"SEE": "Click to see table data of  F(x)"
+			}
+		},
+		"DELTAX": {
+			"ERROR": {
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "Δx",
+			"TOOLTIPS": "Δx"
+		},
+		"FUNCTION": {
+			"ERROR": {
+				"PATTERN": "Invalid maths function",
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "F(x)",
+			"TOOLTIPS": "F(x)"
+		},
+		"STEP": {
+			"ERROR": {
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "Step",
+			"TOOLTIPS": "Step"
+		},
+		"TITLE": "Function",
+		"XMAX": {
+			"ERROR": {
+				"RANGE": "B least A",
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "B",
+			"TOOLTIPS": "B"
+		},
+		"XMIN": {
+			"ERROR": {
+				"RANGE": "A greater B",
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "A",
+			"TOOLTIPS": "A"
+		}
+	},
+	"GTELLER-SETTINGS": {
+		"BUTTONS": {
+			"TOOLTIPS": {
+				"CLEAR": "Clear GT(x)",
+				"DRAW": "Click to Draw GT(x)",
+				"EPSILON": "Click to Draw Epsilon of GT(x)",
+				"SEE": "Click to See Expression GT(x)"
+			}
+		},
+		"TITLE": "GTeller"
+	},
+	"LOGO": {
+		"SUB-TITLE": "TELLER",
+		"TITLE": "B-INTERPOLATE-"
+	},
+	"PAGES": {
+		"HOME": {
+			"TITLE": "b-interpolate-teller !"
+		}
+	},
+	"PAGINATION": {
+		"FIRST_PAGE_LABEL": "First page",
+		"ITEMS_PER_PAGE_LABEL": "Item per page",
+		"LAST_PAGE_LABEL": "Last page",
+		"NEXT_PAGE_LABEL": "Next page",
+		"PREVIOUS_PAGE_LABEL": "Previous page",
+		"RANGE_PAGE_LABEL_1": "0 to {{length}}",
+		"RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} to {{length}}"
+	},
+	"POINTS-SETTINGS": {
+		"ALPHA": {
+			"ERROR": {
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "α",
+			"TOOLTIPS": "α"
+		},
+		"BETA-INIT": {
+			"ERROR": {
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "β-Init",
+			"TOOLTIPS": "Initial value of β"
+		},
+		"BETA-MAX": {
+			"ERROR": {
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "β-Max",
+			"TOOLTIPS": "Max. quantity of β"
+		},
+		"BUTTONS": {
+			"ADD": {
+				"TEXT": "Add",
+				"TOOLTIPS": "Add"
+			}
+		},
+		"DELTAX": {
+			"ERROR": {
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "Δx",
+			"TOOLTIPS": "Δx"
+		},
+		"STEP": {
+			"ERROR": {
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "Step",
+			"TOOLTIPS": "Step"
+		},
+		"TITLE": "Point",
+		"X": {
+			"ERROR": {
+				"POINT": "point exists",
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "X",
+			"TOOLTIPS": "X"
+		},
+		"Y": {
+			"ERROR": {
+				"POINT": "point exists",
+				"REQUIRED": "required"
+			},
+			"PLACEHOLDER": "Y",
+			"TOOLTIPS": "Y"
+		}
+	},
+	"TABLE-SETTINGS": {
+		"BUTTONS": {
+			"RESET": {
+				"TEXT": "Reset ",
+				"TOOLTIPS": "Сlick to reset table of approximations' points"
+			},
+			"TELLER": {
+				"CLEAR": "Click to clear T{{j}}(x)",
+				"DRAW": "Click to draw T{{j}}(x)",
+				"EPSILON": "Click to draw epsilon of T{{j}}(x)",
+				"SEE": "Click to see expression T{{j}}(x)"
+			}
+		},
+		"HEADER": {
+			"ACTIONS": {
+				"TABLE": ""
+			},
+			"ID": "No."
+		},
+		"INPUT": {
+			"TOOLTIPS": ""
+		},
+		"TITLE": "Points of approximation"
+	}
 }

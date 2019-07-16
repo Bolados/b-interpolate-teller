@@ -1,16 +1,238 @@
 {
-  "PAGES": {
-      "HOME": {
-          "TITLE": "b-interpolate-teller !"
-      }
-  },
-
-  "LOGO": {
-    "TITLE": "B-INTERPOLATE-",
-    "SUB-TITLE": "TELLER"
-  },
-
-  "DASHBORD": {
-    "SELECT": "Изменить язык"
-  }
+	"APP": {
+		"LOGO": {
+			"SUB-TITLE": "TELLER",
+			"TITLE": "B-INTERPOLATE-"
+		}
+	},
+	"CHART": {
+		"BUTTONS": {
+			"RELOAD": {
+				"TEXT": "Обновить графику",
+				"TOOLTIPS": "Обновить графику"
+			},
+			"ZOOM": {
+				"TEXT": "Сбросить масштаб",
+				"TOOLTIPS": "Сбросить масштаб"
+			}
+		},
+		"LEGEND": {
+			"EPSILON-GTX": "Эпсилон от GT (x)",
+			"EPSILON-TX": "Эпсилон от T(x)",
+			"FX": "Исходнная нелинейность F(x)",
+			"GTX": "GT(X)",
+			"POINTS": "Точки",
+			"TX": "Тейлор{{value}}(x)",
+			"VX": "Проверочная функция V(x)"
+		},
+		"TITLE": "Графика"
+	},
+	"CHART-SETTINGS": {
+		"CHECKBOXES": {
+			"POINTS": "Показать точки Функции.",
+			"RELOAD": "Авто. Обновление",
+			"TABLE": "Таблица"
+		},
+		"TITLE": "Настройки графики",
+		"VERIFICATION": {
+			"PLACEHOLDER": "V(x)",
+			"TOOLTIPS": {
+				"CLEAR": "Очистить",
+				"DRAW": "Нажмите, чтобы нарисовать V(х)",
+				"FUNCTION": "Проверочная функция V(x)",
+				"SEE": "Нажмите, чтобы увидеть данные таблицы V(x)"
+			}
+		}
+	},
+	"DASHBORD": {
+		"SELECT": "Изменить язык"
+	},
+	"DIALOG-FORMULE": {
+		"CONTEXT": {
+			"COPY": "Копия",
+			"EXPRESSION": "как текстовое выражение",
+			"FUNCTION": "как текстовая функция",
+			"LATEX": "в LATEX формате",
+			"TEXT": "как текст"
+		},
+		"HEADER": {
+			"EXPRESSION": "Выражение",
+			"SCOPE": "пределы выражения",
+			"SIMPLIFY": "Упрощенный"
+		},
+		"TITLE": "Формула"
+	},
+	"DIALOG-TABLE": {
+		"BUTTONS": {
+			"ADD": {
+				"TOOLTIPS": "Добавить точку"
+			}
+		},
+		"HEADER": {
+			"ACTIONS": "Добавить",
+			"ID": "No."
+		},
+		"TITLE": "Таблица"
+	},
+	"FUNCTION-SETTINGS": {
+		"BUTTONS": {
+			"TOOLTIPS": {
+				"CLEAR": "Нажмите, чтобы очищать исходную нелинейность  F(x)",
+				"DRAW": "Нажмите, чтобы рисовать исходную нелинейность  F(x)",
+				"SEE": "Нажмите, чтобы увидеть данные таблицы F(x)"
+			}
+		},
+		"DELTAX": {
+			"ERROR": {
+				"REQUIRED": "необходимые"
+			},
+			"PLACEHOLDER": "Δx",
+			"TOOLTIPS": "Δx"
+		},
+		"FUNCTION": {
+			"ERROR": {
+				"PATTERN": "Неверная математическая функция",
+				"REQUIRED": "необходимые"
+			},
+			"PLACEHOLDER": "F(x)",
+			"TOOLTIPS": "Исходная нелинейность  F(x)"
+		},
+		"STEP": {
+			"ERROR": {
+				"REQUIRED": "необходимые"
+			},
+			"PLACEHOLDER": "шаг",
+			"TOOLTIPS": "шаг"
+		},
+		"TITLE": "функция",
+		"XMAX": {
+			"ERROR": {
+				"RANGE": "B минимум A",
+				"REQUIRED": ""
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		},
+		"XMIN": {
+			"ERROR": {
+				"RANGE": "",
+				"REQUIRED": ""
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		}
+	},
+	"GTELLER-SETTINGS": {
+		"BUTTONS": {
+			"TOOLTIPS": {
+				"CLEAR": "Очистить GT (x)",
+				"DRAW": "Нажмите, чтобы рисовать GT(х)",
+				"EPSILON": "Нажмите, чтобы рисовать эпсилон от GT(x)",
+				"SEE": "Нажмите, чтобы посмотреть выражение GT(x)"
+			}
+		},
+		"TITLE": "Обобщенный Тейлор"
+	},
+	"LOGO": {
+		"SUB-TITLE": "ТЕЙЛОРА",
+		"TITLE": "Б-ИНТЕРПОЛИРОВАНИЕ-"
+	},
+	"PAGES": {
+		"HOME": {
+			"TITLE": "b-interpolate-teller !"
+		}
+	},
+	"PAGINATION": {
+		"FIRST_PAGE_LABEL": "Первая страница",
+		"ITEMS_PER_PAGE_LABEL": "Элемент на странице",
+		"LAST_PAGE_LABEL": "Последняя страница",
+		"NEXT_PAGE_LABEL": "Следующая страница",
+		"PREVIOUS_PAGE_LABEL": "Предыдущая страница",
+		"RANGE_PAGE_LABEL_1": "От 0 до {{length}}",
+		"RANGE_PAGE_LABEL_2": "от {{startIndex}} - {{endIndex}} до {{length}}"
+	},
+	"POINTS-SETTINGS": {
+		"ALPHA": {
+			"ERROR": {
+				"REQUIRED": "необходимые"
+			},
+			"PLACEHOLDER": "α",
+			"TOOLTIPS": "α"
+		},
+		"BETA-INIT": {
+			"ERROR": {
+				"REQUIRED": "необходимые"
+			},
+			"PLACEHOLDER": "β-Иниц",
+			"TOOLTIPS": "Начальное значение β"
+		},
+		"BETA-MAX": {
+			"ERROR": {
+				"REQUIRED": "необходимые"
+			},
+			"PLACEHOLDER": "β-Max",
+			"TOOLTIPS": "Максимальное количество β"
+		},
+		"BUTTONS": {
+			"ADD": {
+				"TEXT": "Добавить",
+				"TOOLTIPS": "добавлять"
+			}
+		},
+		"DELTAX": {
+			"ERROR": {
+				"REQUIRED": "необходимые"
+			},
+			"PLACEHOLDER": "? x",
+			"TOOLTIPS": "? x"
+		},
+		"STEP": {
+			"ERROR": {
+				"REQUIRED": "необходимые"
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		},
+		"TITLE": "",
+		"X": {
+			"ERROR": {
+				"POINT": "",
+				"REQUIRED": ""
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		},
+		"Y": {
+			"ERROR": {
+				"POINT": "",
+				"REQUIRED": ""
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		}
+	},
+	"TABLE-SETTINGS": {
+		"BUTTONS": {
+			"RESET": {
+				"TEXT": "Удалить ",
+				"TOOLTIPS": "Нажмите, чтобы удалить все точки аппроксимации"
+			},
+			"TELLER": {
+				"CLEAR": "Нажмите, чтобы очистить T{{j}}(x)",
+				"DRAW": "Нажмите, чтобы рисовать T{{j}}(x)",
+				"EPSILON": "Нажмите, чтобы рисовать эпсилон от T{{j}}(x)",
+				"SEE": "Нажмите, чтобы посмотреть выражение T{{j}}(x)"
+			}
+		},
+		"HEADER": {
+			"ACTIONS": {
+				"TABLE": ""
+			},
+			"ID": "No."
+		},
+		"INPUT": {
+			"TOOLTIPS": ""
+		},
+		"TITLE": "Точки аппроксимации"
+	}
 }

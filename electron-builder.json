@@ -17,7 +17,8 @@
       "!tsconfig.json",
       "!tslint.json",
       "!yarn.lock",
-      "!yarn-error.log"
+      "!yarn-error.log",
+      "!**/*.*.babel"
   ],
   "win": {
     "icon": "dist/b-interpolate-teller",

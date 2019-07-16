@@ -407,7 +407,7 @@ export class ChartService {
 
   private initLangService() {
     this.chartData.forEach( (value, index) => {
-      this.translateService.get('CHART.LEGEND.' + value.ID.toUpperCase()).subscribe((res: string) => {
+      this.translateService.get('CHART.LEGEND.' + value.ID.toUpperCase(), {value: value.tellerPoint}).subscribe((res: string) => {
         value.label = res;
       });
     });

@@ -1,16 +1,238 @@
 {
-  "PAGES": {
-      "HOME": {
-          "TITLE": "b-interpolate-teller !"
-      }
-  },
-
-  "LOGO": {
-    "TITLE": "B-INTERPOLATE-",
-    "SUB-TITLE": "TELLER"
-  },
-
-  "DASHBORD": {
-    "SELECT": "Changez la language"
-  }
+	"APP": {
+		"LOGO": {
+			"SUB-TITLE": "TELLER",
+			"TITLE": "B-INTERPOLATE-"
+		}
+	},
+	"CHART": {
+		"BUTTONS": {
+			"RELOAD": {
+				"TEXT": "Mise à jour du graphique",
+				"TOOLTIPS": "Mise à jour du graphique"
+			},
+			"ZOOM": {
+				"TEXT": "Réinitialiser le zoom",
+				"TOOLTIPS": "Réinitialiser le zoom"
+			}
+		},
+		"LEGEND": {
+			"EPSILON-GTX": "Epsilon de GT(x)",
+			"EPSILON-TX": "Epsilon de T(x)",
+			"FX": "F(x)",
+			"GTX": "GT(X)",
+			"POINTS": "Points",
+			"TX": "T{{value}}(x)",
+			"VX": "V(x)"
+		},
+		"TITLE": "Graphique"
+	},
+	"CHART-SETTINGS": {
+		"CHECKBOXES": {
+			"POINTS": "Montrer Points Func.",
+			"RELOAD": "Actualisation",
+			"TABLE": "Table"
+		},
+		"TITLE": "Paramètres graphiques",
+		"VERIFICATION": {
+			"PLACEHOLDER": "V(x)",
+			"TOOLTIPS": {
+				"CLEAR": "Effacer",
+				"DRAW": "Cliquer pour dessiner V(x)",
+				"FUNCTION": "V(x)",
+				"SEE": "Cliquer pour afficher les données de V(x)"
+			}
+		}
+	},
+	"DASHBORD": {
+		"SELECT": "Changez la language"
+	},
+	"DIALOG-FORMULE": {
+		"CONTEXT": {
+			"COPY": "Copie",
+			"EXPRESSION": "comme une expression",
+			"FUNCTION": "comme une fonction",
+			"LATEX": "en format LATEX",
+			"TEXT": "comme un texte"
+		},
+		"HEADER": {
+			"EXPRESSION": "Expression",
+			"SCOPE": "Portée de l'expression",
+			"SIMPLIFY": "Simplifier"
+		},
+		"TITLE": "Formule"
+	},
+	"DIALOG-TABLE": {
+		"BUTTONS": {
+			"ADD": {
+				"TOOLTIPS": "Ajouter un point"
+			}
+		},
+		"HEADER": {
+			"ACTIONS": "Ajouter",
+			"ID": "No."
+		},
+		"TITLE": "Table"
+	},
+	"FUNCTION-SETTINGS": {
+		"BUTTONS": {
+			"TOOLTIPS": {
+				"CLEAR": "Effacer  F(x)",
+				"DRAW": "Dessiner F(x)",
+				"SEE": "Cliquer pour afficher les données de F(x)"
+			}
+		},
+		"DELTAX": {
+			"ERROR": {
+				"REQUIRED": "champs obligatoires"
+			},
+			"PLACEHOLDER": "Δx",
+			"TOOLTIPS": "Δx"
+		},
+		"FUNCTION": {
+			"ERROR": {
+				"PATTERN": "Fonction mathématique invalide",
+				"REQUIRED": "Champs obligatoires"
+			},
+			"PLACEHOLDER": "F(x)",
+			"TOOLTIPS": "F(x)"
+		},
+		"STEP": {
+			"ERROR": {
+				"REQUIRED": "Champs obligatoires"
+			},
+			"PLACEHOLDER": "Étape",
+			"TOOLTIPS": "Étape"
+		},
+		"TITLE": "Une fonction",
+		"XMAX": {
+			"ERROR": {
+				"RANGE": "B moins A",
+				"REQUIRED": ""
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		},
+		"XMIN": {
+			"ERROR": {
+				"RANGE": "",
+				"REQUIRED": ""
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		}
+	},
+	"GTELLER-SETTINGS": {
+		"BUTTONS": {
+			"TOOLTIPS": {
+				"CLEAR": "Effacer GT (x)",
+				"DRAW": "Cliquer pour dessiner GT (x)",
+				"EPSILON": "Cliquer pour dessiner Epsilon de GT(x)",
+				"SEE": "Cliquer pour voir l'expression de GT(x)"
+			}
+		},
+		"TITLE": "GTeller"
+	},
+	"LOGO": {
+		"SUB-TITLE": "TELLER",
+		"TITLE": "B-INTERPOLATION-"
+	},
+	"PAGES": {
+		"HOME": {
+			"TITLE": "b-interpolate-teller !"
+		}
+	},
+	"PAGINATION": {
+		"FIRST_PAGE_LABEL": "Première page",
+		"ITEMS_PER_PAGE_LABEL": "Article par page",
+		"LAST_PAGE_LABEL": "Dernière page",
+		"NEXT_PAGE_LABEL": "Page suivante",
+		"PREVIOUS_PAGE_LABEL": "Page précédente",
+		"RANGE_PAGE_LABEL_1": "0 à {{length}}",
+		"RANGE_PAGE_LABEL_2": "de {{startIndex}} - {{endIndex}} à {{length}}"
+	},
+	"POINTS-SETTINGS": {
+		"ALPHA": {
+			"ERROR": {
+				"REQUIRED": "Champs obligatoires"
+			},
+			"PLACEHOLDER": "α",
+			"TOOLTIPS": "α"
+		},
+		"BETA-INIT": {
+			"ERROR": {
+				"REQUIRED": "Champs obligatoires"
+			},
+			"PLACEHOLDER": "β-Init",
+			"TOOLTIPS": "Valeur initial de β"
+		},
+		"BETA-MAX": {
+			"ERROR": {
+				"REQUIRED": "Champs obligatoires"
+			},
+			"PLACEHOLDER": "β-Max",
+			"TOOLTIPS": "Nombre maximal de β"
+		},
+		"BUTTONS": {
+			"ADD": {
+				"TEXT": "Ajouter",
+				"TOOLTIPS": "Ajouter"
+			}
+		},
+		"DELTAX": {
+			"ERROR": {
+				"REQUIRED": "Champs obligatoires"
+			},
+			"PLACEHOLDER": "Δx",
+			"TOOLTIPS": "Δx"
+		},
+		"STEP": {
+			"ERROR": {
+				"REQUIRED": "Champs obligatoires"
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		},
+		"TITLE": "",
+		"X": {
+			"ERROR": {
+				"POINT": "",
+				"REQUIRED": ""
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		},
+		"Y": {
+			"ERROR": {
+				"POINT": "",
+				"REQUIRED": ""
+			},
+			"PLACEHOLDER": "",
+			"TOOLTIPS": ""
+		}
+	},
+	"TABLE-SETTINGS": {
+		"BUTTONS": {
+			"RESET": {
+				"TEXT": "Réinitialiser",
+				"TOOLTIPS": "Cliquer pour effacer tous les points d'approximation"
+			},
+			"TELLER": {
+				"CLEAR": "Cliquer pour effacer T{{j}}(x)",
+				"DRAW": "Cliquer pour dessine T{{j}}(x)",
+				"EPSILON": "Cliquer pour dessine epsilon de T{{j}}(x)",
+				"SEE": "Cliquer pour  voir l'expression T{{j}}(x)"
+			}
+		},
+		"HEADER": {
+			"ACTIONS": {
+				"TABLE": ""
+			},
+			"ID": "No."
+		},
+		"INPUT": {
+			"TOOLTIPS": ""
+		},
+		"TITLE": "Points d'approximations"
+	}
 }

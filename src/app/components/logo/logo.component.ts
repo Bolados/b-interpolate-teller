@@ -1,4 +1,5 @@
 import {Component, ElementRef, HostListener, Input, OnInit} from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -9,15 +10,11 @@ import {Component, ElementRef, HostListener, Input, OnInit} from '@angular/core'
 export class LogoComponent implements OnInit {
 
 
-  @Input() name: string = "B-INTERPOLATE-";
-  @Input() sub: string = "TELLER";
-  @Input() link: string = "/";
+  @Input() link = '/';
 
-  highlight: boolean = false;
-  private el: HTMLElement;
+  public highlight = false;
 
-  constructor(el: ElementRef) {
-    this.el = el.nativeElement;
+  constructor(translateService: TranslateService) {
   }
 
   open() {
