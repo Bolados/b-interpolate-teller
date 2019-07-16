@@ -134,7 +134,7 @@
 	"GTELLER-SETTINGS": {
 		"BUTTONS": {
 			"TOOLTIPS": {
-				"CLEAR": "Очистить GT (x)",
+				"CLEAR": "Очистить GT(x)",
 				"DRAW": "Рисовать GT(х)",
 				"EPSILON": "Рисовать эпсилон от GT(x)",
 				"SEE": "Посмотреть выражение GT(x)"

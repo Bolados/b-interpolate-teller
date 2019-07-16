@@ -16,7 +16,7 @@ export class FunctionSettingsComponent implements OnInit {
   private xAxisMin = -1;
   private xAxisMax = 1;
 
-  public fxParam: FuncParam = new FuncParam('exp(x)', this.xAxisMin, this.xAxisMax, 0.1, 0);
+  public fxParam: FuncParam = new FuncParam('', this.xAxisMin, this.xAxisMax, 0.1, 0);
 
   funcFormGroup: FormGroup = this.buildFuncForm(this.fxParam);
 

@@ -232,8 +232,8 @@
 			},
 			"TELLER": {
 				"CLEAR": "Effacer  T_{{value}}(x)",
-				"DRAW": "Dessine  T_{{value}}(x)",
-				"EPSILON": "Dessine epsilon de  T_{{value}}(x)",
+				"DRAW": "Dessiner  T_{{value}}(x)",
+				"EPSILON": "Dessiner epsilon de  T_{{value}}(x)",
 				"SEE": "Voir l'expression T_{{value}}(x)"
 			}
 		},

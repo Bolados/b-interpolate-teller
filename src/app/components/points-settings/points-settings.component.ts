@@ -129,7 +129,7 @@ export class PointsSettingsComponent implements OnInit {
   buildTellerForm(tellerFormParam: TellerFormParam): FormGroup {
     return this.formBuilder.group({
       x: new FormControl(tellerFormParam.point.x, [Validators.required, this.validatePoint('x')]),
-      y: new FormControl(tellerFormParam.point.y, [Validators.required, this.validatePoint('y')]),
+      y: new FormControl(tellerFormParam.point.y, [this.validatePoint('y')]),
       alpha: new FormControl(tellerFormParam.alpha, [Validators.required]),
       deltaX: new FormControl(tellerFormParam.deltaX, [Validators.required]),
       maxBeta: new FormControl(tellerFormParam.maxBeta, Validators.required),
