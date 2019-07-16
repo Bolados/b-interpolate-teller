@@ -1,7 +1,7 @@
 import { Component, ViewChild, AfterViewInit, ViewChildren, QueryList,
-  Input, ElementRef, OnInit, ChangeDetectorRef } from '@angular/core';
+  Input, ElementRef, OnInit, Output , EventEmitter} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource, MatDialog} from '@angular/material';
-import { ChartService, INDEX_TX_DRAW, INDEX_EPSILON_TX_DRAW, INDEX_EPSILON_GTX_DRAW, INDEX_GTX_DRAW } from 'src/app/services/chart/chart.service';
+import { ChartService, INDEX_TX_DRAW, INDEX_EPSILON_TX_DRAW} from 'src/app/services/chart/chart.service';
 import {Point} from '../../domains/models/point.model';
 import {TellerParam} from '../../domains/models/teller.param.model';
 import {StorageService} from '../../services/storage/storage.service';
@@ -11,7 +11,6 @@ import { Overlay } from '@angular/cdk/overlay';
 import { TellerFormuleDialogComponent } from '../dialogs';
 import { MathjaxComponent } from '../mathjax';
 import { MathService } from 'src/app/services/math/math.service';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 @Component({
@@ -21,6 +20,8 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 })
 export class TableDataPointsComponent implements OnInit, AfterViewInit {
 
+  @Output() paginatorPageSizeChanged: EventEmitter<number> = new EventEmitter();
+
   @ViewChild('paginator', {static: false}) paginator: MatPaginator;
   @ViewChild('matSort', {static: false}) matSort: MatSort;
   @ViewChildren('mathjaxs') mathjaxs: QueryList<MathjaxComponent>;
@@ -29,13 +30,15 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
   liveReload: boolean;
 
 
-
   @Input()
   paramOnly = false;
   @Input()
   coordinateOnly = false;
   @Input()
   functionSettingComponent: FunctionSettingsComponent;
+  @Input()
+  paginatorPageSize: number = 1;
+
 
   public seeTellerExpression(element: PointsData) {
     if (this.functionSettingComponent.funcFormGroup.valid) {
@@ -206,6 +209,11 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
     this.chartService.forceReload = true;
     this.changeParamValue (item, header, value);
     this.chartService.forceReload = false;
+  }
+
+  onPaginateChange(event) {
+    this.paginatorPageSize = event.pageIndex;
+    this.paginatorPageSizeChanged.emit(event.pageSize);
   }
 
   constructor(

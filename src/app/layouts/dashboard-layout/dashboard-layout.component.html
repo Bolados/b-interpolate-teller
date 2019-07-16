@@ -52,9 +52,11 @@
 
       <mat-grid-tile
         [colspan]="3"
-        [rowspan]="6"
+        [rowspan]="(paginatorPageSize === 1) ? 7 : (7 * ((paginatorPageSize / 5) + 1))"
       >
-        <app-table-data-points [functionSettingComponent] = "appFunctionSettings">
+        <app-table-data-points #appTableDataPoints
+          [paginatorPageSize]="paginatorPageSize"
+          [functionSettingComponent] = "appFunctionSettings">
             loading
         </app-table-data-points>
       </mat-grid-tile>

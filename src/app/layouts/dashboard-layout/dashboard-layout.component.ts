@@ -1,6 +1,7 @@
-import {Component, OnInit, AfterViewInit, ChangeDetectorRef} from '@angular/core';
+import {Component, OnInit, AfterViewInit, ChangeDetectorRef, ViewChild} from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { ChartService } from 'src/app/services/chart/chart.service';
+import { TableDataPointsComponent } from 'src/app/components/table-data-points/table-data-points.component';
 
 
 
@@ -13,6 +14,9 @@ import { ChartService } from 'src/app/services/chart/chart.service';
 export class DashboardLayoutComponent implements OnInit, AfterViewInit {
   themeClass = 'blur-mint-theme';
   date = new Date();
+  @ViewChild('appTableDataPoints', {static: false}) tableDataPointsComponent: TableDataPointsComponent;
+  paginatorPageSize = 1;
+
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -31,6 +35,7 @@ export class DashboardLayoutComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.tableDataPointsComponent.paginatorPageSizeChanged.subscribe( value => (this.paginatorPageSize = value));
   }
 
 
