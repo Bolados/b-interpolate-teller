@@ -153,7 +153,7 @@
 	},
 	"PAGINATION": {
 		"FIRST_PAGE_LABEL": "First page",
-		"ITEMS_PER_PAGE_LABEL": "Item per page",
+		"ITEMS_PER_PAGE_LABEL": "Points per page",
 		"LAST_PAGE_LABEL": "Last page",
 		"NEXT_PAGE_LABEL": "Next page",
 		"PREVIOUS_PAGE_LABEL": "Previous page",

@@ -16,12 +16,13 @@ function createWindow() {
         width: size.width,
         height: size.height,
         useContentSize: true,
-        frame: true,
+        frame: false,
         webPreferences: {
             webSecurity: false,
             nodeIntegration: true,
         },
     });
+    win.setMenu(null);
     if (serve) {
         require('electron-reload')(__dirname, {
             electron: require(__dirname + "/node_modules/electron")

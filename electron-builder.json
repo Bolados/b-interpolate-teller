@@ -18,7 +18,8 @@
       "!tslint.json",
       "!yarn.lock",
       "!yarn-error.log",
-      "!**/*.*.babel"
+      "!**/*.*.babel",
+      "!./icons/"
   ],
   "win": {
     "icon": "dist/b-interpolate-teller",

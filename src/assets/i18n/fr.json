@@ -58,7 +58,7 @@
 	},
 	"DIALOG-FORMULE": {
 		"CONTEXT": {
-			"COPY": "Copie",
+			"COPY": "Copier",
 			"EXPRESSION": "comme une expression",
 			"FUNCTION": "comme une fonction",
 			"LATEX": "en format LATEX",
@@ -153,7 +153,7 @@
 	},
 	"PAGINATION": {
 		"FIRST_PAGE_LABEL": "Première page",
-		"ITEMS_PER_PAGE_LABEL": "Article par page",
+		"ITEMS_PER_PAGE_LABEL": "Points par page",
 		"LAST_PAGE_LABEL": "Dernière page",
 		"NEXT_PAGE_LABEL": "Page suivante",
 		"PREVIOUS_PAGE_LABEL": "Page précédente",
