@@ -18,29 +18,38 @@
 		},
 		"LEGEND": {
 			"EPSILON-GTX": "Epsilon of GT(x)",
-			"EPSILON-TX": "Epsilon of T(x)",
+			"EPSILON-TX": "Epsilon of T_{{value}}(x)",
 			"FX": "F(x)",
 			"GTX": "GT(X)",
 			"POINTS": "Points",
-			"TX": "T{{value}}(x)",
+			"TX": "T_{{value}}(x)",
 			"VX": "V(x)"
 		},
 		"TITLE": "Chart"
 	},
 	"CHART-SETTINGS": {
 		"CHECKBOXES": {
-			"POINTS": "Display Points Func.",
-			"RELOAD": "Live Reload",
-			"TABLE": "Table"
+			"POINTS": {
+				"TEXT": "Points Func.",
+				"TOOLTIPS": "Show / Hide Points Function"
+			},
+			"RELOAD": {
+				"TEXT": "Live Reload",
+				"TOOLTIPS": "Activation / Deactivation Live Reload"
+			},
+			"TABLE": {
+				"TEXT": "Points ",
+				"TOOLTIPS": "Show / Hide points of approximations"
+			}
 		},
 		"TITLE": "Graphics Settings",
 		"VERIFICATION": {
 			"PLACEHOLDER": "V(x)",
 			"TOOLTIPS": {
-				"CLEAR": "Clear",
-				"DRAW": "Click to Draw V(x)",
+				"CLEAR": "Clear V(x)",
+				"DRAW": "Draw V(x)",
 				"FUNCTION": "V(x)",
-				"SEE": "Click to see table data of V(x)"
+				"SEE": "See table data to draw V(x)"
 			}
 		}
 	},
@@ -79,7 +88,7 @@
 			"TOOLTIPS": {
 				"CLEAR": "Clear F(x)",
 				"DRAW": "Draw F(x)",
-				"SEE": "Click to see table data of  F(x)"
+				"SEE": "See table data to draw  F(x)"
 			}
 		},
 		"DELTAX": {
@@ -102,9 +111,9 @@
 				"REQUIRED": "required"
 			},
 			"PLACEHOLDER": "Step",
-			"TOOLTIPS": "Step"
+			"TOOLTIPS": ""
 		},
-		"TITLE": "Function",
+		"TITLE": "Function Settings",
 		"XMAX": {
 			"ERROR": {
 				"RANGE": "B least A",
@@ -126,9 +135,9 @@
 		"BUTTONS": {
 			"TOOLTIPS": {
 				"CLEAR": "Clear GT(x)",
-				"DRAW": "Click to Draw GT(x)",
-				"EPSILON": "Click to Draw Epsilon of GT(x)",
-				"SEE": "Click to See Expression GT(x)"
+				"DRAW": "Draw GT(x)",
+				"EPSILON": "Draw Epsilon of GT(x)",
+				"SEE": "See Expression of GT(x)"
 			}
 		},
 		"TITLE": "GTeller"
@@ -176,7 +185,7 @@
 		"BUTTONS": {
 			"ADD": {
 				"TEXT": "Add",
-				"TOOLTIPS": "Add"
+				"TOOLTIPS": "Add Point"
 			}
 		},
 		"DELTAX": {
@@ -191,7 +200,7 @@
 				"REQUIRED": "required"
 			},
 			"PLACEHOLDER": "Step",
-			"TOOLTIPS": "Step"
+			"TOOLTIPS": ""
 		},
 		"TITLE": "Point",
 		"X": {
@@ -215,13 +224,13 @@
 		"BUTTONS": {
 			"RESET": {
 				"TEXT": "Reset ",
-				"TOOLTIPS": "Сlick to reset table of approximations' points"
+				"TOOLTIPS": "Reset table of approximations' points"
 			},
 			"TELLER": {
-				"CLEAR": "Click to clear T{{j}}(x)",
-				"DRAW": "Click to draw T{{j}}(x)",
-				"EPSILON": "Click to draw epsilon of T{{j}}(x)",
-				"SEE": "Click to see expression T{{j}}(x)"
+				"CLEAR": "Сlear T{{j}}(x)",
+				"DRAW": "Draw T{{j}}(x)",
+				"EPSILON": "Draw epsilon of T{{j}}(x)",
+				"SEE": "See expression T{{j}}(x)"
 			}
 		},
 		"HEADER": {

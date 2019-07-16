@@ -33,6 +33,7 @@ mat-card {
   .checkboxes {
     float: right;
     padding-right: 10px;
+    padding-top: 8px;
 
     .field {
       margin-right: 10px;
@@ -44,6 +45,7 @@ mat-card {
     float: left;
     padding: 0px 10px;
     margin: -4px 0px;
+    width: 40%;
 
     .field {
       width: 75px;
@@ -52,7 +54,7 @@ mat-card {
     }
 
     .field-spec{
-      width: 80%;
+      width: 75%;
     }
 
     .button.see {

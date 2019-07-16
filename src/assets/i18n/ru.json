@@ -12,35 +12,44 @@
 				"TOOLTIPS": "Обновить графику"
 			},
 			"ZOOM": {
-				"TEXT": "Сбросить масштаб",
+				"TEXT": "Сбросить",
 				"TOOLTIPS": "Сбросить масштаб"
 			}
 		},
 		"LEGEND": {
 			"EPSILON-GTX": "Эпсилон от GT (x)",
-			"EPSILON-TX": "Эпсилон от T(x)",
+			"EPSILON-TX": "Эпсилон от T_{{value}}(x)",
 			"FX": "Исходнная нелинейность F(x)",
 			"GTX": "GT(X)",
 			"POINTS": "Точки",
-			"TX": "Тейлор{{value}}(x)",
+			"TX": "Т_{{value}}(x)",
 			"VX": "Проверочная функция V(x)"
 		},
 		"TITLE": "Графика"
 	},
 	"CHART-SETTINGS": {
 		"CHECKBOXES": {
-			"POINTS": "Показать точки Функции.",
-			"RELOAD": "Авто. Обновление",
-			"TABLE": "Таблица"
+			"POINTS": {
+				"TEXT": "Точки функ.",
+				"TOOLTIPS": "Показать / Скрыть точки функции"
+			},
+			"RELOAD": {
+				"TEXT": "Авто. обновление",
+				"TOOLTIPS": "Активация / Де-активация автоматического обновления графики"
+			},
+			"TABLE": {
+				"TEXT": "Точки ",
+				"TOOLTIPS": "Показать / Скрыть точки аппроксимации"
+			}
 		},
 		"TITLE": "Настройки графики",
 		"VERIFICATION": {
 			"PLACEHOLDER": "V(x)",
 			"TOOLTIPS": {
-				"CLEAR": "Очистить",
-				"DRAW": "Нажмите, чтобы нарисовать V(х)",
+				"CLEAR": "Очистить V(x)",
+				"DRAW": "Рисовать V(х)",
 				"FUNCTION": "Проверочная функция V(x)",
-				"SEE": "Нажмите, чтобы увидеть данные таблицы V(x)"
+				"SEE": "Увидеть данные для построения V(x)"
 			}
 		}
 	},
@@ -52,7 +61,7 @@
 			"COPY": "Копия",
 			"EXPRESSION": "как текстовое выражение",
 			"FUNCTION": "как текстовая функция",
-			"LATEX": "в LATEX формате",
+			"LATEX": "в формате LATEX",
 			"TEXT": "как текст"
 		},
 		"HEADER": {
@@ -77,14 +86,14 @@
 	"FUNCTION-SETTINGS": {
 		"BUTTONS": {
 			"TOOLTIPS": {
-				"CLEAR": "Нажмите, чтобы очищать исходную нелинейность  F(x)",
-				"DRAW": "Нажмите, чтобы рисовать исходную нелинейность  F(x)",
-				"SEE": "Нажмите, чтобы увидеть данные таблицы F(x)"
+				"CLEAR": "Очистить исходную нелинейность  F(x)",
+				"DRAW": "Рисовать исходную нелинейность  F(x)",
+				"SEE": "Увидеть данные таблицы для построение F(x)"
 			}
 		},
 		"DELTAX": {
 			"ERROR": {
-				"REQUIRED": "необходимые"
+				"REQUIRED": "необходимые поля"
 			},
 			"PLACEHOLDER": "Δx",
 			"TOOLTIPS": "Δx"
@@ -92,43 +101,43 @@
 		"FUNCTION": {
 			"ERROR": {
 				"PATTERN": "Неверная математическая функция",
-				"REQUIRED": "необходимые"
+				"REQUIRED": "необходимые поля"
 			},
 			"PLACEHOLDER": "F(x)",
 			"TOOLTIPS": "Исходная нелинейность  F(x)"
 		},
 		"STEP": {
 			"ERROR": {
-				"REQUIRED": "необходимые"
+				"REQUIRED": "необходимые поля"
 			},
-			"PLACEHOLDER": "шаг",
-			"TOOLTIPS": "шаг"
+			"PLACEHOLDER": "Шаг",
+			"TOOLTIPS": "Шаг построения"
 		},
-		"TITLE": "функция",
+		"TITLE": "Исходная нелинейность",
 		"XMAX": {
 			"ERROR": {
-				"RANGE": "B минимум A",
-				"REQUIRED": ""
+				"RANGE": "B меньше A",
+				"REQUIRED": "необходимые"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "B",
+			"TOOLTIPS": "B"
 		},
 		"XMIN": {
 			"ERROR": {
-				"RANGE": "",
-				"REQUIRED": ""
+				"RANGE": "A больше чем B",
+				"REQUIRED": "необходимые поля"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "A",
+			"TOOLTIPS": "A"
 		}
 	},
 	"GTELLER-SETTINGS": {
 		"BUTTONS": {
 			"TOOLTIPS": {
 				"CLEAR": "Очистить GT (x)",
-				"DRAW": "Нажмите, чтобы рисовать GT(х)",
-				"EPSILON": "Нажмите, чтобы рисовать эпсилон от GT(x)",
-				"SEE": "Нажмите, чтобы посмотреть выражение GT(x)"
+				"DRAW": "Рисовать GT(х)",
+				"EPSILON": "Рисовать эпсилон от GT(x)",
+				"SEE": "Посмотреть выражение GT(x)"
 			}
 		},
 		"TITLE": "Обобщенный Тейлор"
@@ -154,74 +163,74 @@
 	"POINTS-SETTINGS": {
 		"ALPHA": {
 			"ERROR": {
-				"REQUIRED": "необходимые"
+				"REQUIRED": "необходимые поля"
 			},
 			"PLACEHOLDER": "α",
 			"TOOLTIPS": "α"
 		},
 		"BETA-INIT": {
 			"ERROR": {
-				"REQUIRED": "необходимые"
+				"REQUIRED": "необходимые поля"
 			},
 			"PLACEHOLDER": "β-Иниц",
 			"TOOLTIPS": "Начальное значение β"
 		},
 		"BETA-MAX": {
 			"ERROR": {
-				"REQUIRED": "необходимые"
+				"REQUIRED": "необходимые поля"
 			},
-			"PLACEHOLDER": "β-Max",
+			"PLACEHOLDER": "β-Макс",
 			"TOOLTIPS": "Максимальное количество β"
 		},
 		"BUTTONS": {
 			"ADD": {
-				"TEXT": "Добавить",
-				"TOOLTIPS": "добавлять"
+				"TEXT": "Доб.",
+				"TOOLTIPS": "добавить точку аппроксимации"
 			}
 		},
 		"DELTAX": {
 			"ERROR": {
-				"REQUIRED": "необходимые"
+				"REQUIRED": "необходимые поля"
 			},
-			"PLACEHOLDER": "? x",
-			"TOOLTIPS": "? x"
+			"PLACEHOLDER": "Δx",
+			"TOOLTIPS": "Δx"
 		},
 		"STEP": {
 			"ERROR": {
-				"REQUIRED": "необходимые"
+				"REQUIRED": "необходимые поля"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "Шаг",
+			"TOOLTIPS": "Шаг построения"
 		},
-		"TITLE": "",
+		"TITLE": "Точка аппроксимации",
 		"X": {
 			"ERROR": {
-				"POINT": "",
-				"REQUIRED": ""
+				"POINT": "точка существует",
+				"REQUIRED": "необходимые поля"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "X",
+			"TOOLTIPS": "X"
 		},
 		"Y": {
 			"ERROR": {
-				"POINT": "",
-				"REQUIRED": ""
+				"POINT": "точка существует",
+				"REQUIRED": "необходимые"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "Y",
+			"TOOLTIPS": "Y"
 		}
 	},
 	"TABLE-SETTINGS": {
 		"BUTTONS": {
 			"RESET": {
 				"TEXT": "Удалить ",
-				"TOOLTIPS": "Нажмите, чтобы удалить все точки аппроксимации"
+				"TOOLTIPS": "Удалить все точки аппроксимации"
 			},
 			"TELLER": {
-				"CLEAR": "Нажмите, чтобы очистить T{{j}}(x)",
-				"DRAW": "Нажмите, чтобы рисовать T{{j}}(x)",
-				"EPSILON": "Нажмите, чтобы рисовать эпсилон от T{{j}}(x)",
-				"SEE": "Нажмите, чтобы посмотреть выражение T{{j}}(x)"
+				"CLEAR": "Очистить T{{j}}(x)",
+				"DRAW": "Рисовать T{{j}}(x)",
+				"EPSILON": "Рисовать эпсилон от T{{j}}(x)",
+				"SEE": "Посмотреть выражение T{{j}}(x)"
 			}
 		},
 		"HEADER": {

@@ -55,26 +55,26 @@
               class = "field"
               [(ngModel)] = "displayDatastore"
               (change)="onDisplayDatastoreChange($event)"
-              matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.TABLE' | translate }}"
+              matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.TABLE.TOOLTIPS' | translate }}"
               >
-              {{ 'CHART-SETTINGS.CHECKBOXES.TABLE' | translate }}
+              {{ 'CHART-SETTINGS.CHECKBOXES.TABLE.TEXT' | translate }}
             </mat-checkbox>
             <mat-checkbox
                 class = "field"
                 [(ngModel)] = "liveReload"
                 (change)="onLiveReloadChange($event)"
-                matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.RELOAD' | translate }}"
+                matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.RELOAD.TOOLTIPS' | translate }}"
                 >
-                {{ 'CHART-SETTINGS.CHECKBOXES.RELOAD' | translate }}
+                {{ 'CHART-SETTINGS.CHECKBOXES.RELOAD.TEXT' | translate }}
             </mat-checkbox>
             <mat-checkbox
                 class = "field"
                 [(ngModel)] = "displayPointRadius"
                 (change)="onDisplayPointChange($event)"
                 [disabled]="!activatedFx"
-                matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.POINTS' | translate }}"
+                matTooltip="{{ 'CHART-SETTINGS.CHECKBOXES.POINTS.TOOLTIPS' | translate }}"
                 >
-                {{ 'CHART-SETTINGS.CHECKBOXES.POINTS' | translate }}
+                {{ 'CHART-SETTINGS.CHECKBOXES.POINTS.TEXT' | translate }}
             </mat-checkbox>
           </div>
         </div>

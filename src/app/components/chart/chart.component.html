@@ -1,7 +1,7 @@
 <mat-card class="mat-elevation-z2 card">
   <mat-card-subtitle class="title">
     <button (click)="reloadChart()" mat-icon-button mat-raise-button disableRipple
-      matTooltip="Click to {{ 'CHART.BUTTONS.RELOAD.TOOLTIPS' | translate }}"
+      matTooltip="{{ 'CHART.BUTTONS.RELOAD.TOOLTIPS' | translate }}"
       class="iconbutton"
       [disabled]="liveReload"
     >

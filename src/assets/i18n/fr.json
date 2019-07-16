@@ -12,35 +12,44 @@
 				"TOOLTIPS": "Mise à jour du graphique"
 			},
 			"ZOOM": {
-				"TEXT": "Réinitialiser le zoom",
+				"TEXT": "Dé-zoomer",
 				"TOOLTIPS": "Réinitialiser le zoom"
 			}
 		},
 		"LEGEND": {
 			"EPSILON-GTX": "Epsilon de GT(x)",
-			"EPSILON-TX": "Epsilon de T(x)",
+			"EPSILON-TX": "Epsilon de T_{{value}}(x)",
 			"FX": "F(x)",
 			"GTX": "GT(X)",
 			"POINTS": "Points",
-			"TX": "T{{value}}(x)",
+			"TX": "T_{{value}}(x)",
 			"VX": "V(x)"
 		},
 		"TITLE": "Graphique"
 	},
 	"CHART-SETTINGS": {
 		"CHECKBOXES": {
-			"POINTS": "Montrer Points Func.",
-			"RELOAD": "Actualisation",
-			"TABLE": "Table"
+			"POINTS": {
+				"TEXT": "Points Func.",
+				"TOOLTIPS": "Afficher/ Cacher les points des fonctions"
+			},
+			"RELOAD": {
+				"TEXT": "Actualisation",
+				"TOOLTIPS": "Actualisation automatique du graphique"
+			},
+			"TABLE": {
+				"TEXT": "Points ",
+				"TOOLTIPS": "Afficher/ Cacher les points d'approximation"
+			}
 		},
 		"TITLE": "Paramètres graphiques",
 		"VERIFICATION": {
 			"PLACEHOLDER": "V(x)",
 			"TOOLTIPS": {
-				"CLEAR": "Effacer",
-				"DRAW": "Cliquer pour dessiner V(x)",
+				"CLEAR": "Effacer V(x)",
+				"DRAW": "Dessiner V(x)",
 				"FUNCTION": "V(x)",
-				"SEE": "Cliquer pour afficher les données de V(x)"
+				"SEE": "Afficher les données de construction de V(x)"
 			}
 		}
 	},
@@ -79,7 +88,7 @@
 			"TOOLTIPS": {
 				"CLEAR": "Effacer  F(x)",
 				"DRAW": "Dessiner F(x)",
-				"SEE": "Cliquer pour afficher les données de F(x)"
+				"SEE": "Afficher les données de construction de F(x)"
 			}
 		},
 		"DELTAX": {
@@ -91,7 +100,7 @@
 		},
 		"FUNCTION": {
 			"ERROR": {
-				"PATTERN": "Fonction mathématique invalide",
+				"PATTERN": "Maths fonction invalide",
 				"REQUIRED": "Champs obligatoires"
 			},
 			"PLACEHOLDER": "F(x)",
@@ -101,34 +110,34 @@
 			"ERROR": {
 				"REQUIRED": "Champs obligatoires"
 			},
-			"PLACEHOLDER": "Étape",
-			"TOOLTIPS": "Étape"
+			"PLACEHOLDER": "Pas",
+			"TOOLTIPS": "Pas de construction"
 		},
-		"TITLE": "Une fonction",
+		"TITLE": "Paramètres Fonction",
 		"XMAX": {
 			"ERROR": {
-				"RANGE": "B moins A",
-				"REQUIRED": ""
+				"RANGE": "B <= A",
+				"REQUIRED": "Champs obligatoires"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "B",
+			"TOOLTIPS": "B"
 		},
 		"XMIN": {
 			"ERROR": {
-				"RANGE": "",
-				"REQUIRED": ""
+				"RANGE": "A >= B",
+				"REQUIRED": "Champs obligatoires"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "A",
+			"TOOLTIPS": "A"
 		}
 	},
 	"GTELLER-SETTINGS": {
 		"BUTTONS": {
 			"TOOLTIPS": {
 				"CLEAR": "Effacer GT (x)",
-				"DRAW": "Cliquer pour dessiner GT (x)",
-				"EPSILON": "Cliquer pour dessiner Epsilon de GT(x)",
-				"SEE": "Cliquer pour voir l'expression de GT(x)"
+				"DRAW": "Dessiner GT (x)",
+				"EPSILON": "Dessiner Epsilon de GT(x)",
+				"SEE": "Voir l'expression de GT(x)"
 			}
 		},
 		"TITLE": "GTeller"
@@ -175,7 +184,7 @@
 		},
 		"BUTTONS": {
 			"ADD": {
-				"TEXT": "Ajouter",
+				"TEXT": "",
 				"TOOLTIPS": "Ajouter"
 			}
 		},
@@ -190,38 +199,38 @@
 			"ERROR": {
 				"REQUIRED": "Champs obligatoires"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "Pas",
+			"TOOLTIPS": "Pas de construction"
 		},
-		"TITLE": "",
+		"TITLE": "Point",
 		"X": {
 			"ERROR": {
-				"POINT": "",
-				"REQUIRED": ""
+				"POINT": "le point existe",
+				"REQUIRED": "Champs obligatoires"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "X",
+			"TOOLTIPS": "X"
 		},
 		"Y": {
 			"ERROR": {
-				"POINT": "",
-				"REQUIRED": ""
+				"POINT": "le point existe",
+				"REQUIRED": "Champs obligatoires"
 			},
-			"PLACEHOLDER": "",
-			"TOOLTIPS": ""
+			"PLACEHOLDER": "Y",
+			"TOOLTIPS": "Y"
 		}
 	},
 	"TABLE-SETTINGS": {
 		"BUTTONS": {
 			"RESET": {
 				"TEXT": "Réinitialiser",
-				"TOOLTIPS": "Cliquer pour effacer tous les points d'approximation"
+				"TOOLTIPS": "Effacer tous les points d'approximation"
 			},
 			"TELLER": {
-				"CLEAR": "Cliquer pour effacer T{{j}}(x)",
-				"DRAW": "Cliquer pour dessine T{{j}}(x)",
-				"EPSILON": "Cliquer pour dessine epsilon de T{{j}}(x)",
-				"SEE": "Cliquer pour  voir l'expression T{{j}}(x)"
+				"CLEAR": "Effacer T{{j}}(x)",
+				"DRAW": "Dessine T{{j}}(x)",
+				"EPSILON": "Dessine epsilon de T{{j}}(x)",
+				"SEE": "Voir l'expression T{{j}}(x)"
 			}
 		},
 		"HEADER": {
