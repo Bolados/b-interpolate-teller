@@ -337,7 +337,7 @@ export class ChartService {
           this.evaluateTellerData(
             this.fxParam, this.storageService.store, value.tellerPoint,
             this.storageService.step, this.storageService.deltaX
-          ).epsilon, 'red');
+          ).epsilon, 'pink');
       case 6:
         return this.builderChartLine(value,
           this.evaluateGTellerData(this.fxParam, this.storageService.store).epsilon, 'red');
@@ -426,11 +426,21 @@ export class ChartService {
     if (!this.validate(index)) {
       return;
     }
-    this.chartData[index][key] = value;
-    if (reload) {
-      this.reloadChart();
+    if (this.chartData[index][key] !== value) {
+      this.chartData[index][key] = value;
+      if (reload) {
+        this.reloadChart();
+      }
+      this.chartDataStateChanged.emit();
     }
-    this.chartDataStateChanged.emit();
+  }
+
+  public onResetStore(){
+    this.chartData[INDEX_EPSILON_TX_DRAW].active = false;
+    this.chartData[INDEX_TX_DRAW].active = false;
+    this.chartData[INDEX_EPSILON_GTX_DRAW].active = false;
+    this.chartData[INDEX_GTX_DRAW].active = false;
+    this.reloadChart();
   }
 
   public changeLiveReload(value: boolean) {

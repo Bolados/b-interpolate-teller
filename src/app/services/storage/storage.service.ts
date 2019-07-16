@@ -69,8 +69,8 @@ export class StorageService {
       this.updatedBetaMax(param.beta.length);
     }
     param.point.y = this.mathService.evalFx(fx, param.point.x);
-    if (param.point.y === undefined) {
-      param.point.y = 0;
+    if ( (param.point.y === undefined) || (param.point.y === Infinity)) {
+      return;
     }
     this.store.push(param);
     this.sort();

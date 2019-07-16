@@ -29,6 +29,11 @@ export class PointsSettingsComponent implements OnInit {
 
   public tellerFormGroup: FormGroup = this.buildTellerForm(this.tellerFormParam);
 
+  public disable() {
+    return !( this.tellerFormGroup && this.tellerFormGroup.valid && this.functionSettingComponent
+      && this.functionSettingComponent.funcFormGroup.valid);
+  }
+
   public onSubmit(post) {
     let fx: string = null;
     if ( this.functionSettingComponent
@@ -101,7 +106,7 @@ export class PointsSettingsComponent implements OnInit {
   }
 
 
-  validatePoint(kind: string, param: TellerFormParam): ValidatorFn {
+  validatePoint(kind: string): ValidatorFn {
     return (control: AbstractControl): { [key: string]: boolean } | null => {
         let error = false;
 
@@ -110,7 +115,9 @@ export class PointsSettingsComponent implements OnInit {
             error = this.storageService.exists(new Point(control.value, 0));
           }
           if (kind === 'y') {
-            // error = this.storageService.exists(new Point(param.point.x,control.value));
+            if (control.value === Infinity) {
+              return { required : true };
+            }
           }
         }
         if (error) { return { point : true }; }
@@ -121,8 +128,8 @@ export class PointsSettingsComponent implements OnInit {
 
   buildTellerForm(tellerFormParam: TellerFormParam): FormGroup {
     return this.formBuilder.group({
-      x: new FormControl(tellerFormParam.point.x, [Validators.required, this.validatePoint('x', tellerFormParam)]),
-      y: new FormControl(tellerFormParam.point.y, [Validators.required]),
+      x: new FormControl(tellerFormParam.point.x, [Validators.required, this.validatePoint('x')]),
+      y: new FormControl(tellerFormParam.point.y, [Validators.required, this.validatePoint('y')]),
       alpha: new FormControl(tellerFormParam.alpha, [Validators.required]),
       deltaX: new FormControl(tellerFormParam.deltaX, [Validators.required]),
       maxBeta: new FormControl(tellerFormParam.maxBeta, Validators.required),

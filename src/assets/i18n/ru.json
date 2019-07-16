@@ -166,21 +166,21 @@
 				"REQUIRED": "необходимые поля"
 			},
 			"PLACEHOLDER": "α",
-			"TOOLTIPS": "α"
+			"TOOLTIPS": "Alpha"
 		},
 		"BETA-INIT": {
 			"ERROR": {
 				"REQUIRED": "необходимые поля"
 			},
 			"PLACEHOLDER": "β-Иниц",
-			"TOOLTIPS": "Начальное значение β"
+			"TOOLTIPS": "Начальное значение Beta"
 		},
 		"BETA-MAX": {
 			"ERROR": {
 				"REQUIRED": "необходимые поля"
 			},
 			"PLACEHOLDER": "β-Макс",
-			"TOOLTIPS": "Максимальное количество β"
+			"TOOLTIPS": "Максимальное количество Beta"
 		},
 		"BUTTONS": {
 			"ADD": {
@@ -222,15 +222,19 @@
 	},
 	"TABLE-SETTINGS": {
 		"BUTTONS": {
+			"DELETE": {
+				"TEXT": "Удалить",
+				"TOOLTIPS": "Удалить точку аппроксимации  x_{{value}}"
+			},
 			"RESET": {
 				"TEXT": "Удалить ",
 				"TOOLTIPS": "Удалить все точки аппроксимации"
 			},
 			"TELLER": {
-				"CLEAR": "Очистить T{{j}}(x)",
-				"DRAW": "Рисовать T{{j}}(x)",
-				"EPSILON": "Рисовать эпсилон от T{{j}}(x)",
-				"SEE": "Посмотреть выражение T{{j}}(x)"
+				"CLEAR": "Очистить  T_{{value}}(x)",
+				"DRAW": "Рисовать  T_{{value}}(x)",
+				"EPSILON": "Рисовать эпсилон от T_{{value}}(x)",
+				"SEE": "Посмотреть выражение  T_{{value}}(x)"
 			}
 		},
 		"HEADER": {

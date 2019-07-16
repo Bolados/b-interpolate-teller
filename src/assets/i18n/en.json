@@ -166,21 +166,21 @@
 				"REQUIRED": "required"
 			},
 			"PLACEHOLDER": "α",
-			"TOOLTIPS": "α"
+			"TOOLTIPS": "Alpha"
 		},
 		"BETA-INIT": {
 			"ERROR": {
 				"REQUIRED": "required"
 			},
 			"PLACEHOLDER": "β-Init",
-			"TOOLTIPS": "Initial value of β"
+			"TOOLTIPS": "Initial value of Beta"
 		},
 		"BETA-MAX": {
 			"ERROR": {
 				"REQUIRED": "required"
 			},
 			"PLACEHOLDER": "β-Max",
-			"TOOLTIPS": "Max. quantity of β"
+			"TOOLTIPS": "Max. quantity of Beta"
 		},
 		"BUTTONS": {
 			"ADD": {
@@ -222,15 +222,19 @@
 	},
 	"TABLE-SETTINGS": {
 		"BUTTONS": {
+			"DELETE": {
+				"TEXT": "Delete ",
+				"TOOLTIPS": "Delete x_{{value}}"
+			},
 			"RESET": {
 				"TEXT": "Reset ",
 				"TOOLTIPS": "Reset table of approximations' points"
 			},
 			"TELLER": {
-				"CLEAR": "Сlear T{{j}}(x)",
-				"DRAW": "Draw T{{j}}(x)",
-				"EPSILON": "Draw epsilon of T{{j}}(x)",
-				"SEE": "See expression T{{j}}(x)"
+				"CLEAR": "Сlear T_{{value}}(x)",
+				"DRAW": "Draw  T_{{value}}(x)",
+				"EPSILON": "Draw epsilon of  T_{{value}}(x)",
+				"SEE": "See expression  T_{{value}}(x)"
 			}
 		},
 		"HEADER": {

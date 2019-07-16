@@ -166,21 +166,21 @@
 				"REQUIRED": "Champs obligatoires"
 			},
 			"PLACEHOLDER": "α",
-			"TOOLTIPS": "α"
+			"TOOLTIPS": "Alpha"
 		},
 		"BETA-INIT": {
 			"ERROR": {
 				"REQUIRED": "Champs obligatoires"
 			},
 			"PLACEHOLDER": "β-Init",
-			"TOOLTIPS": "Valeur initial de β"
+			"TOOLTIPS": "Valeur initial de Beta"
 		},
 		"BETA-MAX": {
 			"ERROR": {
 				"REQUIRED": "Champs obligatoires"
 			},
 			"PLACEHOLDER": "β-Max",
-			"TOOLTIPS": "Nombre maximal de β"
+			"TOOLTIPS": "Nombre maximal de Beta"
 		},
 		"BUTTONS": {
 			"ADD": {
@@ -222,15 +222,19 @@
 	},
 	"TABLE-SETTINGS": {
 		"BUTTONS": {
+			"DELETE": {
+				"TEXT": "Supprimer",
+				"TOOLTIPS": "Supprimer  x_{{value}}"
+			},
 			"RESET": {
 				"TEXT": "Réinitialiser",
 				"TOOLTIPS": "Effacer tous les points d'approximation"
 			},
 			"TELLER": {
-				"CLEAR": "Effacer T{{j}}(x)",
-				"DRAW": "Dessine T{{j}}(x)",
-				"EPSILON": "Dessine epsilon de T{{j}}(x)",
-				"SEE": "Voir l'expression T{{j}}(x)"
+				"CLEAR": "Effacer  T_{{value}}(x)",
+				"DRAW": "Dessine  T_{{value}}(x)",
+				"EPSILON": "Dessine epsilon de  T_{{value}}(x)",
+				"SEE": "Voir l'expression T_{{value}}(x)"
 			}
 		},
 		"HEADER": {

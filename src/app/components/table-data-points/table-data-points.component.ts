@@ -1,7 +1,7 @@
 import { Component, ViewChild, AfterViewInit, ViewChildren, QueryList,
   Input, ElementRef, OnInit, ChangeDetectorRef } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource, MatDialog} from '@angular/material';
-import { ChartService, INDEX_TX_DRAW, INDEX_EPSILON_TX_DRAW } from 'src/app/services/chart/chart.service';
+import { ChartService, INDEX_TX_DRAW, INDEX_EPSILON_TX_DRAW, INDEX_EPSILON_GTX_DRAW, INDEX_GTX_DRAW } from 'src/app/services/chart/chart.service';
 import {Point} from '../../domains/models/point.model';
 import {TellerParam} from '../../domains/models/teller.param.model';
 import {StorageService} from '../../services/storage/storage.service';
@@ -68,6 +68,7 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
 
   public resetStore() {
     this.chartService.forceReload = true;
+    this.chartService.onResetStore();
     this.storageService.reset();
     this.chartService.forceReload = false;
   }
@@ -170,6 +171,7 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
   }
 
   delete(item) {
+    this.clear(item);
     this.chartService.forceReload = true;
     this.storageService.delete(new Point(+item.x, +item.y));
     this.chartService.forceReload = false;
@@ -210,13 +212,10 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
     private storageService: StorageService,
     private chartService: ChartService,
     private mathService: MathService,
-    private translateService: TranslateService,
-    private cdr: ChangeDetectorRef,
     private elementRef: ElementRef,
     private overlay: Overlay,
     private dialog: MatDialog,
     ) {
-    // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(this.getPointsDataFromStore());
     this.liveReload = this.chartService.liveReload;
   }
