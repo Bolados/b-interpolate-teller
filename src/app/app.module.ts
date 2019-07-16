@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateModule, TranslateLoader,
-  MissingTranslationHandler, MissingTranslationHandlerParams} from '@ngx-translate/core';
+  MissingTranslationHandler, MissingTranslationHandlerParams, TranslateService, LangChangeEvent} from '@ngx-translate/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -21,6 +21,8 @@ import { ChartSettingsComponent } from './components/chart-settings/chart-settin
 import { GlobalService } from './services/global/global.service';
 import { DialogsModule } from './components/dialogs';
 import { MathjaxModule } from './components/mathjax';
+import { MatPaginatorIntl } from '@angular/material';
+import { PaginatorI18n } from './shared/utils/paginatorI18n.model';
 
 
 
@@ -66,8 +68,15 @@ export class MyMissingTranslationHandler implements MissingTranslationHandler {
       missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler},
     })
   ],
-  providers: [GlobalService],
+  providers: [
+    GlobalService,
+    {
+      provide: MatPaginatorIntl, deps: [TranslateService],
+      useClass: PaginatorI18n
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+

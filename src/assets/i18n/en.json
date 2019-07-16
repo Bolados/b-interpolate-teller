@@ -196,9 +196,6 @@
         "EPSILON" : "Draw Epision of T{{j}}(x)",
         "CLEAR" : "Clear T{{j}}(x)"
       }
-    },
-    "FOOTER" : {
-      "ITEM-PAGES" : "Items per Page"
     }
   },
   "DIALOG-TABLE" : {
@@ -227,5 +224,15 @@
       "TEXT" : "as Text",
       "FUNCTION" : "as Text Function"
     }
+  },
+
+  "PAGINATION" :  {
+    "ITEMS_PER_PAGE_LABEL": "Item per page",
+    "NEXT_PAGE_LABEL": "Next page",
+    "PREVIOUS_PAGE_LABEL": "Previous page",
+    "FIRST_PAGE_LABEL": "First page",
+    "LAST_PAGE_LABEL": "Last page",
+    "RANGE_PAGE_LABEL_1": "0 to {{length}}",
+    "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} to {{length}}"
   }
 }

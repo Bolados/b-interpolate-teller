@@ -44,6 +44,7 @@ export class FunctionSettingsComponent implements OnInit {
     if ( (control.value !== undefined) && !isNaN(control.value)) {
       for (const fn of InvalidFunctions) {
         if (control.value.toLowerCase().includes(fn)) {
+          console.log('pattern')
           return { pattern : true };
         }
       }
@@ -60,8 +61,7 @@ export class FunctionSettingsComponent implements OnInit {
       step: new FormControl(fxParam.step, Validators.required),
       deltaX: new FormControl(fxParam.deltaX, [Validators.required]),
       func: new FormControl(fxParam.func, {
-        validators: [Validators.required, Validators.pattern(reg), this.validateFunction],
-        updateOn: 'submit',
+        validators: [Validators.required, Validators.pattern(reg), this.validateFunction]
       }),
     });
   }

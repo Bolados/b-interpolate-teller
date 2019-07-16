@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 export class FunctionTableDataPointsDialogComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private date = new Date();
-  private subscription : Subscription;
+  private subscription : Subscription[] = [];
   @ViewChild('paginator',{static: false}) paginator: MatPaginator;
   @ViewChild('matSort', {static: false}) matSort: MatSort;
 
@@ -73,14 +73,16 @@ export class FunctionTableDataPointsDialogComponent implements OnInit, AfterView
   }
 
   ngOnInit() {
-    this.subscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.subscription.push (
+      this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       this.date = new Date();
       this.cdr.detectChanges();
-    });
+      })
+    );
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription.forEach( value => value.unsubscribe());
   }
 
 
@@ -89,5 +91,5 @@ export class FunctionTableDataPointsDialogComponent implements OnInit, AfterView
     this.dataSource.sort = this.matSort;
   }
 
-  
+
 }

@@ -1,5 +1,5 @@
 import { Component, ViewChild, AfterViewInit, ViewChildren, QueryList,
-  Input, ElementRef, OnInit } from '@angular/core';
+  Input, ElementRef, OnInit, ChangeDetectorRef } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource, MatDialog} from '@angular/material';
 import { ChartService, INDEX_TX_DRAW, INDEX_EPSILON_TX_DRAW } from 'src/app/services/chart/chart.service';
 import {Point} from '../../domains/models/point.model';
@@ -11,6 +11,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { TellerFormuleDialogComponent } from '../dialogs';
 import { MathjaxComponent } from '../mathjax';
 import { MathService } from 'src/app/services/math/math.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 @Component({
@@ -77,6 +78,10 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
 
   disableClear() {
     return this.disable() || !this.chartService.chartData[INDEX_TX_DRAW].active;
+  }
+
+  disableResetStore() {
+    return !(this.storageService.store.length > 0);
   }
 
 
@@ -205,6 +210,8 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
     private storageService: StorageService,
     private chartService: ChartService,
     private mathService: MathService,
+    private translateService: TranslateService,
+    private cdr: ChangeDetectorRef,
     private elementRef: ElementRef,
     private overlay: Overlay,
     private dialog: MatDialog,
@@ -229,7 +236,8 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
     });
     this.chartService.liveReloadChanged.subscribe(state => {
       this.liveReload = state;
-  });
+    });
+
   }
 
   /**

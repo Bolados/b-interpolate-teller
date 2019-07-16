@@ -3,8 +3,9 @@
         {{ 'TABLE-SETTINGS.TITLE' | translate }}
       <button (click)="resetStore()"
         mat-icon-button mat-raise-button disableRipple
-        matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.RESET.TOOLTIPS' | translate }}" 
+        matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.RESET.TOOLTIPS' | translate }}"
         class="fill-spacer iconbutton" color="warn"
+        [disabled] = "disableResetStore()"
       >
         <mat-icon aria-label="Delete">delete</mat-icon>
         {{ 'TABLE-SETTINGS.BUTTONS.RESET.TEXT' | translate }}
@@ -66,7 +67,7 @@
                         color="accent"
                         (click) = "seeTellerExpression(element)"
                         [disabled]="disable()"
-                        matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.SEE' | translate:j }}" 
+                        matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.SEE' | translate:j }}"
                       >
                         <mat-icon  fontSet="fa" fontIcon="fa-eye"></mat-icon>
                       </button>
@@ -75,7 +76,7 @@
                       color="accent"
                       [disabled]="disable()"
                       (click) = "draw(element)"
-                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.DRAW'  | translate:j  }}" 
+                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.DRAW'  | translate:j  }}"
                     >
                       <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
                     </button>
@@ -84,7 +85,7 @@
                       color="warn"
                       [disabled]="disableClear()"
                       (click) = "drawEpsilon(element)"
-                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.EPSILON' | translate:j  }}" 
+                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.EPSILON' | translate:j  }}"
                     >
                       <mat-icon fontSet="fa" fontIcon="fa-chart-area"></mat-icon>
                     </button>
@@ -93,7 +94,7 @@
                       color="accent"
                       [disabled]="disableClear()"
                       (click) = "clear(element)"
-                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.CEAR'  | translate:j }}" 
+                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.CEAR'  | translate:j }}"
                     >
                       <mat-icon fontSet="fa" fontIcon="fa-eraser">
                       </mat-icon>

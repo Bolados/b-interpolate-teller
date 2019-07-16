@@ -12,6 +12,7 @@
                     formControlName="func"
                     onkeyup="this.value = this.value.toLowerCase();"
                     matTooltip="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.FUNCTION' | translate }}"
+                    matTooltipClass="mat-tooltip"
                     >
                   <mat-hint></mat-hint>
                   <mat-error *ngIf="!vFormGroup.controls['func'].valid && vFormGroup.controls['func'].touched">
