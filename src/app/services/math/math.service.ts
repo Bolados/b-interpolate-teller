@@ -41,7 +41,7 @@ export class MathService {
       const result: FuncParseEval[] = [];
       elements.forEach((value, index) => {
         const id = 'e_' + index + '(x)';
-        const b: FuncParseEval = new FuncParseEval( id, value, scope, this.gs.math);
+        const b: FuncParseEval = new FuncParseEval( id, value, scope, this.math);
         result.push(b);
       });
       return result;

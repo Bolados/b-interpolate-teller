@@ -44,29 +44,56 @@
         "TOOLTIPS" : "Reset Zoom",
         "TEXT":"Reset Zoom"
       }
+    },
+    "LEGEND": {
+      "POINTS" : "Points",
+      "FX" : "F(x)",
+      "GTX" : "GT(X)",
+      "TX" : "Ti(x)",
+      "EPSILON-TX" : "Epsilon T(x)",
+      "EPSILON-GTX" : "Epsilon GT(x)",
+      "VX" : "V(x)"
     }
   },
   "FUNCTION-SETTINGS" : {
     "TITLE" : "Function",
     "XMIN" : {
       "TOOLTIPS" : "A",
-      "PLACEHOLDER" : "A"
+      "PLACEHOLDER" : "A",
+      "ERROR" : {
+        "RANGE" : "A greater B",
+        "REQUIRED" : "required"
+      }
     },
     "XMAX" : {
       "TOOLTIPS" : "B",
-      "PLACEHOLDER" : "B"
+      "PLACEHOLDER" : "B",
+      "ERROR" : {
+        "RANGE" : "B least A",
+        "REQUIRED" : "required"
+      }
     },
     "DELTAX" : {
-      "TOOLTIPS" : "Dx",
-      "PLACEHOLDER" : "Dx"
+      "TOOLTIPS" : "Δx",
+      "PLACEHOLDER" : "Δx",
+      "ERROR" : {
+        "REQUIRED" : "required"
+      }
     },
     "STEP" : {
       "TOOLTIPS" : "Step",
-      "PLACEHOLDER" : "Step"
+      "PLACEHOLDER" : "Step",
+      "ERROR" : {
+        "REQUIRED" : "required"
+      }
     },
     "FUNCTION" : {
       "TOOLTIPS" : "F(x)",
-      "PLACEHOLDER" : "F(x)"
+      "PLACEHOLDER" : "F(x)",
+      "ERROR" : {
+        "REQUIRED" : "required",
+        "PATTERN" : "Invalid maths function"
+      }
     },
     "BUTTONS": {
       "TOOLTIPS": {
@@ -90,36 +117,60 @@
   "POINTS-SETTINGS" : {
     "TITLE" : "Point",
     "BETA-MAX" : {
-      "TOOLTIPS" : "B-Max",
-      "PLACEHOLDER" : "B-Max"
+      "TOOLTIPS" : "β-Max",
+      "PLACEHOLDER" : "β-Max",
+      "ERROR" : {
+        "REQUIRED" : "required"
+      }
     },
     "BETA-INIT" : {
-      "TOOLTIPS" : "B-Init",
-      "PLACEHOLDER" : "B-Init"
+      "TOOLTIPS" : "β-Init",
+      "PLACEHOLDER" : "β-Init",
+      "ERROR" : {
+        "REQUIRED" : "required"
+      }
     },
     "DELTAX" : {
-      "TOOLTIPS" : "Dx",
-      "PLACEHOLDER" : "Dx"
+      "TOOLTIPS" : "Δx",
+      "PLACEHOLDER" : "Δx",
+      "ERROR" : {
+        "REQUIRED" : "required"
+      }
     },
     "STEP" : {
       "TOOLTIPS" : "Step",
-      "PLACEHOLDER" : "Step"
+      "PLACEHOLDER" : "Step",
+      "ERROR" : {
+        "REQUIRED" : "required"
+      }
     },
     "ALPHA" : {
-      "TOOLTIPS" : "A",
-      "PLACEHOLDER" : "A"
+      "TOOLTIPS" : "α",
+      "PLACEHOLDER" : "α",
+      "ERROR" : {
+        "REQUIRED" : "required"
+      }
     },
     "X" : {
       "TOOLTIPS" : "X",
-      "PLACEHOLDER" : "X"
+      "PLACEHOLDER" : "X",
+      "ERROR" : {
+        "REQUIRED" : "required",
+        "POINT" : "point exists"
+      }
     },
     "Y" : {
       "TOOLTIPS" : "Y",
-      "PLACEHOLDER" : "Y"
+      "PLACEHOLDER" : "Y",
+      "ERROR" : {
+        "REQUIRED" : "required",
+        "POINT" : "point exists"
+      }
     },
     "BUTTONS": {
       "ADD": {
-        "TOOLTIPS" : "Add"
+        "TOOLTIPS" : "Add",
+        "TEXT" : "Add"
       }
     }
   },
@@ -127,14 +178,12 @@
     "TITLE" : "Table",
     "HEADER" : {
       "ID" : "No",
-      "X" : "X",
-      "Y" : "y",
-      "ALPHA" : "a",
-      "BETA" : "b",
       "ACTIONS": {
-        "TABLE": "",
-        "TELLER": "Ti(x)"
+        "TABLE": ""
       }
+    },
+    "INPUT" : {
+      "TOOLTIPS" : ""
     },
     "BUTTONS" : {
       "RESET" : {
@@ -142,10 +191,10 @@
         "TEXT" : "Reset"
       },
       "TELLER" : {
-        "SEE" : "See Expression T(x)",
-        "DRAW" : "Draw T(x)",
-        "EPSILON" : "Draw Epision of T(x)",
-        "CLEAR" : "Clear T(x)"
+        "SEE" : "See Expression T{{j}}(x)",
+        "DRAW" : "Draw T{{j}}(x)",
+        "EPSILON" : "Draw Epision of T{{j}}(x)",
+        "CLEAR" : "Clear T{{j}}(x)"
       }
     },
     "FOOTER" : {
@@ -156,12 +205,12 @@
     "TITLE" : "Table",
     "HEADER" : {
       "ID" : "No",
-      "X" : "X",
-      "Y" : "y",
-      "ACTION" : "Add"
+      "ACTIONS" : "Add"
     },
-    "TOOLTIPS" : {
-      "ADD" : "Add point"
+    "BUTTONS" : {
+      "ADD" : {
+        "TOOLTIPS" : "Add point"
+      }
     }
   },
   "DIALOG-FORMULE" : {
@@ -173,9 +222,10 @@
     },
     "CONTEXT" : {
       "COPY" : "Copy",
-      "Expression" : "Expression",
-      "Latex" : "Latex",
-      "FUNCTION" : "Function"
+      "EXPRESSION" : "as Text Expression",
+      "LATEX" : "as LATEX",
+      "TEXT" : "as Text",
+      "FUNCTION" : "as Text Function"
     }
   }
 }

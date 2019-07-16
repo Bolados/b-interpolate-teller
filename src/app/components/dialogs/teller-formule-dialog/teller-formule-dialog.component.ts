@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, ViewChildren, QueryList,
-  ViewContainerRef, ViewChild, TemplateRef } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+  ViewContainerRef, ViewChild, TemplateRef, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { TellerFunction, FuncParseEval } from 'src/app/domains/models/math.help.model';
 import { MathjaxComponent } from '../../mathjax';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
@@ -8,6 +8,7 @@ import { Subscription, fromEvent } from 'rxjs';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { take, filter } from 'rxjs/operators';
 import { MathService } from 'src/app/services/math/math.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 interface ITab {
   id: number;
@@ -46,10 +47,12 @@ const Tabs: ITab[] = [
   templateUrl: './teller-formule-dialog.component.html',
   styleUrls: ['./teller-formule-dialog.component.scss']
 })
-export class TellerFormuleDialogComponent implements OnInit {
+export class TellerFormuleDialogComponent implements OnInit, OnDestroy {
 
+  private date = new Date();
+  private subscription : Subscription;
+  private sub : Subscription;
   @ViewChildren('mathjaxs') mathjaxs: QueryList<MathjaxComponent>;
-  sub: Subscription;
 
   @ViewChild('tabMenu', {static: true}) tabMenu: TemplateRef<any>;
 
@@ -79,7 +82,7 @@ export class TellerFormuleDialogComponent implements OnInit {
 
   public buildTeller() {
     const teller = new FuncParseEval(this.tellerFunction.format,
-      this.tellerFunction.expression, this.tellerFunction.scope, this.mathService);
+      this.tellerFunction.expression, this.tellerFunction.scope, this.mathService.math);
     const simplify =  this.displayFormat + '=' + teller.simplify;
     const expression = this.displayFormat + '=' + this.tellerFunction.expressionMathjax;
     const scopeAlpha = [];
@@ -245,6 +248,8 @@ export class TellerFormuleDialogComponent implements OnInit {
     public overlay: Overlay,
     public viewContainerRef: ViewContainerRef,
     public mathService: MathService,
+    private translateService: TranslateService,
+    private cdr: ChangeDetectorRef,
     @Inject(MAT_DIALOG_DATA) private data: any,
   ) {
     if ( data ) {
@@ -255,6 +260,16 @@ export class TellerFormuleDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.subscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.date = new Date();
+      this.cdr.detectChanges();
+    });
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+
 
 }

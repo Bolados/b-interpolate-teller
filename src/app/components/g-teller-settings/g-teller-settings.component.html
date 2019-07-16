@@ -1,5 +1,5 @@
 <mat-card class="mat-elevation-z2 card">
-  <mat-card-subtitle class="title"> GTeller </mat-card-subtitle>
+  <mat-card-subtitle class="title"> {{ 'GTELLER-SETTINGS.TITLE' | translate }} </mat-card-subtitle>
   <mat-card-content>
       <div class= "g-teller-settings">
 
@@ -17,12 +17,12 @@
               >
                 <div class = "form">
                   <button mat-icon-button
-                    aria-label="Display Data of GTeller(x)"
                     color="accent"
                     class = "button see"
                     type=button
                     [disabled]="disable()"
                     (click)="seeGTellerExpression()"
+                    matTooltip="{{ 'GTELLER-SETTINGS.BUTTONS.TOOLTIPS.SEE' | translate }}"
                   >
                     <mat-icon fontSet="fa" fontIcon="fa-eye"></mat-icon>
                   </button>
@@ -32,6 +32,7 @@
                     aria-label="Draw GTeller(x)"
                     [disabled]="disable() "
                     (click)="draw()"
+                    matTooltip="{{ 'GTELLER-SETTINGS.BUTTONS.TOOLTIPS.DRAW' | translate }}"
                   >
                     <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
                       <!-- Draw -->
@@ -41,6 +42,7 @@
                     color="warn"
                     [disabled]="disableClear()"
                     (click) = "drawEpsilon()"
+                    matTooltip="{{ 'GTELLER-SETTINGS.BUTTONS.TOOLTIPS.EPSILON' | translate }}"
                   >
                     <mat-icon fontSet="fa" fontIcon="fa-chart-area"></mat-icon>
                   </button>
@@ -48,6 +50,7 @@
                     color="warn" class="button clear" (click)="clear()"
                     [disabled]="disableClear()"
                     type=button
+                    matTooltip="{{ 'GTELLER-SETTINGS.BUTTONS.TOOLTIPS.CLEAR' | translate }}"
                   >
                     <mat-icon fontSet="fa" fontIcon="fa-eraser"> </mat-icon>
                     <!-- Reset  -->

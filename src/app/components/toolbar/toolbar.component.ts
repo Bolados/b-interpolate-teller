@@ -9,15 +9,14 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class ToolbarComponent implements OnInit, AfterViewChecked {
 
+  selectedLang: string = this.translate.currentLang;
+
+  translateTo() {
+    this.translate.use(this.selectedLang);
+  }
+
 
   constructor(public translate: TranslateService) {
-    const Languages = ['en', 'fr', 'ru'];
-    const LanguagesReg = /en|fr|ru/;
-    translate.addLangs(Languages);
-    translate.setDefaultLang(Languages[0]);
-
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(LanguagesReg) ? browserLang : 'en');
   }
   ngOnInit() {
   }

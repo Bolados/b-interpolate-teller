@@ -142,7 +142,7 @@ export class PointsSettingsComponent implements OnInit {
           return 'required';
         }
         if (this.tellerFormGroup.get('x').hasError('point')) {
-          return 'point exists';
+          return 'point';
         }
         break;
       case 'y':
@@ -150,7 +150,7 @@ export class PointsSettingsComponent implements OnInit {
           return 'required';
         }
         if (this.tellerFormGroup.get('y').hasError('point')) {
-          return 'point exists';
+          return 'point';
         }
         break;
       case 'step':

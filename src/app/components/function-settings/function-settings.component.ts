@@ -77,7 +77,7 @@ export class FunctionSettingsComponent implements OnInit {
           return 'required';
         }
         if (this.funcFormGroup.get('xMin').hasError('range')) {
-          return 'A greater B';
+          return 'range';
         }
         break;
       case 'xMax':
@@ -85,7 +85,7 @@ export class FunctionSettingsComponent implements OnInit {
           return 'required';
         }
         if (this.funcFormGroup.get('xMax').hasError('range')) {
-          return 'B least A';
+          return 'range';
         }
         break;
 
@@ -104,7 +104,7 @@ export class FunctionSettingsComponent implements OnInit {
           return 'required';
         }
         if (this.funcFormGroup.get('func').hasError('pattern')) {
-          return 'Invalid maths function';
+          return 'Ipattern';
         }
         break;
       default:

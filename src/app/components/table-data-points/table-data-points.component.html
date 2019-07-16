@@ -1,12 +1,13 @@
 <mat-card class="mat-elevation-z2 card">
     <mat-card-subtitle class="title">
-      Table
+        {{ 'TABLE-SETTINGS.TITLE' | translate }}
       <button (click)="resetStore()"
         mat-icon-button mat-raise-button disableRipple
-        matTooltip="Click to Reset Table" class="fill-spacer iconbutton" color="warn"
+        matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.RESET.TOOLTIPS' | translate }}" 
+        class="fill-spacer iconbutton" color="warn"
       >
         <mat-icon aria-label="Delete">delete</mat-icon>
-        Reset
+        {{ 'TABLE-SETTINGS.BUTTONS.RESET.TEXT' | translate }}
       </button>
 
     </mat-card-subtitle>
@@ -18,7 +19,7 @@
               <!-- id column -->
               <ng-container matColumnDef="id">
                   <mat-header-cell *matHeaderCellDef  class = "mycell id">
-                    No
+                      {{ 'TABLE-SETTINGS.HEADER.ID' | translate }}
                   </mat-header-cell>
                   <mat-cell *matCellDef="let j=index;" class = "mycell id">
                       {{j}}
@@ -40,6 +41,7 @@
                       <input matInput type='number' step="0.1" placeholder = "" value = "{{column.cell(row)}}"
                         (keydown.enter)="forceReloadOnChangeParamValue(element, column.columnDef, $event.target.value)"
                         (input)="liveReloadOnChangeParamValue(element, column.columnDef, $event.target.value)"
+                        matTooltip="{{ 'TABLE-SETTINGS.INPUT.TOOLTIPS' | translate }}"
                       >
                     </mat-form-field>
 
@@ -55,39 +57,43 @@
               <!-- Draw Column -->
               <ng-container matColumnDef="draw" [sticky]="true">
                 <mat-header-cell *matHeaderCellDef  class = "mycell draw">
-                  $$T_i(x)$$
+                    $$T_i(x)$$
                 </mat-header-cell>
                 <mat-cell *matCellDef="let element; let j=index;" class = "mycell draw">
 
                     <button mat-icon-button
-                        matTooltip="Click to see T(x{{j}})" class="iconbutton"
+                        class="iconbutton"
                         color="accent"
                         (click) = "seeTellerExpression(element)"
                         [disabled]="disable()"
+                        matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.SEE' | translate:j }}" 
                       >
                         <mat-icon  fontSet="fa" fontIcon="fa-eye"></mat-icon>
                       </button>
                     <button mat-icon-button
-                      matTooltip="Click to draw T(x{{j}})" class="iconbutton"
+                      class="iconbutton"
                       color="accent"
                       [disabled]="disable()"
                       (click) = "draw(element)"
+                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.DRAW'  | translate:j  }}" 
                     >
                       <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
                     </button>
                     <button mat-icon-button
-                      matTooltip="Click to draw Epsilon T(x{{j}})" class="iconbutton"
+                      class="iconbutton"
                       color="warn"
                       [disabled]="disableClear()"
                       (click) = "drawEpsilon(element)"
+                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.EPSILON' | translate:j  }}" 
                     >
                       <mat-icon fontSet="fa" fontIcon="fa-chart-area"></mat-icon>
                     </button>
                     <button mat-icon-button
-                      matTooltip="Click to draw T(x{{j}})" class="iconbutton"
+                      class="iconbutton"
                       color="accent"
                       [disabled]="disableClear()"
                       (click) = "clear(element)"
+                      matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.CEAR'  | translate:j }}" 
                     >
                       <mat-icon fontSet="fa" fontIcon="fa-eraser">
                       </mat-icon>
@@ -98,7 +104,7 @@
               <!-- datastore Action Column -->
               <ng-container matColumnDef="actions" [sticky]="true">
                 <mat-header-cell *matHeaderCellDef  class = "mycell actions">
-                  <!-- Action -->
+                    {{ 'TABLE-SETTINGS.HEADER.ACTIONS.TABLE' | translate }}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let element; let j=index;" class = "mycell actions">
 

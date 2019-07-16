@@ -19,8 +19,7 @@
                   </mat-error>
               </mat-form-field>
               <button mat-icon-button
-                aria-label="Display Data of {{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.SEE' | translate }}"
-                matTooltip="Display Data of {{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.SEE' | translate }}"
+                matTooltip="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.SEE' | translate }}"
                 color="accent"
                 class = "button see"
                 type=button
@@ -33,7 +32,6 @@
 
               <button mat-icon-button
                 color="accent" class="button draw"
-                aria-label="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.DRAW' | translate }}"
                 matTooltip="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.DRAW' | translate }}"
                 type="submit"
                 [disabled]="disable() "
@@ -41,7 +39,6 @@
                 <mat-icon fontSet="fa" fontIcon="fa-chart-line"></mat-icon>
               </button>
               <button mat-icon-button
-                aria-label="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.CLEAR' | translate }}"
                 matTooltip="{{ 'CHART-SETTINGS.VERIFICATION.TOOLTIPS.CLEAR' | translate }}"
                 color="warn" class="button clear" (click)="clear()"
                 [disabled]="disableClear()"

@@ -11,6 +11,7 @@ import { StorageService } from '../storage';
 
 import { GlobalService } from '../global/global.service';
 import { MathService } from '../math/math.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 function buildPlugins(panedzoomedStateChange: EventEmitter<boolean> ): ChartPluginsOptions {
@@ -156,7 +157,8 @@ export const INDEX_EPSILON_GTX_DRAW = 6;
 
 const ChartData: IChartData[] = [
   {
-    label: 'Point',
+    ID: 'POINTS',
+    label: 'Points',
     type: 'scatter',
     active: true,
     dataSets: [],
@@ -167,6 +169,7 @@ const ChartData: IChartData[] = [
     borderWidth: 3,
   },
   {
+    ID: 'FX',
     label: 'F(x)',
     type: 'line',
     active: false,
@@ -178,6 +181,7 @@ const ChartData: IChartData[] = [
     borderWidth: 3,
   },
   {
+    ID: 'TX',
     label: 'Ti(x)',
     type: 'line',
     active: false,
@@ -189,6 +193,7 @@ const ChartData: IChartData[] = [
     borderWidth: 3,
   },
   {
+    ID: 'GTX',
     label: 'GT(x)',
     type: 'line',
     active: false,
@@ -200,6 +205,7 @@ const ChartData: IChartData[] = [
     borderWidth: 3,
   },
   {
+    ID: 'VX',
     label: 'V(x)',
     type: 'line',
     active: false,
@@ -211,6 +217,7 @@ const ChartData: IChartData[] = [
     borderWidth: 6,
   },
   {
+    ID: 'EPSILON-TX',
     label: 'Epsilon T(x)',
     type: 'line',
     active: false,
@@ -222,6 +229,7 @@ const ChartData: IChartData[] = [
     borderWidth: 3,
   },
   {
+    ID: 'EPSILON-GTX',
     label: 'Epsilon GT(x)',
     type: 'line',
     active: false,
@@ -358,6 +366,7 @@ export class ChartService {
   }
 
   private drawChart() {
+    this.initLangService();
     this.chart = this.packChart();
     this.baseChartDirective.datasets = this.chart.datasets;
     this.baseChartDirective.colors = this.chart.colors;
@@ -396,6 +405,13 @@ export class ChartService {
     this.redrawChart();
   }
 
+  private initLangService() {
+    this.chartData.forEach( (value, index) => {
+      this.translateService.get('CHART.LEGEND.' + value.ID.toUpperCase()).subscribe((res: string) => {
+        value.label = res;
+      });
+    });
+  }
   public initService(baseChartDirective: BaseChartDirective, fxParam: FuncParam) {
     this.baseChartDirective = baseChartDirective;
     this.fxParam = fxParam;
@@ -579,6 +595,7 @@ export class ChartService {
   constructor(
     private storageService: StorageService,
     private mathService: MathService,
+    private translateService: TranslateService,
   ) { }
 }
 
@@ -595,6 +612,7 @@ export interface IDataSet {
 }
 
 export interface IChartData {
+  ID : string;
   active: boolean;
   dataSets: IDataSet[];
   label: string;

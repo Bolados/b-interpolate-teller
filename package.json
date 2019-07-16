@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
+    "extract-translations": "ngx-translate-extract --input ./src --output ./src/assets/i18n/*.json --clean --sort --format namespaced-json --marker _",
     "ng": "ng",
     "start": "yarn run ng:serve",
     "build": "ng build",

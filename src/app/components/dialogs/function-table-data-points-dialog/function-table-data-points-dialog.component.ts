@@ -1,8 +1,10 @@
-import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, AfterViewInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { FuncParam, Point, TellerFormParam } from 'src/app/domains';
 import { ChartService, IDataSet } from 'src/app/services/chart/chart.service';
 import { StorageService } from 'src/app/services';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 
 
@@ -11,8 +13,10 @@ import { StorageService } from 'src/app/services';
   templateUrl: './function-table-data-points-dialog.component.html',
   styleUrls: ['./function-table-data-points-dialog.component.scss']
 })
-export class FunctionTableDataPointsDialogComponent implements OnInit, AfterViewInit {
+export class FunctionTableDataPointsDialogComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  private date = new Date();
+  private subscription : Subscription;
   @ViewChild('paginator',{static: false}) paginator: MatPaginator;
   @ViewChild('matSort', {static: false}) matSort: MatSort;
 
@@ -50,6 +54,8 @@ export class FunctionTableDataPointsDialogComponent implements OnInit, AfterView
 
   constructor(
     private chartService: ChartService,
+    private translateService: TranslateService,
+    private cdr: ChangeDetectorRef,
     private storageService: StorageService,
     private dialogRef: MatDialogRef<FunctionTableDataPointsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any
@@ -67,11 +73,21 @@ export class FunctionTableDataPointsDialogComponent implements OnInit, AfterView
   }
 
   ngOnInit() {
+    this.subscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.date = new Date();
+      this.cdr.detectChanges();
+    });
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.matSort;
   }
 
+  
 }

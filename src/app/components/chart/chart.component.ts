@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { StorageService } from 'src/app/services';
 import { BaseChartDirective } from 'ng2-charts';
 

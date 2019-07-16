@@ -9,9 +9,10 @@
   <span class="spacer"></span>
 
   <mat-form-field class = "langue">
-      <mat-select #langSelect (change)="translate.use(langSelect.value)"
+      <mat-select
         placeholder="{{ 'DASHBORD.SELECT' | translate }}"
-        [(value)]="translate.currentLang"
+        [(ngModel)]="selectedLang"
+        (ngModelChange)="translateTo()"
         >
         <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">
           {{lang}}

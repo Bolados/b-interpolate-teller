@@ -1,5 +1,5 @@
 <mat-card class="mat-elevation-z2 card">
-  <mat-card-subtitle class="title"> Points </mat-card-subtitle>
+  <mat-card-subtitle class="title"> {{ 'POINTS-SETTINGS.TITLE' | translate }}  </mat-card-subtitle>
   <mat-card-content>
       <div class= "points-settings ">
 
@@ -10,91 +10,105 @@
           >
 
             <mat-form-field class = "field">
-                <input matInput type='number' placeholder = "β-Max"
+                <input matInput type='number' 
+                  placeholder = "{{ 'POINTS-SETTINGS.BETA-MAX.PLACEHOLDER' | translate }}"
                   min = 0 step="1"
                   formControlName="maxBeta"
                   (keydown.enter)="onMaxBetaChange($event.target.value)"
                   (input)="onLiveMaxBetaChange($event.target.value)"
+                  matTooltip="{{ 'POINTS-SETTINGS.BETA-MAX.TOOLTIPS' | translate }}"
                   >
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!tellerFormGroup.controls['maxBeta'].valid && tellerFormGroup.controls['maxBeta'].touched">
-                  {{getError("maxBeta")}}
+                    {{ 'POINTS-SETTINGS.BETA-MAX.ERROR.' + getError("maxBeta").toUpperCase() | translate }}
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field class = "field">
-                <input matInput type='number' step="0.1" placeholder = "β-Initial"
+                <input matInput type='number' step="0.1" 
+                  placeholder = "{{ 'POINTS-SETTINGS.BETA-INIT.PLACEHOLDER' | translate }}"
                   formControlName="initBeta"
                   (keydown.enter)="onInitBetaChange($event.target.value)"
                   (input)="onInitBetaChange($event.target.value)"
+                  matTooltip="{{ 'POINTS-SETTINGS.BETA-INIT.TOOLTIPS' | translate }}"
                   >
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!tellerFormGroup.controls['initBeta'].valid && tellerFormGroup.controls['initBeta'].touched">
-                  {{getError("initBeta")}}
+                    {{ 'POINTS-SETTINGS.BETA-INIT.ERROR.' + getError("initBeta").toUpperCase() | translate }}
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field class = "field">
-                <input matInput placeholder = "Δx"
+                <input matInput 
+                  placeholder = "{{ 'POINTS-SETTINGS.DELTAX.PLACEHOLDER' | translate }}"
                   formControlName="deltaX"
                   min = 0.5 step="0.5"
                   type='number'
                   (keydown.enter)="onDeltaXChange($event.target.value)"
                   (input)="onLiveDeltaXChange($event.target.value)"
+                  matTooltip="{{ 'POINTS-SETTINGS.DELTAX.TOOLTIPS' | translate }}"
                   >
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!tellerFormGroup.controls['deltaX'].valid && tellerFormGroup.controls['deltaX'].touched">
-                  {{getError("deltaX")}}
+                    {{ 'POINTS-SETTINGS.DELTAX.ERROR.' + getError("deltaX").toUpperCase() | translate }}
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field class = "field">
-                <input matInput placeholder = "Step"
+                <input matInput 
+                  placeholder = "{{ 'POINTS-SETTINGS.STEP.PLACEHOLDER' | translate }}"
                   formControlName="step"
                   min = 0.1 step="0.1"
                   type='number'
                   (keydown.enter)="onStepChange($event.target.value)"
                   (input)="onLiveStepChange($event.target.value)"
+                  matTooltip="{{ 'POINTS-SETTINGS.STEP.TOOLTIPS' | translate }}"
                   >
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!tellerFormGroup.controls['step'].valid && tellerFormGroup.controls['step'].touched">
-                  {{getError("step")}}
+                    {{ 'POINTS-SETTINGS.STEP.ERROR.' + getError("step").toUpperCase() | translate }}
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field class = "field">
-                <input matInput type='number' placeholder = "α"
+                <input matInput type='number' 
+                placeholder = "{{ 'POINTS-SETTINGS.ALPHA.PLACEHOLDER' | translate }}"
                   formControlName="alpha"
                   step="0.1"
+                  matTooltip="{{ 'POINTS-SETTINGS.ALPHA.TOOLTIPS' | translate }}"
                 >
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!tellerFormGroup.controls['alpha'].valid && tellerFormGroup.controls['alpha'].touched">
-                  {{getError("alpha")}}
+                    {{ 'POINTS-SETTINGS.ALPHA.ERROR.' + getError("alpha").toUpperCase() | translate }}
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field class = "field">
-                <input matInput type='number' placeholder = "x"
+                <input matInput type='number' 
+                  placeholder = "{{ 'POINTS-SETTINGS.X.PLACEHOLDER' | translate }}"
                   formControlName="x"
                   (input)="onXChange($event.target.value)"
                   (keydown.enter)="onXChange($event.target.value)"
+                  matTooltip="{{ 'POINTS-SETTINGS.X.TOOLTIPS' | translate }}"
                   >
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!tellerFormGroup.controls['x'].valid && tellerFormGroup.controls['x'].touched">
-                  {{getError("x")}}
+                    {{ 'POINTS-SETTINGS.X.ERROR.' + getError("x").toUpperCase() | translate }}
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field class = "field" >
-                <input matInput placeholder = "y"
+                <input matInput 
+                  placeholder = "{{ 'POINTS-SETTINGS.Y.PLACEHOLDER' | translate }}"
                   formControlName="y"
                   type='number'
                   readonly
                   value="{{tellerFormParam.point.y}}"
+                  matTooltip="{{ 'POINTS-SETTINGS.Y.TOOLTIPS' | translate }}"
                   >
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!tellerFormGroup.controls['y'].valid && tellerFormGroup.controls['y'].touched">
-                  {{getError("y")}}
+                    {{ 'POINTS-SETTINGS.Y.ERROR.' + getError("y").toUpperCase() | translate }}
                 </mat-error>
             </mat-form-field>
 
@@ -104,9 +118,10 @@
               [disabled]="!tellerFormGroup.valid"
               type="button"
               (click)="onSubmit(tellerFormGroup.value)"
+              matTooltip="{{ 'POINTS-SETTINGS.BUTTONS.ADD.TOOLTIPS' | translate }}"
             >
               <mat-icon aria-label="Add">add</mat-icon>
-                Add
+              {{ 'POINTS-SETTINGS.BUTTONS.ADD.TEXT' | translate }}
             </button>
 
         </form>

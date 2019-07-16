@@ -1,7 +1,7 @@
 
 <div class="dialog"  (contextmenu)="open($event, currentTab); $event. preventDefault();">
   <mat-tab-group (selectedTabChange)="selectionChange($event)" [selectedIndex]="currentTabIndex">
-    <mat-tab *ngFor="let tab of tabs;" label="{{tab.name}}" >
+    <mat-tab *ngFor="let tab of tabs;" label=" {{ 'DIALOG-FORMULE.HEADER.' + tab.name.toUpperCase() | translate }}" >
       <mathjax #mathjaxs [content]="tab.mathjax"></mathjax>
     </mat-tab>
   </mat-tab-group>
@@ -10,9 +10,9 @@
 
 <ng-template #tabMenu let-tab>
   <section class="tab-menu">
-    <div (click)="copy('expression')" *ngIf="tab.id !== 3">Copy as Text Expression</div>
-    <div (click)="copy('function')" *ngIf="tab.id !== 3">Copy as Text Function</div>
-    <div (click)="copy()" *ngIf="tab.id === 3">Copy as Text</div>
-    <div (click)="copy('mathjax')">Copy as Latex</div>
+    <div (click)="copy('expression')" *ngIf="tab.id !== 3">{{ 'DIALOG-FORMULE.CONTEXT.COPY'| translate }} {{ 'DIALOG-FORMULE.CONTEXT.EXPRESSION'| translate }}</div>
+    <div (click)="copy('function')" *ngIf="tab.id !== 3">{{ 'DIALOG-FORMULE.CONTEXT.COPY'| translate }} {{ 'DIALOG-FORMULE.HEADER.FUNCTION'| translate }}</div>
+    <div (click)="copy()" *ngIf="tab.id === 3">{{ 'DIALOG-FORMULE.CONTEXT.COPY'| translate }} {{ 'DIALOG-FORMULE.CONTEXT.TEXT'| translate }}</div>
+    <div (click)="copy('mathjax')">{{ 'DIALOG-FORMULE.CONTEXT.COPY'| translate }} {{ 'DIALOG-FORMULE.CONTEXT.LATEX'| translate }}</div>
   </section>
 </ng-template>

@@ -6,16 +6,16 @@
       [disabled]="liveReload"
     >
     {{ 'CHART.TITLE' | translate }}
-    <mat-icon aria-label="{{ 'CHART.BUTTONS.RELOAD.TEXT' | translate }}">autorenew</mat-icon>
+    <mat-icon>autorenew</mat-icon>
     </button>
 
     <button (click)="resetPanZoom()" mat-icon-button mat-raise-button disableRipple
-      matTooltip="Click to {{ 'CHART.BUTTONS.ZOOM.TOOLTIPS' | translate }}"
+      matTooltip="{{ 'CHART.BUTTONS.ZOOM.TOOLTIPS' | translate }}"
       class="panzoom iconbutton" color="primary"
       [disabled]="!pannedzoomed"
     >
-    <mat-icon aria-label="{{ 'CHART.BUTTONS.ZOOM.TEXT' | translate }}">zoom_out</mat-icon>
-      Reset Zoom
+    <mat-icon>zoom_out</mat-icon>
+    {{ 'CHART.BUTTONS.ZOOM.TEXT' | translate }}
     </button>
 
   </mat-card-subtitle>

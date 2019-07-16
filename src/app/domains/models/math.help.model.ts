@@ -15,7 +15,7 @@ export class FuncParseEval {
       private math,
 
   ) {
-    if (id && func) {
+    if (id && func && math) {
       this.expressionFull = id + ' = ' + func;
       this.parse = this.math.parse(func);
       this.eval = this.math.evaluate(this.expressionFull, scope);

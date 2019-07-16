@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material';
 import { Overlay } from '@angular/cdk/overlay';
 import { FunctionTableDataPointsDialogComponent } from '../dialogs';
 import { PointsSettingsComponent } from '../points-settings/points-settings.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-chart-settings',
@@ -128,6 +129,7 @@ export class ChartSettingsComponent implements OnInit, AfterViewInit {
     private dialog: MatDialog,
     private elementRef: ElementRef,
     private overlay: Overlay,
+    public translate: TranslateService,
   ) { }
 
   ngOnInit() {
