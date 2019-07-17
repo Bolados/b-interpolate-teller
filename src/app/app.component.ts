@@ -13,8 +13,8 @@ export class AppComponent {
     const Languages = ['en', 'fr', 'ru'];
     const LanguagesReg = /en|fr|ru/;
     this.translate.addLangs(Languages);
+    let index = 2;
     const browserLang = translate.getBrowserLang();
-    let index = 0;
     if (browserLang.match(LanguagesReg)) {
       index = Languages.indexOf(browserLang);
     }

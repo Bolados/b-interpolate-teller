@@ -19,7 +19,8 @@
       "!yarn.lock",
       "!yarn-error.log",
       "!**/*.*.babel",
-      "!./icons/"
+      "!./icons/",
+      "!./ToDo"
   ],
   "win": {
     "icon": "dist/b-interpolate-teller",

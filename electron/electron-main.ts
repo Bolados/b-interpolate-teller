@@ -2,9 +2,9 @@ import {app, BrowserWindow, screen} from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win, serve;
+let win;
 const args = process.argv.slice(1);
-serve = args.some(val => val === '--serve');
+const serve = args.some(val => val === '--serve');
 
 function createWindow() {
 
@@ -20,13 +20,13 @@ function createWindow() {
     useContentSize: true,
     frame: true,
     webPreferences: {
-      webSecurity: false,
+      // webSecurity: false,
       nodeIntegration: true,
     },
 
   });
 
-  // win.setMenu(null);
+  win.setMenuBarVisibility(false);
 
   if (serve) {
     require('electron-reload')(__dirname, {
