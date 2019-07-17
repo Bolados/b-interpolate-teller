@@ -1,8 +1,9 @@
 {
-  "APP_ID": "tech.bscako.study.b-interpolate-teller",
+  "appId": "tech.bscako.study.interpolate.teller",
   "productName": "BInterpolateTeller",
+  "artifactName": "${productName}-${os}-${arch}-${version}.${ext}",
   "directories": {
-    "output": "dist/release/${os}-{arch}/b-interpolate-teller-${version}"
+    "output": "dist/release/b-interpolate-teller"
   },
   "files": [
       "**/*",
