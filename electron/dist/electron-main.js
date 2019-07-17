@@ -22,7 +22,7 @@ function createWindow() {
             nodeIntegration: true,
         },
     });
-    win.setMenu(null);
+    // win.setMenu(null);
     if (serve) {
         require('electron-reload')(__dirname, {
             electron: require(__dirname + "/node_modules/electron")

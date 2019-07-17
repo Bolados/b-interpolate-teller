@@ -25,7 +25,8 @@ function createWindow() {
     },
 
   });
-  win.setMenu(null);
+
+  // win.setMenu(null);
 
   if (serve) {
     require('electron-reload')(__dirname, {
