@@ -1,7 +1,8 @@
 {
+  "APP_ID": "tech.bscako.study.b-interpolate-teller",
   "productName": "BInterpolateTeller",
   "directories": {
-    "output": "dist/release/b-interpolate-teller"
+    "output": "dist/release/${os}-{arch}/b-interpolate-teller-${version}"
   },
   "files": [
       "**/*",

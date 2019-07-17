@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
 var path = require("path");
 var url = require("url");
-var win, serve;
+var win;
 var args = process.argv.slice(1);
-serve = args.some(function (val) { return val === '--serve'; });
+var serve = args.some(function (val) { return val === '--serve'; });
 function createWindow() {
     var electronScreen = electron_1.screen;
     var size = electronScreen.getPrimaryDisplay().workAreaSize;
