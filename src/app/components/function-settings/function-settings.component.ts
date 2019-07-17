@@ -113,6 +113,7 @@ export class FunctionSettingsComponent implements OnInit {
   }
 
   public onSubmit(post: FuncParam) {
+    this.clear();
     this.chartService.fxParam = post;
     this.chartService.changeChartData(INDEX_FX_DRAW, 'active' , true);
   }

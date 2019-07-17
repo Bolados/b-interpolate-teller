@@ -51,6 +51,7 @@ export class GTellerSettingsComponent implements OnInit {
   }
 
   public draw() {
+    this.clear();
     this.chartService.changeChartData(INDEX_GTX_DRAW, 'active', true);
   }
 

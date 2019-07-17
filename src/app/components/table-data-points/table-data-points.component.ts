@@ -90,6 +90,7 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
 
 
   public draw(element) {
+    this.clear(element);
     const tellerPointID: number = +element.id - 1;
     this.chartService.chartData[INDEX_TX_DRAW].tellerPoint = tellerPointID;
     this.chartService.changeChartData(INDEX_TX_DRAW, 'active', true);
