@@ -1,7 +1,7 @@
 {
   "name": "b-interpolate-teller",
   "version": "0.1.0",
-  "description": "Interpolation function based on Teller's Interpolation ",
+  "description": "Interpolation functions based on Teller's Interpolation ",
   "homepage": "https://github.com/bscako",
   "author": {
     "name": "BSCAKO",
