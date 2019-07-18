@@ -22,7 +22,7 @@ function createWindow() {
             nodeIntegration: true,
         },
     });
-    // win.setMenuBarVisibility(false);
+    win.setAutoHideMenuBar(true);
     if (serve) {
         require('electron-reload')(__dirname, {
             electron: require(__dirname + "/node_modules/electron")
@@ -72,6 +72,6 @@ try {
 catch (e) {
     // Catch Error
     // throw e;
-    console.log(e);
+    // console.log(e);
 }
 //# sourceMappingURL=electron-main.js.map
