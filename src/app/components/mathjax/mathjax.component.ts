@@ -1,7 +1,6 @@
 import { Component, OnInit,Input,OnChanges } from '@angular/core';
 import { SimpleChanges } from '@angular/core';
 import {GlobalService} from '../../services/global/global.service';
-// const MathJax = Window['mathjax'];
 @Component({
   selector: 'mathjax',
   templateUrl: './mathjax.component.html',

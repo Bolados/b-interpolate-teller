@@ -1,3 +1,1 @@
-
-var math = require("mathjs");
-window['mathjs'] = math;
+window['mathjs'] = require("mathjs");
