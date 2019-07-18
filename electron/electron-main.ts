@@ -2,7 +2,7 @@ import {app, BrowserWindow, screen} from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win;
+let win: BrowserWindow;
 const args = process.argv.slice(1);
 const serve = args.some(val => val === '--serve');
 
@@ -26,7 +26,7 @@ function createWindow() {
 
   });
 
-  win.setMenuBarVisibility(false);
+  win.setAutoHideMenuBar(true);
 
   if (serve) {
     require('electron-reload')(__dirname, {
@@ -84,5 +84,5 @@ try {
 } catch (e) {
   // Catch Error
   // throw e;
-  console.log(e);
+  // console.log(e);
 }
