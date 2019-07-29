@@ -75,14 +75,14 @@ export class MathService {
       elementsMathjax.push(funcReplace);
       for ( let j = 0; j < beta.length; j++) {
         const i = j + 1;
-        const expr = '(b_' + i + '*(x-x_' + index + ')^k_' + i + ')';
+        const expr = '(b_' + index + '' + i + '*(x-x_' + index + ')^k_' + i + ')';
         elements.push(expr);
-        scope['b_' + i] = beta[j];
+        scope['b_' + index + '' + i] = beta[j];
         scope['x_' + index] = xIndex;
         scope['k_' + i ] = i;
-        const exprMathjax: string = '\\bigl(\\beta_' + i + '*(x-x_' + index + ')^{k_' + i + '}\\bigr)';
+        const exprMathjax: string = '\\bigl(\\beta_{' + index + '' + i + '}*(x-x_' + index + ')^{k_' + i + '}\\bigr)';
         elementsMathjax.push(exprMathjax);
-        scopeMathjax['\\beta_' + i] = scope['b_' + i];
+        scopeMathjax['\\beta_{' + index + '' + i + '}'] = beta[j];
         scopeMathjax['x_' + index] = scope['x_' + index];
         scopeMathjax['{k_' + i + '}' ] = scope['k_' + i ];
       }
