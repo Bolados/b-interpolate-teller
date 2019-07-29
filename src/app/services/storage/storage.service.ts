@@ -120,6 +120,13 @@ export class StorageService {
     }
   }
 
+  onFxChange(fx: string) {
+    this.store.forEach(param => {
+      param.point.y = this.mathService.evalFx(fx, param.point.x);
+    });
+    this.storageChanged.emit(this.store);
+  }
+
 
   delete(point: Point) {
     const index = this.findIndex(point);

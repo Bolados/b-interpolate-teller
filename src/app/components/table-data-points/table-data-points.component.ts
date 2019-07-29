@@ -59,8 +59,6 @@ export class TableDataPointsComponent implements OnInit, AfterViewInit {
         const dialogRef = this.dialog.open(TellerFormuleDialogComponent, {
           panelClass: 'dialog',
           width: '75%',
-          // height,
-          position: { right: right + 'px', top: top + 'px' },
           data: { tellerFunction, format  },
           // hasBackdrop: false,
           scrollStrategy: this.overlay.scrollStrategies.noop(),

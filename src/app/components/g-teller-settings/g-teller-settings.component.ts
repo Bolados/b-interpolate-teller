@@ -9,8 +9,8 @@ import { MatDialog } from '@angular/material';
 import { TellerFunction} from 'src/app/domains/models/math.help.model';
 import { MathService } from 'src/app/services/math/math.service';
 
-const FormuleGTeller = `$$ GT(x) = \\sum_{i=0}^n \\alpha_i * T_i(x_i)$$`
-const FormuleTeller = `$$ T_i(x) = F(x_i) + \\sum_{k=1}^{\\beta_{max}} \\beta_k * (x-x_i)^k$$`
+const FormuleGTeller = `$$ GT(x) = \\sum_{i=0}^n \\alpha_i * T_i(x_i)$$`;
+const FormuleTeller = `$$ T_i(x) = F(x_i) + \\sum_{k=1}^{N_{i}} \\beta_k * (x-x_i)^k$$`;
 
 @Component({
   selector: 'app-g-teller-settings',
@@ -37,8 +37,6 @@ export class GTellerSettingsComponent implements OnInit {
         const dialogRef = this.dialog.open(TellerFormuleDialogComponent, {
           panelClass: 'dialog',
           width: '75%',
-          // height,
-          position: { right: right + 'px', top: top + 'px' },
           data: {
             tellerFunction: gTellerFunction,
             format: gTellerFunction.format,

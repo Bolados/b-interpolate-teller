@@ -17,7 +17,7 @@
               >
                 <div class = "form">
                   <button mat-icon-button
-                    color="accent"
+                    color="primary"
                     class = "button see"
                     type=button
                     [disabled]="disable()"
@@ -38,8 +38,8 @@
                       <!-- Draw -->
                   </button>
                   <button mat-icon-button
-                    matTooltip="Click to draw Epsilon GT(x)" class="button epsilon"
-                    color="warn"
+                    class="button epsilon"
+                    color="accent"
                     [disabled]="disableClear()"
                     (click) = "drawEpsilon()"
                     matTooltip="{{ 'GTELLER-SETTINGS.BUTTONS.TOOLTIPS.EPSILON' | translate }}"

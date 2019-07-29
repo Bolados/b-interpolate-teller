@@ -179,7 +179,7 @@
 			"ERROR": {
 				"REQUIRED": "необходимые поля"
 			},
-			"PLACEHOLDER": "β-Макс",
+			"PLACEHOLDER": "Ni",
 			"TOOLTIPS": "Максимальное количество Beta"
 		},
 		"BUTTONS": {
@@ -244,7 +244,7 @@
 			"ID": "No."
 		},
 		"INPUT": {
-			"TOOLTIPS": ""
+			"TOOLTIPS": "Нажимите Enter после изменения"
 		},
 		"TITLE": "Точки аппроксимации"
 	}

@@ -435,6 +435,13 @@ export class ChartService {
     }
   }
 
+  public changeFxParam(value: FuncParam) {
+    if (value && value !== this.fxParam){
+      this.fxParam = value;
+      this.storageService.onFxChange(this.fxParam.func);
+    }
+  }
+
   public onResetStore(){
     this.chartData[INDEX_EPSILON_TX_DRAW].active = false;
     this.chartData[INDEX_TX_DRAW].active = false;

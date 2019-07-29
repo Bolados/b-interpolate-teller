@@ -65,7 +65,7 @@
 
                     <button mat-icon-button
                         class="iconbutton"
-                        color="accent"
+                        color="primary"
                         (click) = "seeTellerExpression(element)"
                         [disabled]="disable()"
                         matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.SEE' | translate:{value : j} }}"
@@ -83,7 +83,7 @@
                     </button>
                     <button mat-icon-button
                       class="iconbutton"
-                      color="warn"
+                      color="accent"
                       [disabled]="disableClear()"
                       (click) = "drawEpsilon(element)"
                       matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.EPSILON' | translate:{value : j}  }}"
@@ -92,7 +92,7 @@
                     </button>
                     <button mat-icon-button
                       class="iconbutton"
-                      color="accent"
+                      color="warn"
                       [disabled]="disableClear()"
                       (click) = "clear(element)"
                       matTooltip="{{ 'TABLE-SETTINGS.BUTTONS.TELLER.CLEAR'  | translate:{value : j} }}"
