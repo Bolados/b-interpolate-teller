@@ -43,6 +43,7 @@ mat-card {
     .field-spec{
       width: 70%;
       padding-right: 5px;
+
     }
 
     .form-function-button-see {
@@ -57,4 +58,8 @@ mat-card {
   }
 }
 
-
+::ng-deep .mat-autocomplete-panel {
+  background: #1c2b36;
+  font-weight: bold;
+  color: white;
+}

@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { FuncParam } from 'src/app/domains';
 import { FormGroup, FormControl, FormBuilder, AbstractControl, ValidatorFn, Validators } from '@angular/forms';
 import { ChartService, INDEX_FX_DRAW } from 'src/app/services/chart/chart.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSelect } from '@angular/material';
 import { FunctionTableDataPointsDialogComponent } from '../dialogs';
 import { Overlay } from '@angular/cdk/overlay';
+import { ReplaySubject, Subject, Observable } from 'rxjs';
+import { takeUntil, take, startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-function-settings',
@@ -16,10 +18,24 @@ export class FunctionSettingsComponent implements OnInit {
   private xAxisMin = -1;
   private xAxisMax = 1;
 
+  public funcs: string[] = [
+    'exp(x)', 'cos(x)', 'sin(x)', 'x^2'
+  ];
+  filteredFuncs: string[] = this.funcs;
+
   public fxParam: FuncParam = new FuncParam('', this.xAxisMin, this.xAxisMax, 0.1, 0);
 
   funcFormGroup: FormGroup = this.buildFuncForm(this.fxParam);
 
+
+  private isNewFunc(func): boolean {
+    this.funcs.forEach(value => {
+      if (value === func) {
+        return false;
+      }
+    });
+    return true;
+  }
 
 
   validateRange(kind: string, param: FuncParam): ValidatorFn {
@@ -44,7 +60,6 @@ export class FunctionSettingsComponent implements OnInit {
     if ( (control.value !== undefined) && !isNaN(control.value)) {
       for (const fn of InvalidFunctions) {
         if (control.value.toLowerCase().includes(fn)) {
-          console.log('pattern')
           return { pattern : true };
         }
       }
@@ -55,15 +70,29 @@ export class FunctionSettingsComponent implements OnInit {
   buildFuncForm(fxParam: FuncParam = new FuncParam()): FormGroup {
     const funcPattern = '(?:[0-9-+*/^()x]|abs|e\^x|log|sec|sqrt|sign|exp|a?(?:sin|cos|tan)h?)+';
     const reg: RegExp = new RegExp(funcPattern);
+
+    const funcCtrl: FormControl = new FormControl(fxParam.func, {
+      validators: [Validators.required, Validators.pattern(reg), this.validateFunction]
+    });
+    funcCtrl.valueChanges.subscribe( (value: string) =>
+      this.filteredFuncs = this._filter(value)
+    );
     return this.formBuilder.group({
       xMin: new FormControl(fxParam.xMin, [Validators.required, this.validateRange('min', fxParam)]),
       xMax: new FormControl(fxParam.xMax, [Validators.required, this.validateRange('max', fxParam)]),
       step: new FormControl(fxParam.step, Validators.required),
       deltaX: new FormControl(fxParam.deltaX, [Validators.required]),
-      func: new FormControl(fxParam.func, {
-        validators: [Validators.required, Validators.pattern(reg), this.validateFunction]
-      }),
+      func: funcCtrl
     });
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    this.funcs.sort((one, two) => (one > two ? 1 : -1));
+    if (value !== null || value !== '') {
+      return this.funcs.filter(option => option.toLowerCase().includes(filterValue));
+    }
+    return this.funcs;
   }
 
   get name() {
@@ -116,6 +145,9 @@ export class FunctionSettingsComponent implements OnInit {
     this.clear();
     this.chartService.fxParam = post;
     this.chartService.changeChartData(INDEX_FX_DRAW, 'active' , true);
+    if (this.isNewFunc(post.func)) {
+      this.funcs = [...this.funcs, post.func];
+    }
   }
 
   public clear() {
@@ -155,39 +187,6 @@ export class FunctionSettingsComponent implements OnInit {
 
   }
 
-  // meaningcommapoint(value){
-  //   // allow function keys and decimal separators
-  //   if (
-  //       // backspace, delete, tab, escape, enter, comma and .
-  //       value.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 188, 190]) !== -1 ||
-  //       // Ctrl/cmd+A, Ctrl/cmd+C, Ctrl/cmd+X
-  //       ($.inArray(e.keyCode, [65, 67, 88]) !== -1 && (e.ctrlKey === true || e.metaKey === true)) ||
-  //       // home, end, left, right
-  //       (e.keyCode >= 35 && e.keyCode <= 39)) {
-
-  //       /*
-  //       // optional: replace commas with dots in real-time (for en-US locals)
-  //       */
-  //       if (e.keyCode === 188) {
-  //           e.preventDefault();
-  //           $(this).val($(this).val() + ".");
-  //       }
-  //       /*
-  //       // optional: replace decimal points (num pad) and dots with commas in real-time (for EU locals)
-  //       if (e.keyCode === 110 || e.keyCode === 190) {
-  //           e.preventDefault();
-  //           $(this).val($(this).val() + ",");
-  //       }
-  //       */
-
-  //       return;
-  //   }
-  //   // block any non-number
-  //   if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-  //       e.preventDefault();
-  //   }
-
-  // }
 
 
   constructor(

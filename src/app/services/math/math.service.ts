@@ -106,6 +106,7 @@ export class MathService {
       for (let i = 0; i < store.length; i++) {
         const tellerFunction: TellerFunction = this.TellerExpression(i, store[i].point.x,
           func, store[i].beta);
+        console.log(tellerFunction);
         if (tellerFunction) {
           const id = 't' + i + '()';
           const expr = '(a_' + i + '*(' + tellerFunction.expression + '))';

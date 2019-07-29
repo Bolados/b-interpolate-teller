@@ -62,7 +62,13 @@
                 formControlName="func"
                 onkeyup="this.value = this.value.toLowerCase();"
                 matTooltip="{{ 'FUNCTION-SETTINGS.FUNCTION.TOOLTIPS' | translate }}"
-                >
+                [matAutocomplete]="auto"
+              >
+              <mat-autocomplete #auto="matAutocomplete" class="auto-complete-panel">
+                <mat-option *ngFor="let func of filteredFuncs" [value]="func">
+                  {{func}}
+                </mat-option>
+              </mat-autocomplete>
               <mat-hint></mat-hint>
               <mat-error *ngIf="!funcFormGroup.controls['func'].valid && funcFormGroup.controls['func'].touched">
                   {{ 'FUNCTION-SETTINGS.XMIN.ERROR.' + getError("func").toUpperCase() | translate }}
@@ -75,7 +81,7 @@
             type=button
             [disabled]="disable()"
             (click)="openFunctionTableDataPointsDialog()"
-            
+
             matTooltip="{{ 'FUNCTION-SETTINGS.BUTTONS.TOOLTIPS.SEE' | translate }}"
           >
             <mat-icon fontSet="fa" fontIcon="fa-eye"></mat-icon>
