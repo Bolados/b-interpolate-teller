@@ -5,3 +5,9 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~material-design-icons/iconfont/material-icons.css";
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+  // height: 25px;
+  /*not working*/
+}

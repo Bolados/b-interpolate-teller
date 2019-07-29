@@ -105,6 +105,7 @@
                   readonly
                   value="{{tellerFormParam.point.y}}"
                   matTooltip="{{ 'POINTS-SETTINGS.Y.TOOLTIPS' | translate }}"
+                  class="no-spin"
                   >
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!tellerFormGroup.controls['y'].valid && tellerFormGroup.controls['y'].touched">

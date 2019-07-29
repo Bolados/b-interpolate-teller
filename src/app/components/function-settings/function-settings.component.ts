@@ -29,12 +29,8 @@ export class FunctionSettingsComponent implements OnInit {
 
 
   private isNewFunc(func): boolean {
-    this.funcs.forEach(value => {
-      if (value === func) {
-        return false;
-      }
-    });
-    return true;
+    const filtered = this.funcs.filter(value => value.toUpperCase() === func.toUpperCase());
+    return filtered.length === 0;
   }
 
 
